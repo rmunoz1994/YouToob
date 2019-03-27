@@ -13,10 +13,20 @@
  *= require_tree .
  *= require_self
  */
+
+ /* icons: https://www.flaticon.com/free-icon/show-more-button-with-three-dots_61140#term=dots&page=1&position=19 */
+ /* fontawesome */
+
+
  body, h1, h2, h3 {
     margin: 0;
     padding: 0;
     font-family: sans-serif;
+ }
+
+ footer {
+     position: absolute;
+     bottom: 5px;
  }
 
  a {
@@ -31,7 +41,9 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: gray;
+    background: white;
+    height: 56px;
+	box-shadow: 0 1px 8px black;
 
  }
 
@@ -89,10 +101,14 @@
     outline: none;
     font: 400 16px Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
     width: 366px;
+    -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 .user-auth-input:focus {
     border: 2px solid #1a73e8;
+    
 }
 
 .login {
@@ -131,6 +147,7 @@
 .next-button:hover {
      background: #4285f4;
      cursor: pointer;
+     
 }
 
 
