@@ -13,3 +13,37 @@
  *= require_tree .
  *= require_self
  */
+ body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+ }
+
+ .nav-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: gray;
+
+ }
+
+ .session-form {
+    margin: auto;
+    position: absolute;
+	top:0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+    width: 368px;
+    height: 416px;
+    border: 1px solid lightgray;
+    padding: 10px;
+    text-align: center;
+    border-radius: 8px;
+    padding: 48px 40px 36px;
+    font-family: 'Google Sans','Noto Sans Myanmar UI',arial,sans-serif;
+
+
+ }
+
+

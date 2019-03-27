@@ -16,7 +16,8 @@ export default ({ currentUser, logout }) => {
 
     return (
         <header className="nav-bar">
-            <h1 className="logo">YouToob</h1>
+            <img src="https://img.icons8.com/color/48/000000/youtube-play.png"/> 
+            <h3 className="logo">YouToob</h3>
             <div>
                 { display }
             </div>

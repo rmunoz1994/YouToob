@@ -4,7 +4,7 @@ class Login extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            username: '',
+            // username: '',
             email: '',
             password: ''
         };
@@ -30,13 +30,13 @@ class Login extends React.Component {
                 to continue to YouToob
                 <br/>
                 <form onSubmit={this.handleSubmit}>
-                    <label>Username:</label>
+                    {/* <label>Username:</label>
                     <input
                         type="text"
                         value={this.state.username}
                         onChange={this.handleInput("username")}
                     />
-                    <br />
+                    <br /> */}
                     <label>Email:</label>
                     <input
                         type="text"
