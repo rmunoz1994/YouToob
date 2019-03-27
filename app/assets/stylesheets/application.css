@@ -13,10 +13,18 @@
  *= require_tree .
  *= require_self
  */
- body {
+ body, h1, h2, h3 {
     margin: 0;
     padding: 0;
     font-family: sans-serif;
+ }
+
+ a {
+     text-decoration: none;
+ }
+
+ a:hover {
+    cursor: pointer;
  }
 
  .nav-bar {
@@ -28,6 +36,7 @@
  }
 
  .session-form {
+    display: block;
     margin: auto;
     position: absolute;
 	top:0;
@@ -36,14 +45,85 @@
 	right: 0;
     width: 368px;
     height: 416px;
-    border: 1px solid lightgray;
+    border: 1px solid #dadce0;
     padding: 10px;
     text-align: center;
     border-radius: 8px;
     padding: 48px 40px 36px;
-    font-family: 'Google Sans','Noto Sans Myanmar UI',arial,sans-serif;
-
-
+    font-family: 'Google Sans', 'Noto Sans Myanmar UI', arial, sans-serif;
+    letter-spacing: .25px;
  }
+
+ .session-form img {
+     padding: 0;
+     margin: 0;
+ }
+
+ .session-form h1 {
+     font-size: 24px;
+     font-weight: 400;
+     letter-spacing: 0px;
+     padding-top: 4px;
+     margin: 0;
+ }
+
+ .session-form h2 {
+     font-size: 16px;
+     font-weight: 400;
+     letter-spacing: .1px;
+     padding-top: 8px;
+ }
+
+ .session-form a {
+     color: #1a73e8;
+     font-size: 14px;
+     font-weight: bold;
+     /* font-weight should be 500, but won't work for a link */
+ }
+
+.user-auth-input {
+    width: 366px;
+    height: 54px;
+    border: 1px solid #dadce0;
+    border-radius: 4px;
+    outline: none;
+    font: 400 16px Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
+}
+
+.user-auth-input:focus {
+    border: 2px solid #1a73e8;
+}
+
+ .session-form-submit {
+    /* position: absolute;
+    align-items: center; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 130px;
+    /* margin-top: 32px; */
+    padding-bottom: 20px;
+    bottom: 40px;
+ }
+
+ .next-button {
+    background: #1a73e8;
+    color: white;
+    width: 88px;
+    height: 36px;
+    border-radius: 4px;
+    font-weight: 500;
+    font-size: 14px;
+    padding: 0px;
+    border: 0px;
+    
+ }
+
+.next-button:hover {
+     background: #4285f4;
+     cursor: pointer;
+ }
+
+
 
 

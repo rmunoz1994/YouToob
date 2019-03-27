@@ -49,7 +49,7 @@ class Signup extends React.Component {
                         onChange={this.handleInput("password")}
                     />
                     <br/>
-                    <input type="submit" value="Submit"/>
+                    <button className="next-button"> Next </button>
                 </form>
             </div>
         )
