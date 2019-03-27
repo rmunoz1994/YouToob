@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { createNewUser } from '../../actions/session';
-import Signup from './singup';
+import Signup from './signup';
 
 const mapDispatchToProps = dispatch => ({
     createNewUser: formUser => dispatch(createNewUser(formUser))
