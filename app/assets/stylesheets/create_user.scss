@@ -9,7 +9,6 @@
   width: 668px;
   height: 442px;
   border: 1px solid #dadce0;
-  padding: 10px;
   border-radius: 8px;
   padding: 48px 40px 36px;
   font-family: 'Google Sans', 'Noto Sans Myanmar UI', arial, sans-serif;
@@ -23,6 +22,10 @@
   form {
     padding: 24px 0px 0px;
   }
+}
+
+.create-user-left {
+  padding-top: 0px;
 }
 
 
@@ -91,17 +94,17 @@
 }
 
 .create-user-input {
-    border: 1px solid #dadce0;
-    border-radius: 4px;
-    outline: none;
-    font-family: sans-serif;
-    width: 368px;
-    box-sizing: border-box;
-    text-align: left;
-    margin: 1px 1px 1px 0;
-    height: 36px;
-    padding: 7px 11px;
-  }
+  border: 1px solid #dadce0;
+  border-radius: 4px;
+  padding: 7px 11px;
+  outline: none;
+  font-family: sans-serif;
+  width: 368px;
+  box-sizing: border-box;
+  text-align: left;
+  margin: 1px 1px 1px 0;
+  height: 36px;
+}
   
 .create-user-input::placeholder {
   font-size: 14px;

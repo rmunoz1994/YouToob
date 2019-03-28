@@ -5,40 +5,36 @@ class Login extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            user: {
-                email: '',
-                password: ''
-            },
-            formType: this.props.formType
+            email: '',
+            password: ''
         };
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.handleEmailSubmit = this.handleEmailSubmit.bind(this);
+        // this.handleEmailSubmit = this.handleEmailSubmit.bind(this);
         // this.handleLink = this.handleLink.bind(this);
+    }
+
+    componentDidMount() {
+        document.body.style.backgroundColor = "white";
     }
 
     componentWillUnmount() {
         this.props.clearErrors();
+        document.body.style.backgroundColor = null;
     }
 
     handleInput(type) {
         return (e) => {
-            this.setState({ user: {[type]: e.target.value }});
+            this.setState({[type]: e.target.value });
         };
     }
 
     handleSubmit(e) {
         e.preventDefault();
-        this.props.login(this.state.user)
+        this.props.login(this.state)
             .then(() => this.props.history.push('/'));
     }
 
     renderErrors() {
-        // if (this.props.errors.length > 0) {
-        //     let inputs = document.getElementsByClassName("user-auth-input");
-        //     for (let i = 0; i < inputs.length; i++) {
-        //         inputs[i].classList.add("error");
-        //     }
-        // } 
         return(
             <ul className="error-list">
                 {this.props.errors.map((error, i) => (
@@ -51,16 +47,11 @@ class Login extends React.Component {
         );
     }
 
-    // handleLink() {
-    //     // this.props.clearErrors();
-    //     this.props.history.push('/signup');
+    // handleEmailSubmit() {
+    //     if (this.props.errors.length === 0) {
+    //         this.state.formType = "password";
+    //     }
     // }
-
-    handleEmailSubmit() {
-        if (this.props.errors.length === 0) {
-            this.state.formType = "password";
-        }
-    }
 
     // render() {
     //     const errorClass = this.props.errors.length > 0? "error": "";
@@ -129,7 +120,7 @@ class Login extends React.Component {
                 <input
                     className={"user-auth-input login " + errorClass}
                     type="text"
-                    value={this.state.user.email}
+                    value={this.state.email}
                     placeholder="Email"
                     onChange={this.handleInput("email")}
                 />
@@ -137,7 +128,7 @@ class Login extends React.Component {
                 <input
                     className={"user-auth-input login " + errorClass}
                     type="password"
-                    value={this.state.user.password}
+                    value={this.state.password}
                     placeholder="Enter your password"
                     onChange={this.handleInput("password")}
                 /> 

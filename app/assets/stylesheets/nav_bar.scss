@@ -1,22 +1,32 @@
 .nav-bar {
-    // box-shadow: 1px 1px 5px rgba(0,0,0,0.04);
     box-shadow: 0px 4px 8px -3px rgba(17, 17, 17, .06);
     display: flex;
     justify-content: space-between;
     align-items: center;
     background: white;
     height: 56px;
+    padding: 0px 16px;
+}
+
+.nav-bar-left-icons, .nav-bar-right-icons {
+    display: flex;
+    align-items: center;
 }
 
 .sign-in-link {
     color: #1a73e8;
     font-family: Roboto, Arial, sans-serif;
-    font-weight: 500;
-    
+    font-weight: bold;
+    font-size: 15px;
+    padding: 10px 16px;
 }
 
 .nav-bar img {
     width: 80px;
+}
+
+.fas .fa-bars {
+    
 }
 
 i.fas {
@@ -29,10 +39,26 @@ i.fas {
 }
 
 #icon {
-    margin-left: 32px;
+    padding: 8px;
+    color: #606060; 
+    width: 24px;
+}
+
+#icon-left {
+    padding: 8px;
+    color: #606060; 
+    width: 24px;
+    margin-right: 16px;
 }
 
 #icon:active {
+    background-color: lightgray;
+    // display: block;
+    padding: 15px;
+    border-radius: 50%;
+}
+
+#icon-left:active {
     background-color: lightgray;
     // display: block;
     padding: 15px;
@@ -67,19 +93,3 @@ i.fas {
 
 }
 
-.create-user-input {
-    border: 1px solid #dadce0;
-    border-radius: 4px;
-    outline: none;
-    font: 400 16px Roboto, RobotoDraft, Helvetica, Arial, sans-serif;
-    width: 368px;
-    padding: 13px 15px;
-    box-sizing: border-box;
-    text-align: left;
-    margin: 1px 1px 1px 0;
-}
-
-.create-user-input:focus {
-    border: 2px solid #1a73e8;
-    padding: 12px 14px;
-}

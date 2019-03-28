@@ -13,8 +13,13 @@ class Signup extends React.Component {
         // this.handleLink = this.handleLink.bind(this);
     }
 
+    componentDidMount() {
+        document.body.style.backgroundColor = "white";
+    }
+
     componentWillUnmount() {
         this.props.clearErrors();
+        document.body.style.backgroundColor = null;
     }
 
     handleInput(type) {
@@ -46,7 +51,7 @@ class Signup extends React.Component {
         const errorClass = this.props.errors.length > 0 ? "error-signup" : "";
         return (
             <div className="create-user">
-                <div>
+                <div className="create-user-left">
                     <img src="https://img.icons8.com/color/48/000000/youtube-play.png" />
                     <h1>Create your YouToob Account</h1>
                     <form onSubmit={this.handleSubmit} className="create-user-form">

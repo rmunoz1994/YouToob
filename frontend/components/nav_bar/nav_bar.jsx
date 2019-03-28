@@ -18,13 +18,13 @@ export default ({ currentUser, logout }) => {
 
     return (
         <header className="nav-bar">
-            <i id="icon" className="fas fa-bars"></i>
-            <img src="/assets/youtoob_logo-590e7d0fbd1e2f8b5e277d19d97e1c7e5fb16983034876e67b1c783816daaeed.svg"/> 
-            <i id="icon" className="fas fa-ellipsis-v"></i>
-            <div className="icon-button">
-                <i id="icon" className="fas fa-video"></i>
+            <div className="nav-bar-left-icons">
+                <i id="icon-left" className="fas fa-bars"></i>
+                <img src="/assets/youtoob_logo-590e7d0fbd1e2f8b5e277d19d97e1c7e5fb16983034876e67b1c783816daaeed.svg"/> 
             </div>
-            <div>
+            <div className="nav-bar-right-icons">
+                <i id="icon" className="fas fa-video"></i>
+                <i id="icon" className="fas fa-ellipsis-v"></i>
                 { display }
             </div>
         </header>
