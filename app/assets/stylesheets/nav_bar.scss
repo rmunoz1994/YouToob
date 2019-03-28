@@ -17,21 +17,15 @@
     color: #1a73e8;
     font-family: Roboto, Arial, sans-serif;
     font-weight: bold;
-    font-size: 15px;
+    font-size: 14px;
     padding: 10px 16px;
+    letter-spacing: 0.007px;
 }
 
 .nav-bar img {
     width: 80px;
 }
 
-.fas .fa-bars {
-    
-}
-
-i.fas {
-    color: #606060;
-}
 
 .icon-button {
     box-sizing: border-box;
@@ -54,14 +48,14 @@ i.fas {
 #icon:active {
     background-color: lightgray;
     // display: block;
-    padding: 15px;
+    padding: 8px;
     border-radius: 50%;
 }
 
 #icon-left:active {
     background-color: lightgray;
     // display: block;
-    padding: 15px;
+    padding: 8px;
     border-radius: 50%;
 }
 

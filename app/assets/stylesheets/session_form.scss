@@ -127,10 +127,12 @@
     font-size: 14px;
     padding: 0px;
     border: 0px;
+    box-shadow: none;
+    transition: box-shadow .28s cubic-bezier(0.4,0.0,0.2,1);
 }
 
 .next-button:hover {
     background: #4285f4;
     cursor: pointer;
-     
+    box-shadow: 0 3px 5px rgba(42, 143, 232, 0.25);
 }
