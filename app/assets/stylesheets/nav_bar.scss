@@ -1,0 +1,45 @@
+.nav-bar {
+    box-shadow: 1px 1px 5px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    height: 56px;
+}
+
+.sign-in-link {
+    color: #1a73e8;
+}
+
+.nav-bar img {
+    width: 80px;
+}
+
+i.fas {
+    color: #606060;
+}
+
+.icon-button {
+    box-sizing: border-box;
+    color: #606060; 
+}
+
+#icon:active {
+    background-color: lightgray;
+    display: block;
+    padding: 15px;
+    border-radius: 50%;
+}
+
+#icon:hover {
+    cursor: pointer;
+}
+
+.user-nav-initial {
+    outline: none;
+    background: none;
+    background-color: lightgray;
+    display: block;
+    padding: 15px;
+    border-radius: 50%;
+}

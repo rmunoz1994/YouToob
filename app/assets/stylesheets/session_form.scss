@@ -1,0 +1,125 @@
+.session-form {
+    display: block;
+    margin: auto;
+    position: absolute;
+	top:0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+    width: 368px;
+    height: 416px;
+    border: 1px solid #dadce0;
+    padding: 10px;
+    text-align: center;
+    border-radius: 8px;
+    padding: 48px 40px 36px;
+    font-family: 'Google Sans', 'Noto Sans Myanmar UI', arial, sans-serif;
+    letter-spacing: .1px;
+    line-height: 1.5;
+ }
+
+ .session-form img {
+    padding: 0;
+    margin: 0;
+    height: 37px;
+    width: auto;
+ }
+
+ .session-form h1 {
+    font-size: 24px;
+    font-weight: 400;
+    letter-spacing: 0px;
+    padding-top: 4px;
+    margin: 0;
+    letter-spacing: .1px;
+    line-height: 1.3333333;
+ }
+
+ .session-form h2 {
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: .1px;
+    padding-top: 8px;
+ }
+
+ .session-form a {
+     color: #1a73e8;
+     text-align: left;
+     font-size: 14px;
+     font-weight: bold;
+     /* font-weight should be 500, but won't work for a link */
+ }
+
+.user-auth-input {
+    border: 1px solid #dadce0;
+    border-radius: 4px;
+    outline: none;
+    font: 400 16px Roboto, RobotoDraft, Helvetica, Arial, sans-serif;
+    width: 366px;
+    padding: 12px 14px;
+    box-sizing: border-box;
+    text-align: left;
+}
+
+.user-auth-input:focus {
+    border: 2px solid #1a73e8;
+    padding: 11px 13px;
+    
+}
+
+.error {
+    border: 2px solid red;
+    padding: 11px 13px;
+}
+
+.login {
+    height: 54px;
+}
+
+.signup {
+    height: 32px;
+}
+
+.session-form div {
+    display: flex;
+    margin-top: 26px;
+    padding-bottom: 20px;
+    /* justify-content: space-between; */
+}
+
+.demo {
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: left;
+    font-size: 14px;
+    color: gray;
+} 
+
+
+.session-form-submit {
+    /* display: flex; */
+    justify-content: space-between;
+    align-items: center;
+    /* margin-top: 130px; */
+    
+    bottom: 40px;
+}
+
+.next-button {
+    background: #1a73e8;
+    outline: none;
+    color: white;
+    width: 88px;
+    height: 36px;
+    border-radius: 4px;
+    font-weight: 500;
+    font-size: 14px;
+    padding: 0px;
+    border: 0px;
+}
+
+.next-button:hover {
+    background: #4285f4;
+    cursor: pointer;
+     
+}

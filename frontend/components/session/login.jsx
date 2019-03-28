@@ -31,22 +31,25 @@ class Login extends React.Component {
     render() {
         let form = (
             <form onSubmit={this.handleSubmit}>
-                <label>Email:</label>
                 <input
                     className="user-auth-input login"
                     type="text"
                     value={this.state.email}
+                    placeholder="Email"
                     onChange={this.handleInput("email")}
                 />
                 <br />
-                <label>Password:</label>
                 <input
                     className="user-auth-input login"
                     type="password"
                     value={this.state.password}
+                    placeholder="Enter your password"
                     onChange={this.handleInput("password")}
                 /> 
-                <Link to="/">Sign in as guest</Link>
+                <div className="demo">
+                    Not your computer? Use Guest mode to sign in privately.
+                    <Link to="/">Sign in as guest</Link>
+                </div>
                 <div className="session-form-submit">
                     <Link to="/signup" >Create account</Link>
                     <button className="next-button"> Next </button>

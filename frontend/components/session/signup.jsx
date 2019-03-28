@@ -31,27 +31,27 @@ class Signup extends React.Component {
                 <h1>Create your Account</h1>
                 <h2>to continue to YouToob</h2>
                 <form onSubmit={this.handleSubmit}>
-                    <label>Username:</label>
                     <input 
                         className="user-auth-input signup"
                         type="text" 
                         value={this.state.username}
+                        placeholder="Username"
                         onChange={this.handleInput("username")}
                     />
                     <br/>
-                    <label>Email:</label>
                     <input
                         className="user-auth-input signup"
                         type="text"
                         value={this.state.email}
+                        placeholder="Email"
                         onChange={this.handleInput("email")}
                     />
                     <br/>
-                    <label>Password:</label>
                     <input
                         className="user-auth-input signup"
                         type="password"
                         value={this.state.password}
+                        placeholder="Password"
                         onChange={this.handleInput("password")}
                     />
                     <br/>
