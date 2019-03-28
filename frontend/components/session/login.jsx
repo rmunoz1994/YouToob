@@ -28,6 +28,18 @@ class Login extends React.Component {
             .then(() => this.props.history.push('/'));
     }
 
+    renderErrors() {
+        return(
+            <ul>
+                {this.props.errors.map((error, i) => (
+                    <li key={`error-${i}`}>
+                        {error}
+                    </li>
+                ))}
+            </ul>
+        );
+    }
+
     render() {
         let form = (
             <form onSubmit={this.handleSubmit}>
@@ -46,6 +58,7 @@ class Login extends React.Component {
                     placeholder="Enter your password"
                     onChange={this.handleInput("password")}
                 /> 
+                <div>{this.renderErrors()}</div>
                 <div className="demo">
                     Not your computer? Use Guest mode to sign in privately.
                     <Link to="/">Sign in as guest</Link>

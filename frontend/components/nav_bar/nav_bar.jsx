@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 export default ({ currentUser, logout }) => {
     const display = currentUser ? (
         <div>
-            <UserNav currentUser={currentUser} />
+            <UserNav currentUser={currentUser} logout={logout} />
             {/* <p>Hello, {currentUser.username}</p>
             <button onClick={logout}>Log Out</button> */}
         </div>
@@ -18,11 +18,11 @@ export default ({ currentUser, logout }) => {
 
     return (
         <header className="nav-bar">
-            <i id="icon" class="fas fa-bars"></i>
+            <i id="icon" className="fas fa-bars"></i>
             <img src="/assets/youtoob_logo-590e7d0fbd1e2f8b5e277d19d97e1c7e5fb16983034876e67b1c783816daaeed.svg"/> 
-            <i id="icon" class="fas fa-ellipsis-v"></i>
+            <i id="icon" className="fas fa-ellipsis-v"></i>
             <div className="icon-button">
-                <i id="icon" class="fas fa-video"></i>
+                <i id="icon" className="fas fa-video"></i>
             </div>
             <div>
                 { display }

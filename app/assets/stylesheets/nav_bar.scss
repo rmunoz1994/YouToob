@@ -24,9 +24,13 @@ i.fas {
     color: #606060; 
 }
 
+#icon {
+    margin-left: 32px;
+}
+
 #icon:active {
     background-color: lightgray;
-    display: block;
+    // display: block;
     padding: 15px;
     border-radius: 50%;
 }
@@ -37,9 +41,24 @@ i.fas {
 
 .user-nav-initial {
     outline: none;
+    color: white;
+    font-size: 16px;
+    width: 32px;
+    height: 32px;
+    line-height: 32px;
     background: none;
     background-color: lightgray;
     display: block;
-    padding: 15px;
     border-radius: 50%;
+    margin-right: 32px;
+    text-align: center;
+    display: inline-block;
+}
+
+.user-nav-initial:hover {
+    cursor: pointer;
+    // box-sizing: border-box;
+    border: 1px solid #1a73e8;
+    margin-right: 31px;
+
 }

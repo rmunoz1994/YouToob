@@ -7,9 +7,9 @@ class UserNav extends React.Component {
 
     render() {
         return (
-            <button className="user-nav-inital">
+            <div className="user-nav-initial" onClick={this.props.logout}>
                 {this.props.currentUser.username.slice(0,1).toUpperCase()}
-            </button>
+            </div>
         )
     }
 }
