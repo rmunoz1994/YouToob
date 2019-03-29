@@ -5,7 +5,8 @@ class Signup extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            username: '',
+            first_name: '',
+            last_name: '',
             email: '',
             password: ''
         };
@@ -30,6 +31,7 @@ class Signup extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
+        console.log(this.state);
         this.props.createNewUser(this.state)
             .then(() => this.props.history.push('/'));
     }
@@ -56,13 +58,20 @@ class Signup extends React.Component {
                     <h1>Create your YouToob Account</h1>
                     <form onSubmit={this.handleSubmit} className="create-user-form">
                         <div>
-                            <div>
+                            <div className="full-name-inputs">
                                 <input 
                                     className={"create-user-input " + errorClass}
                                     type="text" 
-                                    value={this.state.username}
-                                    placeholder="Username"
-                                    onChange={this.handleInput("username")}
+                                    value={this.state.first_name}
+                                    placeholder="First name"
+                                    onChange={this.handleInput("first_name")}
+                                />
+                                <input
+                                    className={"create-user-input " + errorClass}
+                                    type="text"
+                                    value={this.state.last_name}
+                                    placeholder="Last name"
+                                    onChange={this.handleInput("last_name")}
                                 />
                             </div>
                             <div>

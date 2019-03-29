@@ -99,6 +99,7 @@
   padding: 7px 11px;
   outline: none;
   font-family: sans-serif;
+  font-size: 14px;
   width: 368px;
   box-sizing: border-box;
   text-align: left;
@@ -109,6 +110,14 @@
 .create-user-input::placeholder {
   font-size: 14px;
   opacity: 1;
+}
+
+.full-name-inputs {
+  display: flex;
+  justify-content: space-between;
+  input {
+    width: 174px;
+  }
 }
 
 .create-user-input:focus {
