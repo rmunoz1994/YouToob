@@ -4,9 +4,6 @@
   
 }
 
-.dropdown .drop-btn {
-}
-
 .dropdown-content {
   display: block; 
   position: absolute; 
@@ -61,5 +58,20 @@
 
 .drop-item:hover {
   background-color: hsl(0, 0%, 90%);
+}
+
+.user-pic {
+    background-color: lightgray;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    outline: none;
+    border: none;
+    margin-right: 16px;
+    text-align: center;
+}
+
+.user-pic:active {
+  border: 1px solid #1a73e8;
 }
 
