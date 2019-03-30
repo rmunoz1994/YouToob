@@ -1,0 +1,38 @@
+.side-bar {
+    display: flex;
+    flex-flow: column;
+    position: fixed;
+    height: 100%;
+    background-color: #f5f5f5;
+    width: 240px;
+    font-size: 14px;
+}
+
+.side-bar-section {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #dcdcdc;
+}
+
+.side-bar-item {
+    height: 40px;
+    padding-left: 24px;
+    padding-right: 24px;
+    display: flex;
+    align-items: center;
+    div {
+        margin-right: 24px;
+    }
+    cursor: pointer;
+}
+
+.side-bar-item:hover {
+    background-color: #dcdcdc;
+}
+
+.best-of-youtoob {
+    padding: 8px 24px;
+    height: 16px;
+    font-weight: bold;
+    font-size: 14px;
+}

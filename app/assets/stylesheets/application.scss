@@ -17,6 +17,15 @@
  /* icons: https://www.flaticon.com/free-icon/show-more-button-with-three-dots_61140#term=dots&page=1&position=19 */
  /* fontawesome */
 
+ html {
+     overflow-y: scroll;
+ }
+
+ html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+ }
 
 body, h1, h2, h3, p {
     margin: 0;
