@@ -13813,3 +13813,105 @@ Redirected to https://youtoob-dev.s3.amazonaws.com/oj3JnLWLBsnDgd4jDrYagmyx?resp
 Completed 302 Found in 3ms (ActiveRecord: 0.4ms)
 
 
+Started POST "/api/session" for ::1 at 2019-03-31 12:43:18 -0400
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"email"=>"test@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test@gmail.com"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:28
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:43
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "test@gmail.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:43
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "ACyGL4I_ZD-3z7zNZqzaNg"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:43
+  [1m[36mUser Update (16.2ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "ACyGL4I_ZD-3z7zNZqzaNg"], ["updated_at", "2019-03-31 16:43:18.733151"], ["id", 1]]
+  ↳ app/models/user.rb:43
+  [1m[35m (24.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:43
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/show.json.jbuilder (0.9ms)
+Completed 200 OK in 218ms (Views: 62.9ms | ActiveRecord: 52.8ms)
+
+
+Started DELETE "/api/session" for ::1 at 2019-03-31 12:43:27 -0400
+Processing by Api::SessionsController#destroy as JSON
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "ACyGL4I_ZD-3z7zNZqzaNg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:43
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "test@gmail.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:43
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "p6Jml3e4FVeb4fgah4A38Q"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:43
+  [1m[36mUser Update (0.5ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "p6Jml3e4FVeb4fgah4A38Q"], ["updated_at", "2019-03-31 16:43:27.217849"], ["id", 1]]
+  ↳ app/models/user.rb:43
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:43
+Completed 200 OK in 10ms (Views: 0.2ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/" for ::1 at 2019-03-31 12:47:24 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.6ms)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+Completed 200 OK in 470ms (Views: 453.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/api/videos/1" for ::1 at 2019-03-31 12:47:26 -0400
+Processing by Api::VideosController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mVideo Load (0.9ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" WHERE "videos"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/videos_controller.rb:10
+  Rendering api/videos/show.json.jbuilder
+  [1m[36mActiveStorage::Attachment Load (1.3ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Video"], ["name", "thumbnail"], ["LIMIT", 1]]
+  ↳ app/views/api/videos/show.json.jbuilder:5
+  [1m[36mActiveStorage::Blob Load (0.6ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/api/videos/show.json.jbuilder:5
+  Rendered api/videos/show.json.jbuilder (12.7ms)
+Completed 200 OK in 125ms (Views: 114.4ms | ActiveRecord: 8.9ms)
+
+
+Started GET "/" for ::1 at 2019-03-31 13:36:00 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (10.4ms)
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+Completed 200 OK in 2591ms (Views: 2553.6ms | ActiveRecord: 6.4ms)
+
+
+Started GET "/" for ::1 at 2019-03-31 13:36:07 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.4ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+Completed 200 OK in 125ms (Views: 122.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/api/videos/1" for ::1 at 2019-03-31 13:36:08 -0400
+Processing by Api::VideosController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mVideo Load (0.9ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" WHERE "videos"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/videos_controller.rb:10
+  Rendering api/videos/show.json.jbuilder
+  [1m[36mActiveStorage::Attachment Load (1.7ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Video"], ["name", "thumbnail"], ["LIMIT", 1]]
+  ↳ app/views/api/videos/show.json.jbuilder:5
+  [1m[36mActiveStorage::Blob Load (0.6ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/api/videos/show.json.jbuilder:5
+  Rendered api/videos/show.json.jbuilder (11.8ms)
+Completed 200 OK in 99ms (Views: 86.3ms | ActiveRecord: 9.8ms)
+
+
+Started GET "/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--cac86069c24bc271da7bede95cdc1b4566366ffe/guide1.jpg" for ::1 at 2019-03-31 13:36:08 -0400
+Processing by ActiveStorage::BlobsController#show as JPEG
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--cac86069c24bc271da7bede95cdc1b4566366ffe", "filename"=>"guide1"}
+  [1m[36mActiveStorage::Blob Load (0.4ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /Users/RayMunoz/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+[36m  S3 Storage (6.4ms) [0m[34mGenerated URL for file at key: oj3JnLWLBsnDgd4jDrYagmyx (https://youtoob-dev.s3.amazonaws.com/oj3JnLWLBsnDgd4jDrYagmyx?response-content-disposition=inline%3B%20filename%3D%22guide1.jpg%22%3B%20filename%2A%3DUTF-8%27%27guide1.jpg&response-content-type=image%2Fjpeg&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARYOR5JOMRZHBYBQE%2F20190331%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20190331T173608Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Signature=b38a0659e7dc5d31a377cb21a0f355e51dbeea18525d7c520fe05f719ee74d01)[0m
+Redirected to https://youtoob-dev.s3.amazonaws.com/oj3JnLWLBsnDgd4jDrYagmyx?response-content-disposition=inline%3B%20filename%3D%22guide1.jpg%22%3B%20filename%2A%3DUTF-8%27%27guide1.jpg&response-content-type=image%2Fjpeg&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARYOR5JOMRZHBYBQE%2F20190331%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20190331T173608Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Signature=b38a0659e7dc5d31a377cb21a0f355e51dbeea18525d7c520fe05f719ee74d01
+Completed 302 Found in 10ms (ActiveRecord: 0.4ms)
+
+
