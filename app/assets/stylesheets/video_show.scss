@@ -1,0 +1,51 @@
+.video-show-container {
+    font-family: 'Roboto', Arial, sans-serif;
+    display: flex;
+    justify-content: space-between;
+    h2 {  
+        font-size: 18px;
+        font-weight: 400;
+    }
+}
+
+.video-show {
+    padding-right: 24px;
+    padding-top: 24px;
+    margin-left: 24px;
+}
+
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+}
+
+
+.video-area-test {
+    position: absolute;
+    top: 0;
+    left: 0;
+    max-width: 1000px;
+    width: 100%;
+    height: auto;
+}
+
+.title-container {
+    padding: 20px 0 8px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.description-container {
+    font-size: 14px;
+    font-weight: 400;
+    padding-bottom: 16px;
+    margin-bottom: 24px;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.up-next-container {
+    padding-top: 24px;
+    padding-left: 24px;
+    height: 100%;
+    background-color: gray;
+}

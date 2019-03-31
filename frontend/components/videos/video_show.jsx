@@ -14,8 +14,21 @@ class VideoShow extends React.Component {
             return null;
         } else {
             return (
-                <div>
-                    <img src={this.props.video.thumbnail} />
+                <div className="video-show-container">
+                    <div className="video-show">
+                        <div className="video-container">
+                            <button className="video-area-test">Test</button>
+                            {/* <img src={this.props.video.thumbnailUrl} /> */}
+                        </div>
+                        <div className="title-container">
+                            <h2>{this.props.video.title}</h2>
+                        </div>
+                        <div className="description-container">
+                            <p>{this.props.video.description}</p>
+                        </div>
+                    </div>
+                    <div className="up-next-container">
+                    </div>
                 </div>
             )
 

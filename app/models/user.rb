@@ -24,6 +24,11 @@ class User < ApplicationRecord
 
     has_one_attached :photo
 
+    has_many :uploads,
+        class_name: :Video,
+        primary_key: :id,
+        foreign_key: :uploader_id
+
     def self.find_by_credentials(email, password)
         user = User.find_by(email: email)
         user && user.is_password?(password) ? user : nil

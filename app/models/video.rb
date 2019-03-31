@@ -19,7 +19,7 @@ class Video < ApplicationRecord
         primary_key: :id,
         foreign_key: :uploader_id
 
-    has_one_attached :thumbnail
-
+    has_one_attached :videoUrl
+    has_one_attached :thumbnailUrl
 
 end

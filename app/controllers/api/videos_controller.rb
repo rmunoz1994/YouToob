@@ -11,12 +11,15 @@ class Api::VideosController < ApplicationController
     end
 
     def create
+
     end
 
     def update
+
     end
 
     def destroy
+        
     end
 
     def video_params
