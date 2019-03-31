@@ -4,7 +4,7 @@ import errorsReducer from './errors';
 import { combineReducers } from 'redux';
 
 export default combineReducers({
-    // entities: entitiesReducer,
+    entities: entitiesReducer,
     session: sessionReducer,
     errors: errorsReducer
 });

@@ -25,7 +25,7 @@ class UserNav extends React.Component {
             dropdown = (
                 <div className="dropdown-content">
                     <div className="user-info-content">
-                        <button className="user-pic">{firstName.slice(0, 1).toUpperCase()}</button>
+                        <button className="user-pic-drop">{firstName.slice(0, 1).toUpperCase()}</button>
                         <ul className="user-info">
                             <li className="username">{firstName.slice(0, 1).toUpperCase() +
                                 firstName.slice(1) + " " + lastName.slice(0, 1).toUpperCase() + lastName.slice(1)}</li>

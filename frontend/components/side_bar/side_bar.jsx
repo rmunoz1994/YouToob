@@ -3,15 +3,6 @@ import React from 'react';
 class SideBar extends React.Component {
     constructor(props) {
         super(props);
-        this.toggleVisibility = this.toggleVisibility.bind(this);
-    }
-
-    toggleVisibility() {
-        if (this.state.visibility === true) {
-            this.setState({ visibility: false });
-        } else {
-            this.setState({ visibility: true });
-        }
     }
 
     render() {
