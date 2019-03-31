@@ -5,7 +5,7 @@ import LoginContainer from './session/login_container';
 import VideoIndex from './videos/video_index_container';
 import VideoShow from './videos/video_show_container';
 import { Route, Switch } from 'react-router-dom';
-import { AuthRoute, ProtectedRoute } from '../utils/route_utils';
+import { AuthRoute, ProtectedRoute } from '../util/route_utils';
 
 const App = () => (
     <div>
