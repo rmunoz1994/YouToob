@@ -1,4 +1,3 @@
-require 'byebug'
 class Api::VideosController < ApplicationController
 
     def index
