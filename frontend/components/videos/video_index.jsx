@@ -1,4 +1,5 @@
 import React from 'react';
+import VideoGrid from './video_grid';
 
 class VideoIndex extends React.Component {
     constructor(props) {
@@ -6,16 +7,20 @@ class VideoIndex extends React.Component {
     }
 
     componentDidMount() {
-        this.props.fetchVideos();
+        this.props.fetchVideo(5);
     }
 
     render() {
-        if (this.props.videos[0] === undefined) {
+        if (this.props.video === undefined) {
             return null;
         } else {
+            let arr = [];
+            for(let i = 0; i < 14; i++) {
+                arr.push(this.props.video);
+            }
             return (
-                <div>
-                    <img src={this.props.videos[0].thumbnail} />
+                <div className="video-index-container">
+                    <VideoGrid videos={arr}/>
                 </div>
             )
         }

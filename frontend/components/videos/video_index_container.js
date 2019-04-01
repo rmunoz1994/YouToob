@@ -1,16 +1,21 @@
 import { connect } from 'react-redux';
 import VideoIndex from './video_index';
-import { fetchVideos } from '../../actions/video_actions';
+import { fetchVideos, fetchVideo } from '../../actions/video_actions';
 
 const mapStateToProps = state => {
+    const video = state.entities.videos[5];
     return {
-        videos: Object.values(videos)
+        video: video
     };
+    // return {
+    //     videos: Object.values(state.entities.videos)
+    // };
 };
 
 const mapDispatchToProps = dispatch => {
     return ({
-        fetchVideos: () => dispatch(fetchVideos())
+        fetchVideos: () => dispatch(fetchVideos()),
+        fetchVideo: id => dispatch(fetchVideo(id))
     });
 };
 

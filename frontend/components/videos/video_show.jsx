@@ -1,4 +1,5 @@
 import React from 'react';
+import VideoItem from './video_item';
 
 class VideoShow extends React.Component {
     constructor(props) {
@@ -32,7 +33,7 @@ class VideoShow extends React.Component {
                 <div className="video-show-container">
                     <div className="video-show">
                         
-                        <video autoPlay="autoplay" controls="controls">
+                        <video controls autoPlay muted>
                             <source src={this.props.video.videoUrl} type="video/mp4"></source>
                         </video>
                        
@@ -49,6 +50,7 @@ class VideoShow extends React.Component {
 
                     <div className="up-next-container">
                         Up next
+                        <VideoItem video={this.props.video} />
                     </div>
 
                 </div>

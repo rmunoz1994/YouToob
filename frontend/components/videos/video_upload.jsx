@@ -8,10 +8,11 @@ class VideoUpload extends React.Component {
         this.state = {
             title: '',
             description: '',
-            videoFile: null
+            videoFile: null,
+            thumbnailFile: null
         };
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.handleFile = this.handleFile.bind(this);
+        // this.handleFile = this.handleFile.bind(this);
     }
 
     handleInput(field) {
@@ -20,8 +21,10 @@ class VideoUpload extends React.Component {
         };
     }
 
-    handleFile(e) {
-        this.setState({videoFile: e.currentTarget.files[0]});
+    handleFile(field) {
+        return (e) => {
+            this.setState({[field]: e.currentTarget.files[0]});
+        };
     }
 
     handleSubmit(e) {
@@ -31,7 +34,8 @@ class VideoUpload extends React.Component {
         formData.append('video[description]', this.state.description);
         formData.append('video[uploader_id]', this.props.currentUserId);
         formData.append('video[videoUrl]', this.state.videoFile);
-        debugger
+        formData.append('video[thumbnailUrl]', this.state.thumbnailFile);
+        // debugger
         this.props.uploadVideo(formData);
         this.props.history.push('/');
     }
@@ -43,7 +47,8 @@ class VideoUpload extends React.Component {
                     <form onSubmit={this.handleSubmit} className="upload-prompt">
                         <i id="upload-icon" className="fas fa-arrow-circle-up"></i>
                         <div className="upload-text">Select files to upload</div>
-                        <input type="file" onChange={this.handleFile}/>
+                        <input type="file" onChange={this.handleFile("videoFile")}/>
+                        <input type="file" onChange={this.handleFile("thumbnailFile")}/>
                         <input type="text" value={this.state.title} onChange={this.handleInput("title")}/>
                         <textarea value={this.state.description} onChange={this.handleInput("description")}/>
                         <input type="submit" value="Publish"/>
