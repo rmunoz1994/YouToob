@@ -1,7 +1,7 @@
 import React from 'react';
 import UserNav from './user_nav';
 import UploadDropdown from './upload_dropdown';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
 class NavBar extends React.Component {
 
@@ -10,6 +10,7 @@ class NavBar extends React.Component {
         this.state = {
             uploadDropHidden: true
         };
+        this.handleIndexLink = this.handleIndexLink.bind(this);
     }
 
     toggleUploadDrop() {
@@ -20,6 +21,10 @@ class NavBar extends React.Component {
                 this.setState({ uploadDropHidden: true });
             }
         };
+    }
+
+    handleIndexLink() {
+        this.props.history.push('/index');
     }
 
     
@@ -36,7 +41,7 @@ class NavBar extends React.Component {
             </div>
         );
 
-        const uploadDrop = this.state.uploadDropHidden ? (<> </>) : (<UploadDropdown />);
+        const uploadDrop = this.state.uploadDropHidden ? (<> </>) : (<UploadDropdown props={this.props}/>);
 
         return (
             <div>
@@ -45,7 +50,9 @@ class NavBar extends React.Component {
                         <button className="nav-bar-button" onClick={this.props.toggleSideBar}>
                             <i id="icon" className="fas fa-bars"></i>
                         </button>
-                        <img src="/assets/youtoob_logo-590e7d0fbd1e2f8b5e277d19d97e1c7e5fb16983034876e67b1c783816daaeed.svg" />
+                        <img className="logo" src="/assets/youtoob_logo-590e7d0fbd1e2f8b5e277d19d97e1c7e5fb16983034876e67b1c783816daaeed.svg" 
+                            onClick={this.handleIndexLink}
+                        />
                     </div>
                     <div className="search-bar-container">
                         <form className="search-form">
@@ -72,4 +79,4 @@ class NavBar extends React.Component {
 
 }
 
-export default NavBar;
+export default withRouter(NavBar);

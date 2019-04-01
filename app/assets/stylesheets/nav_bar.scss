@@ -10,6 +10,10 @@
     position: relative;
 }
 
+.logo {
+    cursor: pointer;
+}
+
 .nav-bar-left-icons, .nav-bar-right-icons {
     display: flex;
     align-items: center;

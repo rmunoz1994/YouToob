@@ -16,7 +16,7 @@ const receiveVideo = video => ({
 
 export const clearVideos = () => ({
     type: CLEAR_VIDEOS
-})
+});
 
 
 export const fetchVideos = () => dispatch => (
@@ -29,4 +29,5 @@ export const fetchVideo = id => dispatch => (
 
 export const createVideo = video => dispatch => (
     APIUtil.createVideo(video).then(video => dispatch(receiveVideo(video)))
-)
+);
+

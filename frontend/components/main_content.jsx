@@ -9,6 +9,21 @@ import { Route, Switch } from 'react-router-dom';
 import { AuthRoute, ProtectedRoute } from '../util/route_utils';
 import SideBar from './side_bar/side_bar';
 
+// const MainContent = () => (
+//     <>
+//         <NavBarContainer />
+//         <div className="after-header">
+//             <SideBar />
+//             <Switch>
+//                 <Route path="/" component={VideoIndexContainer} />
+//                 <Route path="/videos/:videoId" component={VideoShowContainer} />
+//                 <ProtectedRoute path="/upload" component={VideoUploadContainer} />
+//                 {/* <ProtectedRoute path="/user/:userId" component={UserShowContainer} /> */}
+//             </Switch>
+//         </div>
+//     </> 
+// );
+
 class MainContent extends React.Component {
     constructor(props) {
         super(props);
@@ -47,15 +62,3 @@ class MainContent extends React.Component {
 }
 
 export default MainContent;
-
-// const MainContent = () => (
-//     <div>
-//         <NavBarContainer />
-//         <SideBar />
-//         <Switch>
-//             <Route path="/index" component={VideoIndexContainer} />
-//             <Route path="/videos/:videoId" component={VideoShowContainer} />
-//             <ProtectedRoute path="/upload" component={VideoUploadContainer} />
-//         </Switch>
-//     </div>
-// );

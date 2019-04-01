@@ -1,8 +1,15 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 
 class UploadDropdown extends React.Component {
+    
     constructor(props) {
         super(props);
+        this.handleUploadLink = this.handleUploadLink.bind(this);
+    }
+
+    handleUploadLink() {
+        this.props.history.push('/upload');
     }
 
     render() {
@@ -10,9 +17,9 @@ class UploadDropdown extends React.Component {
             <div className="dropdown">
                 <div className="dropdown-content-upload">
                     <div className="drop-group">
-                        <div className="drop-item">
+                        <div className="drop-item" onClick={this.handleUploadLink}>
                             <div className="drop-icon">
-                                <i class="fab fa-youtube"></i>
+                                <i className="fab fa-youtube"></i>
                             </div>
                             <div>Upload video</div>
                         </div>
@@ -23,4 +30,4 @@ class UploadDropdown extends React.Component {
     }
 }
 
-export default UploadDropdown;
+export default withRouter(UploadDropdown);

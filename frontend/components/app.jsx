@@ -24,11 +24,9 @@ const App = () => (
     // </div>
     <div>
         <Switch>
-            {/* <Route exact path="/" component={ NavBarContainer } /> */}
             <Route path="/" component={MainContent}/>
             <AuthRoute path="/signup" component={SignupContainer} />
             <AuthRoute path="/login" component={LoginContainer} />
-            {/* <Route path="/videos" component={ VideoIndex } /> */}
         </Switch>
     </div>
 );

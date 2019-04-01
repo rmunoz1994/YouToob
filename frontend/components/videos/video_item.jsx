@@ -5,6 +5,9 @@ import { Link } from 'react-router-dom';
 class VideoItem extends React.Component {
     constructor(props) {
         super(props);
+        // this.state = {
+        //     isColumn: this.props.isColumn
+        // };
         this.formatTimeDifference = this.formatTimeDifference.bind(this);
     }
 
@@ -18,9 +21,10 @@ class VideoItem extends React.Component {
     }
 
     render() {
+        let itemType = this.props.isColumn ? "column" : "";
         return (
             <Link to={`/videos/${this.props.video.id}`} className="video-item-link">
-                <div className="video-item-container">
+                <div className={"video-item-container " + itemType}>
                     <div className="video-thumbnail-container">
                         <img src={this.props.video.thumbnailUrl} className="video-thumbnail"/>
                         <div className="video-thumbnail-background"></div>

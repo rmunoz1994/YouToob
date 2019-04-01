@@ -32,10 +32,11 @@ class VideoShow extends React.Component {
             return (
                 <div className="video-show-container">
                     <div className="video-show">
-                        
-                        <video controls autoPlay muted>
-                            <source src={this.props.video.videoUrl} type="video/mp4"></source>
-                        </video>
+                        <div className="video-container">
+                            <video controls autoPlay muted>
+                                <source src={this.props.video.videoUrl} type="video/mp4"></source>
+                            </video>
+                        </div>
                        
                         <div className="title-container">
                             <h2>{this.props.video.title}</h2>
@@ -50,7 +51,7 @@ class VideoShow extends React.Component {
 
                     <div className="up-next-container">
                         Up next
-                        <VideoItem video={this.props.video} />
+                        <VideoItem video={this.props.video} isColumn={true}/>
                     </div>
 
                 </div>
