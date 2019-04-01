@@ -32,11 +32,13 @@ class UserNav extends React.Component {
                             <li className="email">{this.props.currentUser.email}</li>
                         </ul>
                     </div>
-                    <div className="drop-item" onClick={this.props.logout}>
-                        <div className="drop-icon">
-                            <i className="fas fa-sign-out-alt"></i>
+                    <div className="drop-group">
+                        <div className="drop-item" onClick={this.props.logout}>
+                            <div className="drop-icon">
+                                <i className="fas fa-sign-out-alt"></i>
+                            </div>
+                            <div>Sign Out</div>
                         </div>
-                        <div>Sign Out</div>
                     </div>
                 </div>
             );

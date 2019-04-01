@@ -1,25 +1,28 @@
 import React from 'react';
 import UserNav from './user_nav';
-import SideBar from '../side_bar/side_bar';
+import UploadDropdown from './upload_dropdown';
 import { Link } from 'react-router-dom';
 
 class NavBar extends React.Component {
 
     constructor(props) {
         super(props);
-        // this.state = {
-        //     sideBarHidden: false
-        // };
-        // this.toggleSideBar = this.toggleSideBar.bind(this);
+        this.state = {
+            uploadDropHidden: true
+        };
     }
 
-    // toggleSideBar() {
-    //     if (this.state.sideBarHidden) {
-    //         this.setState({sideBarHidden: false});
-    //     } else {
-    //         this.setState({sideBarHidden: true});
-    //     }
-    // }
+    toggleUploadDrop() {
+        return e => {
+            if (this.state.uploadDropHidden) {
+                this.setState({ uploadDropHidden: false });
+            } else {
+                this.setState({ uploadDropHidden: true });
+            }
+        };
+    }
+
+    
 
     render() {
 
@@ -33,7 +36,7 @@ class NavBar extends React.Component {
             </div>
         );
 
-        // const sideBar = this.state.sideBarHidden ? (<div></div>) : (<SideBar />);
+        const uploadDrop = this.state.uploadDropHidden ? (<> </>) : (<UploadDropdown />);
 
         return (
             <div>
@@ -53,8 +56,9 @@ class NavBar extends React.Component {
                         </form>
                     </div>
                     <div className="nav-bar-right-icons">
-                        <button className="nav-bar-button">
+                        <button className="nav-bar-button" onClick={this.toggleUploadDrop()}>
                             <i id="icon" className="fas fa-video"></i>
+                            {uploadDrop}
                         </button>
                         <button className="nav-bar-button">
                             <i id="icon" className="fas fa-ellipsis-v"></i>

@@ -38,6 +38,7 @@ class MainContent extends React.Component {
                         <Route path="/index" component={VideoIndexContainer} />
                         <Route path="/videos/:videoId" component={VideoShowContainer} />
                         <ProtectedRoute path="/upload" component={VideoUploadContainer} />
+                        {/* <ProtectedRoute path="/user/:userId" component={UserShowContainer} /> */}
                     </Switch>
                 </div>
             </> 
