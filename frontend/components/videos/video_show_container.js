@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import VideoShow from './video_show';
-import { fetchVideo } from '../../actions/video_actions';
+import { fetchVideo, clearVideos } from '../../actions/video_actions';
 
 const mapStateToProps = (state, ownProps) => {
     const video = state.entities.videos[ownProps.match.params.videoId];
@@ -11,7 +11,8 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        fetchVideo: id => dispatch(fetchVideo(id))
+        fetchVideo: id => dispatch(fetchVideo(id)),
+        clearVideos: () => dispatch(clearVideos())
     };
 };
 

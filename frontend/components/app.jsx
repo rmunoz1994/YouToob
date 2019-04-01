@@ -14,7 +14,7 @@ const App = () => (
         <Switch>
             {/* <Route exact path="/" component={ NavBarContainer } /> */}
             <Route path="/videos/:videoId" component={ VideoShow } />
-            <Route path="/upload" component={ VideoUploadContainer } />
+            <ProtectedRoute path="/upload" component={ VideoUploadContainer } />
             <AuthRoute path="/signup" component={ SignupContainer }/>
             <AuthRoute path="/login" component={ LoginContainer } />
             {/* <Route path="/videos" component={ VideoIndex } /> */}

@@ -12,6 +12,7 @@ class Api::VideosController < ApplicationController
 
     def create
         @video = Video.new(video_params)
+        debugger
         if @video.save
             render json: {message: "You did it!"}
         else
@@ -28,7 +29,7 @@ class Api::VideosController < ApplicationController
     end
 
     def video_params
-        params.require(:video).permit(:title, :description, :videoUrl)
+        params.require(:video).permit(:title, :description, :uploader_id, :videoUrl)
     end
 
 end
