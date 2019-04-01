@@ -7,19 +7,19 @@ class NavBar extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = {
-            sideBarHidden: false
-        };
-        this.toggleSideBar = this.toggleSideBar.bind(this);
+        // this.state = {
+        //     sideBarHidden: false
+        // };
+        // this.toggleSideBar = this.toggleSideBar.bind(this);
     }
 
-    toggleSideBar() {
-        if (this.state.sideBarHidden) {
-            this.setState({sideBarHidden: false});
-        } else {
-            this.setState({sideBarHidden: true});
-        }
-    }
+    // toggleSideBar() {
+    //     if (this.state.sideBarHidden) {
+    //         this.setState({sideBarHidden: false});
+    //     } else {
+    //         this.setState({sideBarHidden: true});
+    //     }
+    // }
 
     render() {
 
@@ -33,13 +33,13 @@ class NavBar extends React.Component {
             </div>
         );
 
-        const sideBar = this.state.sideBarHidden ? (<div></div>) : (<SideBar />);
+        // const sideBar = this.state.sideBarHidden ? (<div></div>) : (<SideBar />);
 
         return (
             <div>
                 <header className="nav-bar">
                     <div className="nav-bar-left-icons">
-                        <button className="nav-bar-button" onClick={this.toggleSideBar}>
+                        <button className="nav-bar-button" onClick={this.props.toggleSideBar}>
                             <i id="icon" className="fas fa-bars"></i>
                         </button>
                         <img src="/assets/youtoob_logo-590e7d0fbd1e2f8b5e277d19d97e1c7e5fb16983034876e67b1c783816daaeed.svg" />
@@ -62,7 +62,6 @@ class NavBar extends React.Component {
                         {display}
                     </div>
                 </header>
-                {sideBar}
             </div>
         )
     }

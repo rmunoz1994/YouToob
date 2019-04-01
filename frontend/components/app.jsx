@@ -5,19 +5,29 @@ import LoginContainer from './session/login_container';
 import VideoIndexContainer from './videos/video_index_container';
 import VideoShowContainer from './videos/video_show_container';
 import VideoUploadContainer from './videos/video_upload_container';
+import MainContent from './main_content';
 import { Route, Switch } from 'react-router-dom';
 import { AuthRoute, ProtectedRoute } from '../util/route_utils';
 
 const App = () => (
+    // <div>
+    //     <NavBarContainer />
+    //     <Switch>
+    //         {/* <Route exact path="/" component={ NavBarContainer } /> */}
+    //         <Route path="/index" component={ VideoIndexContainer } />
+    //         <Route path="/videos/:videoId" component={ VideoShowContainer } />
+    //         <ProtectedRoute path="/upload" component={ VideoUploadContainer } />
+    //         <AuthRoute path="/signup" component={ SignupContainer }/>
+    //         <AuthRoute path="/login" component={ LoginContainer } />
+    //         {/* <Route path="/videos" component={ VideoIndex } /> */}
+    //     </Switch>
+    // </div>
     <div>
-        <NavBarContainer />
         <Switch>
             {/* <Route exact path="/" component={ NavBarContainer } /> */}
-            <Route path="/index" component={ VideoIndexContainer } />
-            <Route path="/videos/:videoId" component={ VideoShowContainer } />
-            <ProtectedRoute path="/upload" component={ VideoUploadContainer } />
-            <AuthRoute path="/signup" component={ SignupContainer }/>
-            <AuthRoute path="/login" component={ LoginContainer } />
+            <Route path="/" component={MainContent}/>
+            <AuthRoute path="/signup" component={SignupContainer} />
+            <AuthRoute path="/login" component={LoginContainer} />
             {/* <Route path="/videos" component={ VideoIndex } /> */}
         </Switch>
     </div>
