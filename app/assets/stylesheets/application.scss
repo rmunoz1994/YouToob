@@ -35,8 +35,11 @@ body, h1, h2, h3, p {
     font-family: sans-serif;
 }
 
+$body-dark-theme: #121212;
+$body-reg-theme: #f9f9f9;
+$nav-dark-theme: #272727;
 body {
-    background-color: #f9f9f9;
+    background-color: $body-reg-theme;
 }
 
  footer {

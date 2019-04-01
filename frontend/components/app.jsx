@@ -4,7 +4,7 @@ import SignupContainer from './session/signup_container';
 import LoginContainer from './session/login_container';
 import VideoIndex from './videos/video_index_container';
 import VideoShow from './videos/video_show_container';
-import VideoUpload from './videos/video_upload';
+import VideoUploadContainer from './videos/video_upload_container';
 import { Route, Switch } from 'react-router-dom';
 import { AuthRoute, ProtectedRoute } from '../util/route_utils';
 
@@ -14,7 +14,7 @@ const App = () => (
         <Switch>
             {/* <Route exact path="/" component={ NavBarContainer } /> */}
             <Route path="/videos/:videoId" component={ VideoShow } />
-            <Route path="/upload" component={ VideoUpload } />
+            <Route path="/upload" component={ VideoUploadContainer } />
             <AuthRoute path="/signup" component={ SignupContainer }/>
             <AuthRoute path="/login" component={ LoginContainer } />
             {/* <Route path="/videos" component={ VideoIndex } /> */}

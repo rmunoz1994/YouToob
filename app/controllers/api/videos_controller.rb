@@ -11,7 +11,12 @@ class Api::VideosController < ApplicationController
     end
 
     def create
-
+        @video = Video.new(video_params)
+        if @video.save
+            render json: {message: "You did it!"}
+        else
+            render json: @video.errors.full_messages
+        end
     end
 
     def update
@@ -19,11 +24,11 @@ class Api::VideosController < ApplicationController
     end
 
     def destroy
-        
+
     end
 
     def video_params
-        params.require(:video).permit(:title, :description)
+        params.require(:video).permit(:title, :description, :videoUrl)
     end
 
 end
