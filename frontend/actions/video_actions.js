@@ -2,6 +2,7 @@ import * as APIUtil from '../util/video_api_util';
 
 export const RECEIVE_VIDEOS = "RECEIVE_VIDEOS";
 export const RECEIVE_VIDEO = "RECEIVE_VIDEO";
+export const RECEIVE_VIDEO_ERRORS = "RECEIVE_VIDEO_ERRORS";
 export const CLEAR_VIDEOS = "CLEAR_VIDEOS";
 
 const receiveVideos = videos => ({
@@ -14,20 +15,37 @@ const receiveVideo = video => ({
     video
 });
 
+const receiveVideoErrors = errors => ({
+    type: RECEIVE_VIDEO_ERRORS,
+    errors
+});
+
 export const clearVideos = () => ({
     type: CLEAR_VIDEOS
 });
 
 
 export const fetchVideos = () => dispatch => (
-    APIUtil.fetchVideos().then(videos => dispatch(receiveVideos(videos)))
+    APIUtil.fetchVideos().then(videos => (
+        dispatch(receiveVideos(videos))
+    ), err => (
+        dispatch(receiveVideoErrors(err.responseJSON))
+    ))
 );
 
 export const fetchVideo = id => dispatch => (
-    APIUtil.fetchVideo(id).then(video => dispatch(receiveVideo(video)))
+    APIUtil.fetchVideo(id).then(video => (
+        dispatch(receiveVideo(video))
+    ), err => (
+        dispatch(receiveVideoErrors(erro.responseJSON))
+    ))
 );
 
 export const createVideo = video => dispatch => (
     APIUtil.createVideo(video).then(video => dispatch(receiveVideo(video)))
+);
+
+export const updateVideo = video => dispatch => (
+    APIUtil.updateVideo(video).then(video => dispatch(receiveVideo(video)))
 );
 

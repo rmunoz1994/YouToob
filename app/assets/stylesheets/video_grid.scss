@@ -2,6 +2,8 @@
 
     display: flex;
     justify-content: center;
+    width: 100%;
+    height: 100%;
 
 }
 
@@ -12,7 +14,6 @@
     max-width: 1284px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     // align-items: center;
     .grid-subheader {
         display: flex;

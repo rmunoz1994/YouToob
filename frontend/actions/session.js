@@ -1,5 +1,6 @@
-import { postUser, postSession, deleteSession } from '../util/session';
+import * as APIUtil from '../util/session';
 
+export const RECEIVE_USER = 'RECEIVE_USER';
 export const RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER';
 export const LOGOUT_CURRENT_USER = 'LOGOUT_CURRENT_USER';
 export const RECEIVE_SESSION_ERRORS = 'RECEIVE_SESSION_ERRORS';
@@ -19,14 +20,22 @@ const receiveSessionErrors = errors => ({
     errors
 });
 
+const receiveUser = user => ({
+    type: RECEIVE_USER,
+    user
+});
+
 export const clearErrors = () => ({
     type: CLEAR_ERRORS
 });
 
 
+export const fetchUser = id => dispatch => (
+    APIUtil.fetchUser(id).then(user => dispatch(receiveUser(user)))
+);
 
 export const createNewUser = formUser => dispatch => (
-    postUser(formUser).then(user => (
+    APIUtil.postUser(formUser).then(user => (
         dispatch(receiveCurrentUser(user))
     ), err => (
         dispatch(receiveSessionErrors(err.responseJSON))
@@ -34,7 +43,7 @@ export const createNewUser = formUser => dispatch => (
 );
 
 export const login = formUser => dispatch => (
-    postSession(formUser).then(user => (
+    APIUtil.postSession(formUser).then(user => (
         dispatch(receiveCurrentUser(user))
     ), err => (
         dispatch(receiveSessionErrors(err.responseJSON))
@@ -42,5 +51,5 @@ export const login = formUser => dispatch => (
 );
 
 export const logout = () => dispatch =>(
-    deleteSession().then(() => dispatch(logoutCurrentUser()))
+    APIUtil.deleteSession().then(() => dispatch(logoutCurrentUser()))
 );

@@ -1,10 +1,12 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 import VideoItem from './video_item';
 
 class VideoShow extends React.Component {
     constructor(props) {
         super(props);
         this.formatDate = this.formatDate.bind(this);
+        this.handleUploadLink = this.handleUploadLink.bind(this);
     }
 
     componentDidMount() {
@@ -25,10 +27,20 @@ class VideoShow extends React.Component {
         return date[1] + " " + date[2] + ", " + date[3];
     }
 
+    handleUploadLink() {
+        this.props.history.push('/upload');
+    }
+
     render() {
+
         if (this.props.video === undefined) {
             return null;
         } else {
+            let descriptionButton;
+            if (this.props.currentUser && this.props.currentUser.id === this.props.video.uploaderId) {
+                console.log(currentUser);
+                descriptionButton = (<button className="edit-btn" onClick={this.handleUploadLink}>EDIT VIDEO</button>);
+            }
             return (
                 <div className="video-show-container">
                     <div className="video-show">
@@ -43,7 +55,15 @@ class VideoShow extends React.Component {
                         </div>
 
                         <div className="description-container">
-                            <p>Published on {this.formatDate()}</p>
+                            <div className="top-row">
+                                <div className="upload-info">
+
+                                    <p>Published on {this.formatDate()}</p>
+                                </div>
+                                <div className="description-btn-container">
+                                    {descriptionButton}
+                                </div>
+                            </div>
                             <p>{this.props.video.description}</p>
                         </div>
 
@@ -61,4 +81,4 @@ class VideoShow extends React.Component {
     }
 }
 
-export default VideoShow;
+export default withRouter(VideoShow);
