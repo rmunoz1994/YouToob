@@ -49,9 +49,9 @@ class VideoUpload extends React.Component {
                         <div className="upload-text">Select files to upload</div>
                         <input type="file" onChange={this.handleFile("videoFile")}/>
                         <input type="file" onChange={this.handleFile("thumbnailFile")}/>
-                        <input type="text" value={this.state.title} onChange={this.handleInput("title")}/>
-                        <textarea value={this.state.description} onChange={this.handleInput("description")}/>
-                        <input type="submit" value="Publish"/>
+                        <input className="title-input" type="text" value={this.state.title} onChange={this.handleInput("title")}/>
+                        <textarea className="description-input" value={this.state.description} onChange={this.handleInput("description")}/>
+                        <input className="edit-btn" type="submit" value="Publish"/>
                     </form>
                 </div>
             </div>

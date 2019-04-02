@@ -10,23 +10,11 @@ import { Route, Switch } from 'react-router-dom';
 import { AuthRoute, ProtectedRoute } from '../util/route_utils';
 
 const App = () => (
-    // <div>
-    //     <NavBarContainer />
-    //     <Switch>
-    //         {/* <Route exact path="/" component={ NavBarContainer } /> */}
-    //         <Route path="/index" component={ VideoIndexContainer } />
-    //         <Route path="/videos/:videoId" component={ VideoShowContainer } />
-    //         <ProtectedRoute path="/upload" component={ VideoUploadContainer } />
-    //         <AuthRoute path="/signup" component={ SignupContainer }/>
-    //         <AuthRoute path="/login" component={ LoginContainer } />
-    //         {/* <Route path="/videos" component={ VideoIndex } /> */}
-    //     </Switch>
-    // </div>
     <div>
         <Switch>
-            <Route path="/" component={MainContent}/>
             <AuthRoute path="/signup" component={SignupContainer} />
             <AuthRoute path="/login" component={LoginContainer} />
+            <Route path="/" component={MainContent}/>
         </Switch>
     </div>
 );

@@ -12,7 +12,6 @@ class Api::VideosController < ApplicationController
 
     def create
         @video = Video.new(video_params)
-        debugger
         if @video.save
             render json: {message: "You did it!"}
         else
@@ -21,11 +20,18 @@ class Api::VideosController < ApplicationController
     end
 
     def update
-
+        @video = Video.find_by(id: params[:video][:id])
+        if @video.update_attributes(video_params)
+            render json: { message: "You did it!" }
+        else
+            render json: @video.errors.full_messages
+        end
     end
 
     def destroy
-
+        @video = current_user.uploads.find(params[:id])
+        @video.destroy
+        render json: @video
     end
 
     def video_params

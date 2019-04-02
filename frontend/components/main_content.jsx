@@ -5,6 +5,7 @@ import NavBarContainer from './nav_bar/nav_bar_container';
 import VideoIndexContainer from './videos/video_index_container';
 import VideoShowContainer from './videos/video_show_container';
 import VideoUploadContainer from './videos/video_upload_container';
+import VideoEditContainer from './videos/video_edit_container';
 import { Route, Switch } from 'react-router-dom';
 import { AuthRoute, ProtectedRoute } from '../util/route_utils';
 import SideBar from './side_bar/side_bar';
@@ -50,8 +51,9 @@ class MainContent extends React.Component {
                 <div className="after-header">
                     {sideBar}
                     <Switch>
-                        <Route path="/index" component={VideoIndexContainer} />
-                        <Route path="/videos/:videoId" component={VideoShowContainer} />
+                        <Route path="/" component={VideoIndexContainer} />
+                        <ProtectedRoute exact path="/videos/:videoId/edit" component={VideoEditContainer} />
+                        <ProtectedRoute path="/videos/:videoId" component={VideoShowContainer} />
                         <ProtectedRoute path="/upload" component={VideoUploadContainer} />
                         {/* <ProtectedRoute path="/user/:userId" component={UserShowContainer} /> */}
                     </Switch>

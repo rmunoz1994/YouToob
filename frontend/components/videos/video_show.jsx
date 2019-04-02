@@ -6,7 +6,7 @@ class VideoShow extends React.Component {
     constructor(props) {
         super(props);
         this.formatDate = this.formatDate.bind(this);
-        this.handleUploadLink = this.handleUploadLink.bind(this);
+        this.handleEditLink = this.handleEditLink.bind(this);
     }
 
     componentDidMount() {
@@ -27,8 +27,8 @@ class VideoShow extends React.Component {
         return date[1] + " " + date[2] + ", " + date[3];
     }
 
-    handleUploadLink() {
-        this.props.history.push('/upload');
+    handleEditLink() {
+        this.props.history.push(`/videos/${this.props.match.params.videoId}/edit`);
     }
 
     render() {
@@ -39,7 +39,7 @@ class VideoShow extends React.Component {
             let descriptionButton;
             if (this.props.currentUser && this.props.currentUser.id === this.props.video.uploaderId) {
                 console.log(currentUser);
-                descriptionButton = (<button className="edit-btn" onClick={this.handleUploadLink}>EDIT VIDEO</button>);
+                descriptionButton = (<button className="edit-btn" onClick={this.handleEditLink}>EDIT VIDEO</button>);
             }
             return (
                 <div className="video-show-container">
@@ -64,7 +64,7 @@ class VideoShow extends React.Component {
                                     {descriptionButton}
                                 </div>
                             </div>
-                            <p>{this.props.video.description}</p>
+                            <p className="description">{this.props.video.description}</p>
                         </div>
 
                     </div>

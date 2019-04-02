@@ -32,3 +32,10 @@ export const updateVideo = video => (
     })
 );
 
+export const deleteVideo = video => (
+    $.ajax({
+        method: 'DELETE',
+        url: `/api/videos/${video.id}`
+    })
+);
+
