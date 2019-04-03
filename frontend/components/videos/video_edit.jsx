@@ -38,43 +38,82 @@ class VideoEdit extends React.Component {
         formData.append('video[id]', this.props.match.params.videoId);
         formData.append('video[title]', this.state.title);
         formData.append('video[description]', this.state.description);
-        if ( this.state.thumbnailFile) {
+        if (this.state.thumbnailFile) {
             formData.append('video[thumbnailUrl]', this.state.thumbnailFile);
         }
-        this.props.updateVideo(formData);
-        this.props.history.push('/index');
+        this.props.updateVideo(formData).then(video => this.props.history.push('/'));
     }
 
     handleDelete() {
-        this.props.deleteVideo(this.props.video);
-        this.props.history.push('/index');
+        this.props.deleteVideo(this.props.video).then(video => this.props.history.push('/'));
     }
 
     handleCancel() {
-        this.props.history.push('/index');
+        this.props.history.push('/');
+    }
+
+    renderErrors() {
+        return (
+            <ul className="error-list">
+                {this.props.errors.map((error, i) => (
+                    <li key={`error-${i}`}>
+                        <i className="fas fa-exclamation-circle"></i>
+                        {error}
+                    </li>
+                ))}
+            </ul>
+        );
+    }
+
+    charCount(field) {
+        return e => {
+            field.length();
+        }
     }
 
     render() {
         if (this.props.video) {
+            const errorClass = this.props.errors.length > 0 ? "error-login" : "";
             return (
                 <div className="upload-page">
                     <div className="edit-container">
+                        
                         <form onSubmit={this.handleSubmit} className="upload-prompt">
-                            <div className="upload-text">Edit your video</div>
-                            <input type="file" onChange={this.handleFile("thumbnailFile")} />
-                            <div className="title-input-edit">
-                                <label htmlFor="title">Title</label>
-                                <textarea name="title" placeholder="Add title" value={this.state.title} onChange={this.handleInput("title")} />
+
+                            <div className="upload-part-one">
+                                <div className="edit-text">Edit your video</div>
+                                <input type="file" accept="image/*" onChange={this.handleFile("thumbnailFile")} />
                             </div>
-                            <div className="description-input-edit">
-                                <label htmlFor="description">Description</label>
-                                <textarea name="Description" value={this.state.description} onChange={this.handleInput("description")} />
+
+                            <div className="upload-part-two">
+                                <div>
+                                    <div className="title-input-edit">
+                                        <textarea id="title" className="title-text" placeholder="Add title" value={this.state.title} onChange={this.handleInput("title")} />
+                                        <label htmlFor="title">Title</label>
+                                        <div className="char-count-container">
+                                            <p className="char-count">{this.state.title.length}/100</p>
+                                        </div>
+                                    </div>
+                                    <div className="title-error-container">
+                                    </div>
+                                </div>
+
+                                <div className="description-input-edit">
+                                    <textarea id="description" className="description-text" placeholder="Add description" value={this.state.description} onChange={this.handleInput("description")} />
+                                    <label htmlFor="description">Description</label>
+                                    <div className="char-count-container">
+                                        <p className="char-count">{this.state.description.length}/5000</p>
+                                    </div>
+                                </div>
+
+                                {this.renderErrors()}
+                                <div className="edit-btn-row">
+                                    <input className="edit-btn" type="submit" value="SAVE" />
+                                    <button type="button" className="edit-btn" onClick={this.handleDelete}>DELETE</button>
+                                    <button type="button" className="edit-btn" onClick={this.handleCancel}>CANCEL</button>
+                                </div>
                             </div>
-                            <div className="edit-btn-row">
-                                <input className="edit-btn" type="submit" value="SAVE" />
-                                <button type="button" className="edit-btn" onClick={this.handleDelete}>DELETE</button>
-                                <button type="button" className="edit-btn" onClick={this.handleCancel}>CANCEL</button>
-                            </div>
+                            
                         </form>
                     </div>
                 </div>

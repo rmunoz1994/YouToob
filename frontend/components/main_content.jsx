@@ -51,11 +51,10 @@ class MainContent extends React.Component {
                 <div className="after-header">
                     {sideBar}
                     <Switch>
-                        <Route path="/" component={VideoIndexContainer} />
+                        <Route exact path="/" component={VideoIndexContainer} />
                         <ProtectedRoute exact path="/videos/:videoId/edit" component={VideoEditContainer} />
-                        <ProtectedRoute path="/videos/:videoId" component={VideoShowContainer} />
+                        <Route path="/videos/:videoId" component={VideoShowContainer} />
                         <ProtectedRoute path="/upload" component={VideoUploadContainer} />
-                        {/* <ProtectedRoute path="/user/:userId" component={UserShowContainer} /> */}
                     </Switch>
                 </div>
             </> 

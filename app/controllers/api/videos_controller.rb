@@ -15,7 +15,7 @@ class Api::VideosController < ApplicationController
         if @video.save
             render json: {message: "You did it!"}
         else
-            render json: @video.errors.full_messages
+            render json: @video.errors.full_messages, status: 404
         end
     end
 
@@ -24,7 +24,7 @@ class Api::VideosController < ApplicationController
         if @video.update_attributes(video_params)
             render json: { message: "You did it!" }
         else
-            render json: @video.errors.full_messages
+            render json: @video.errors.full_messages, status: 422
         end
     end
 
@@ -35,7 +35,7 @@ class Api::VideosController < ApplicationController
     end
 
     def video_params
-        params.require(:video).permit(:title, :description, :uploader_id, :videoUrl, :thumbnailUrl)
+        params.require(:video).permit(:id, :title, :description, :uploader_id, :videoUrl, :thumbnailUrl)
     end
 
 end

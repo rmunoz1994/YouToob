@@ -43,19 +43,28 @@ export const fetchVideo = id => dispatch => (
     APIUtil.fetchVideo(id).then(video => (
         dispatch(receiveVideo(video))
     ), err => (
-        dispatch(receiveVideoErrors(erro.responseJSON))
+        dispatch(receiveVideoErrors(err.responseJSON))
     ))
 );
 
 export const createVideo = video => dispatch => (
-    APIUtil.createVideo(video).then(video => dispatch(receiveVideo(video)))
+    APIUtil.createVideo(video).then(video => (
+        dispatch(receiveVideo(video))
+    ), err => (
+        dispatch(receiveVideoErrors(err.responseJSON))
+    ))
 );
 
 export const updateVideo = video => dispatch => (
-    APIUtil.updateVideo(video).then(video => dispatch(receiveVideo(video)))
+    APIUtil.updateVideo(video).then(video => (
+        dispatch(receiveVideo(video))
+    ), err => (
+        dispatch(receiveVideoErrors(err.responseJSON))
+    ))
 );
 
 export const deleteVideo = video => dispatch => (
-    APIUtil.deleteVideo(video).then(() => dispatch(removeVideo(video)))
+    APIUtil.deleteVideo(video).then(() => dispatch(removeVideo(video))
+    )
 );
 

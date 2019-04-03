@@ -1,4 +1,4 @@
-import { RECEIVE_VIDEO_ERRORS, RECEIVE_VIDEO } from '../actions/videos';
+import { RECEIVE_VIDEO_ERRORS, RECEIVE_VIDEO } from '../actions/video_actions';
 
 export default (state = [], action) => {
     Object.freeze(state);

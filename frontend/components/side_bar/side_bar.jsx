@@ -1,15 +1,22 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 
 class SideBar extends React.Component {
     constructor(props) {
         super(props);
     }
 
+    handleLink(link) {
+        return e => {
+            this.props.history.push(link);
+        };
+    }
+
     render() {
         return (
             <div className="side-bar">
                 <div className="side-bar-section">
-                    <div className="side-bar-item">
+                    <div className="side-bar-item" onClick={this.handleLink('/')}>
                         <div>
                             <i className="fas fa-home"></i>
                         </div>
@@ -60,4 +67,4 @@ class SideBar extends React.Component {
     }
 }
 
-export default SideBar;
+export default withRouter(SideBar);

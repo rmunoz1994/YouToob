@@ -24,7 +24,7 @@ class NavBar extends React.Component {
     }
 
     handleIndexLink() {
-        this.props.history.push('/index');
+        this.props.history.push('/');
     }
 
     

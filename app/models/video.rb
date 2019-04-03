@@ -14,6 +14,9 @@ class Video < ApplicationRecord
 
     validates :title, :description, presence: true
 
+    validate :ensure_videoUrl
+    validate :ensure_thumbnailUrl
+
     belongs_to :uploader,
         class_name: :User,
         primary_key: :id,
@@ -21,5 +24,17 @@ class Video < ApplicationRecord
 
     has_one_attached :videoUrl
     has_one_attached :thumbnailUrl
+
+    def ensure_videoUrl
+        unless self.videoUrl.attached?
+            errors[:video] << "file must be attached"
+        end
+    end
+
+    def ensure_thumbnailUrl
+        unless self.thumbnailUrl.attached?
+            errors[:video] << "thumbnail must be attached"
+        end
+    end
 
 end

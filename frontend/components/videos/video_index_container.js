@@ -3,7 +3,7 @@ import VideoIndex from './video_index';
 import { fetchVideos, fetchVideo } from '../../actions/video_actions';
 
 const mapStateToProps = state => {
-    const video = state.entities.videos[6];
+    const video = state.entities.videos[7];
     return {
         video: video
     };
