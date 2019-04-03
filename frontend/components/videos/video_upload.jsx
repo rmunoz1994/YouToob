@@ -90,14 +90,18 @@ class VideoUpload extends React.Component {
                     <form onSubmit={this.handleSubmit} className="upload-prompt">
                         {this.state.firstForm ? (
                             <>
+                                <input className="upload-input" id="upload" type="file" accept="video/mp4,video/*" onChange={this.handleFile("videoFile")} />
+                                <label htmlFor="upload">
+                                    <i id="upload-icon" className="fas fa-arrow-circle-up"></i>
+                                </label>
                                 <div className="upload-text">Select files to upload</div>
-                                <input type="file" accept="video/mp4,video/*" onChange={this.handleFile("videoFile")} />
                             </>
                         ) : (
                             <>
-                                <input type="file" accept="image/*" onChange={this.handleFile("thumbnailFile")} />
-                                <input className="title-input" type="text" onChange={this.handleInput("title")} />
-                                <textarea className="description-input" onChange={this.handleInput("description")} />
+                                <input className="title-input" type="text" placeholder="Title" onChange={this.handleInput("title")} />
+                                <textarea className="description-input" placeholder="Description" onChange={this.handleInput("description")} />
+                                <input className="upload-input" id="thumbnail-upload" type="file" accept="image/*" onChange={this.handleFile("thumbnailFile")} />
+                                <label className="thumbnail-label" htmlFor="thumbnail-upload">Custom thumbnail</label>
                                 <input className="edit-btn" type="submit" value="Publish" />
                             </>
                         )}       

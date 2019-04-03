@@ -43551,3 +43551,694 @@ Processing by Api::VideosController#show as JSON
 Completed 200 OK in 24ms (Views: 15.5ms | ActiveRecord: 7.7ms)
 
 
+Started GET "/api/videos/7" for ::1 at 2019-04-02 23:33:19 -0400
+Processing by Api::VideosController#show as JSON
+  Parameters: {"id"=>"7"}
+  [1m[36mVideo Load (1.4ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" WHERE "videos"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/api/videos_controller.rb:9
+  Rendering api/videos/show.json.jbuilder
+  [1m[36mActiveStorage::Attachment Load (1.7ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 7], ["record_type", "Video"], ["name", "videoUrl"], ["LIMIT", 1]]
+  ↳ app/views/api/videos/show.json.jbuilder:5
+  [1m[36mActiveStorage::Blob Load (0.9ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/views/api/videos/show.json.jbuilder:5
+  [1m[36mActiveStorage::Attachment Load (0.6ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 7], ["record_type", "Video"], ["name", "thumbnailUrl"], ["LIMIT", 1]]
+  ↳ app/views/api/videos/show.json.jbuilder:6
+  [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/views/api/videos/show.json.jbuilder:6
+  Rendered api/videos/show.json.jbuilder (43.3ms)
+Completed 200 OK in 100ms (Views: 74.3ms | ActiveRecord: 16.5ms)
+
+
+Started GET "/api/videos/7" for ::1 at 2019-04-02 23:33:50 -0400
+Processing by Api::VideosController#show as JSON
+  Parameters: {"id"=>"7"}
+  [1m[36mVideo Load (0.4ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" WHERE "videos"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/api/videos_controller.rb:9
+  Rendering api/videos/show.json.jbuilder
+  [1m[36mActiveStorage::Attachment Load (0.6ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 7], ["record_type", "Video"], ["name", "videoUrl"], ["LIMIT", 1]]
+  ↳ app/views/api/videos/show.json.jbuilder:5
+  [1m[36mActiveStorage::Blob Load (0.5ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/views/api/videos/show.json.jbuilder:5
+  [1m[36mActiveStorage::Attachment Load (0.6ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 7], ["record_type", "Video"], ["name", "thumbnailUrl"], ["LIMIT", 1]]
+  ↳ app/views/api/videos/show.json.jbuilder:6
+  [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/views/api/videos/show.json.jbuilder:6
+  Rendered api/videos/show.json.jbuilder (13.2ms)
+Completed 200 OK in 26ms (Views: 21.1ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/" for ::1 at 2019-04-02 23:33:51 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (1.7ms)
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "STTbslaXLBAVHwg4N2HRrA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+Completed 200 OK in 4764ms (Views: 4741.1ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/api/videos/7" for ::1 at 2019-04-02 23:33:57 -0400
+Processing by Api::VideosController#show as JSON
+  Parameters: {"id"=>"7"}
+  [1m[36mVideo Load (1.2ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" WHERE "videos"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/api/videos_controller.rb:9
+  Rendering api/videos/show.json.jbuilder
+  [1m[36mActiveStorage::Attachment Load (1.7ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 7], ["record_type", "Video"], ["name", "videoUrl"], ["LIMIT", 1]]
+  ↳ app/views/api/videos/show.json.jbuilder:5
+  [1m[36mActiveStorage::Blob Load (0.9ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/views/api/videos/show.json.jbuilder:5
+  [1m[36mActiveStorage::Attachment Load (0.6ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 7], ["record_type", "Video"], ["name", "thumbnailUrl"], ["LIMIT", 1]]
+  ↳ app/views/api/videos/show.json.jbuilder:6
+  [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/views/api/videos/show.json.jbuilder:6
+  Rendered api/videos/show.json.jbuilder (17.9ms)
+Completed 200 OK in 33ms (Views: 17.1ms | ActiveRecord: 14.6ms)
+
+
+Started GET "/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBFZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--2e092882f1217d532a5c1d4f01b9f270536973c4/test-video-thumbnail.png" for ::1 at 2019-04-02 23:33:57 -0400
+Processing by ActiveStorage::BlobsController#show as PNG
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBFZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--2e092882f1217d532a5c1d4f01b9f270536973c4", "filename"=>"test-video-thumbnail"}
+  [1m[36mActiveStorage::Blob Load (1.9ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ /Users/RayMunoz/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+[36m  S3 Storage (4.8ms) [0m[34mGenerated URL for file at key: bdtRDNMg9YxAcD1uhGDzqaTj (https://youtoob-dev.s3.amazonaws.com/bdtRDNMg9YxAcD1uhGDzqaTj?response-content-disposition=inline%3B%20filename%3D%22test-video-thumbnail.png%22%3B%20filename%2A%3DUTF-8%27%27test-video-thumbnail.png&response-content-type=image%2Fpng&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARYOR5JOMRZHBYBQE%2F20190403%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20190403T033357Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Signature=19c86d29e42a7fce561f86df1e9a1cb8828cd280fb4769468d80aea119fd4fef)[0m
+Redirected to https://youtoob-dev.s3.amazonaws.com/bdtRDNMg9YxAcD1uhGDzqaTj?response-content-disposition=inline%3B%20filename%3D%22test-video-thumbnail.png%22%3B%20filename%2A%3DUTF-8%27%27test-video-thumbnail.png&response-content-type=image%2Fpng&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARYOR5JOMRZHBYBQE%2F20190403%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20190403T033357Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Signature=19c86d29e42a7fce561f86df1e9a1cb8828cd280fb4769468d80aea119fd4fef
+Completed 302 Found in 16ms (ActiveRecord: 7.3ms)
+
+
+Started GET "/api/videos/7" for ::1 at 2019-04-02 23:42:33 -0400
+Processing by Api::VideosController#show as JSON
+  Parameters: {"id"=>"7"}
+  [1m[36mVideo Load (1.1ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" WHERE "videos"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/api/videos_controller.rb:9
+  Rendering api/videos/show.json.jbuilder
+  [1m[36mActiveStorage::Attachment Load (1.8ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 7], ["record_type", "Video"], ["name", "videoUrl"], ["LIMIT", 1]]
+  ↳ app/views/api/videos/show.json.jbuilder:5
+  [1m[36mActiveStorage::Blob Load (0.6ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/views/api/videos/show.json.jbuilder:5
+  [1m[36mActiveStorage::Attachment Load (0.4ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 7], ["record_type", "Video"], ["name", "thumbnailUrl"], ["LIMIT", 1]]
+  ↳ app/views/api/videos/show.json.jbuilder:6
+  [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/views/api/videos/show.json.jbuilder:6
+  Rendered api/videos/show.json.jbuilder (15.2ms)
+Completed 200 OK in 67ms (Views: 53.1ms | ActiveRecord: 12.8ms)
+
+
+Started GET "/" for ::1 at 2019-04-02 23:42:33 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.8ms)
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "STTbslaXLBAVHwg4N2HRrA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+Completed 200 OK in 2535ms (Views: 2509.9ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/api/videos/7" for ::1 at 2019-04-02 23:42:37 -0400
+Processing by Api::VideosController#show as JSON
+  Parameters: {"id"=>"7"}
+  [1m[36mVideo Load (1.3ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" WHERE "videos"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/api/videos_controller.rb:9
+  Rendering api/videos/show.json.jbuilder
+  [1m[36mActiveStorage::Attachment Load (1.9ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 7], ["record_type", "Video"], ["name", "videoUrl"], ["LIMIT", 1]]
+  ↳ app/views/api/videos/show.json.jbuilder:5
+  [1m[36mActiveStorage::Blob Load (0.6ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/views/api/videos/show.json.jbuilder:5
+  [1m[36mActiveStorage::Attachment Load (1.1ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 7], ["record_type", "Video"], ["name", "thumbnailUrl"], ["LIMIT", 1]]
+  ↳ app/views/api/videos/show.json.jbuilder:6
+  [1m[36mActiveStorage::Blob Load (0.7ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/views/api/videos/show.json.jbuilder:6
+  Rendered api/videos/show.json.jbuilder (221.2ms)
+Completed 200 OK in 458ms (Views: 438.7ms | ActiveRecord: 17.4ms)
+
+
+Started GET "/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBFZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--2e092882f1217d532a5c1d4f01b9f270536973c4/test-video-thumbnail.png" for ::1 at 2019-04-02 23:42:38 -0400
+Processing by ActiveStorage::BlobsController#show as PNG
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBFZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--2e092882f1217d532a5c1d4f01b9f270536973c4", "filename"=>"test-video-thumbnail"}
+  [1m[36mActiveStorage::Blob Load (0.4ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ /Users/RayMunoz/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+[36m  S3 Storage (1.3ms) [0m[34mGenerated URL for file at key: bdtRDNMg9YxAcD1uhGDzqaTj (https://youtoob-dev.s3.amazonaws.com/bdtRDNMg9YxAcD1uhGDzqaTj?response-content-disposition=inline%3B%20filename%3D%22test-video-thumbnail.png%22%3B%20filename%2A%3DUTF-8%27%27test-video-thumbnail.png&response-content-type=image%2Fpng&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARYOR5JOMRZHBYBQE%2F20190403%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20190403T034238Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Signature=e9a12e09b567c5a313b58a5ddfaabe03bc6476ae3f1b8415c28c976bc4d9d220)[0m
+Redirected to https://youtoob-dev.s3.amazonaws.com/bdtRDNMg9YxAcD1uhGDzqaTj?response-content-disposition=inline%3B%20filename%3D%22test-video-thumbnail.png%22%3B%20filename%2A%3DUTF-8%27%27test-video-thumbnail.png&response-content-type=image%2Fpng&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARYOR5JOMRZHBYBQE%2F20190403%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20190403T034238Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Signature=e9a12e09b567c5a313b58a5ddfaabe03bc6476ae3f1b8415c28c976bc4d9d220
+Completed 302 Found in 3ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2019-04-02 23:44:20 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.6ms)
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "STTbslaXLBAVHwg4N2HRrA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+Completed 200 OK in 1286ms (Views: 1263.4ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/" for ::1 at 2019-04-02 23:46:27 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.6ms)
+  [1m[36mUser Load (2.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "STTbslaXLBAVHwg4N2HRrA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+Completed 200 OK in 2788ms (Views: 2733.6ms | ActiveRecord: 7.5ms)
+
+
+Started GET "/api/videos/7" for ::1 at 2019-04-02 23:46:56 -0400
+Processing by Api::VideosController#show as JSON
+  Parameters: {"id"=>"7"}
+  [1m[36mVideo Load (0.5ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" WHERE "videos"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/api/videos_controller.rb:9
+  Rendering api/videos/show.json.jbuilder
+  [1m[36mActiveStorage::Attachment Load (1.0ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 7], ["record_type", "Video"], ["name", "videoUrl"], ["LIMIT", 1]]
+  ↳ app/views/api/videos/show.json.jbuilder:5
+  [1m[36mActiveStorage::Blob Load (0.7ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/views/api/videos/show.json.jbuilder:5
+  [1m[36mActiveStorage::Attachment Load (0.6ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 7], ["record_type", "Video"], ["name", "thumbnailUrl"], ["LIMIT", 1]]
+  ↳ app/views/api/videos/show.json.jbuilder:6
+  [1m[36mActiveStorage::Blob Load (0.4ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/views/api/videos/show.json.jbuilder:6
+  Rendered api/videos/show.json.jbuilder (11.2ms)
+Completed 200 OK in 57ms (Views: 51.9ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/" for ::1 at 2019-04-02 23:48:50 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.6ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "STTbslaXLBAVHwg4N2HRrA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+Completed 200 OK in 929ms (Views: 909.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2019-04-02 23:49:29 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.5ms)
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "STTbslaXLBAVHwg4N2HRrA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+Completed 200 OK in 428ms (Views: 399.5ms | ActiveRecord: 8.4ms)
+
+
+Started GET "/api/videos/7" for ::1 at 2019-04-02 23:51:13 -0400
+Processing by Api::VideosController#show as JSON
+  Parameters: {"id"=>"7"}
+  [1m[36mVideo Load (0.4ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" WHERE "videos"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/api/videos_controller.rb:9
+  Rendering api/videos/show.json.jbuilder
+  [1m[36mActiveStorage::Attachment Load (0.7ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 7], ["record_type", "Video"], ["name", "videoUrl"], ["LIMIT", 1]]
+  ↳ app/views/api/videos/show.json.jbuilder:5
+  [1m[36mActiveStorage::Blob Load (0.4ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/views/api/videos/show.json.jbuilder:5
+  [1m[36mActiveStorage::Attachment Load (0.5ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 7], ["record_type", "Video"], ["name", "thumbnailUrl"], ["LIMIT", 1]]
+  ↳ app/views/api/videos/show.json.jbuilder:6
+  [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/views/api/videos/show.json.jbuilder:6
+  Rendered api/videos/show.json.jbuilder (10.4ms)
+Completed 200 OK in 57ms (Views: 53.9ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBFZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--2e092882f1217d532a5c1d4f01b9f270536973c4/test-video-thumbnail.png" for ::1 at 2019-04-02 23:51:13 -0400
+Processing by ActiveStorage::BlobsController#show as PNG
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBFZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--2e092882f1217d532a5c1d4f01b9f270536973c4", "filename"=>"test-video-thumbnail"}
+  [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ /Users/RayMunoz/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+[36m  S3 Storage (3.0ms) [0m[34mGenerated URL for file at key: bdtRDNMg9YxAcD1uhGDzqaTj (https://youtoob-dev.s3.amazonaws.com/bdtRDNMg9YxAcD1uhGDzqaTj?response-content-disposition=inline%3B%20filename%3D%22test-video-thumbnail.png%22%3B%20filename%2A%3DUTF-8%27%27test-video-thumbnail.png&response-content-type=image%2Fpng&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARYOR5JOMRZHBYBQE%2F20190403%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20190403T035113Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Signature=2935611bdf8991084b4ce3ff023bbfbd7b6aca607f69fccd885530d3b4286dde)[0m
+Redirected to https://youtoob-dev.s3.amazonaws.com/bdtRDNMg9YxAcD1uhGDzqaTj?response-content-disposition=inline%3B%20filename%3D%22test-video-thumbnail.png%22%3B%20filename%2A%3DUTF-8%27%27test-video-thumbnail.png&response-content-type=image%2Fpng&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARYOR5JOMRZHBYBQE%2F20190403%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20190403T035113Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Signature=2935611bdf8991084b4ce3ff023bbfbd7b6aca607f69fccd885530d3b4286dde
+Completed 302 Found in 6ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/api/videos/7" for ::1 at 2019-04-03 00:04:03 -0400
+Processing by Api::VideosController#show as JSON
+  Parameters: {"id"=>"7"}
+  [1m[36mVideo Load (1.3ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" WHERE "videos"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/api/videos_controller.rb:9
+  Rendering api/videos/show.json.jbuilder
+  [1m[36mActiveStorage::Attachment Load (2.0ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 7], ["record_type", "Video"], ["name", "videoUrl"], ["LIMIT", 1]]
+  ↳ app/views/api/videos/show.json.jbuilder:5
+  [1m[36mActiveStorage::Blob Load (0.6ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/views/api/videos/show.json.jbuilder:5
+  [1m[36mActiveStorage::Attachment Load (1.2ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 7], ["record_type", "Video"], ["name", "thumbnailUrl"], ["LIMIT", 1]]
+  ↳ app/views/api/videos/show.json.jbuilder:6
+  [1m[36mActiveStorage::Blob Load (0.4ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/views/api/videos/show.json.jbuilder:6
+  Rendered api/videos/show.json.jbuilder (19.1ms)
+Completed 200 OK in 77ms (Views: 58.6ms | ActiveRecord: 16.4ms)
+
+
+Started GET "/" for ::1 at 2019-04-03 00:04:04 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.5ms)
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "STTbslaXLBAVHwg4N2HRrA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+Completed 200 OK in 2561ms (Views: 2535.3ms | ActiveRecord: 4.1ms)
+
+
+Started GET "/api/videos/7" for ::1 at 2019-04-03 00:04:08 -0400
+Processing by Api::VideosController#show as JSON
+  Parameters: {"id"=>"7"}
+  [1m[36mVideo Load (1.3ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" WHERE "videos"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/api/videos_controller.rb:9
+  Rendering api/videos/show.json.jbuilder
+  [1m[36mActiveStorage::Attachment Load (1.6ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 7], ["record_type", "Video"], ["name", "videoUrl"], ["LIMIT", 1]]
+  ↳ app/views/api/videos/show.json.jbuilder:5
+  [1m[36mActiveStorage::Blob Load (0.7ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/views/api/videos/show.json.jbuilder:5
+  [1m[36mActiveStorage::Attachment Load (1.0ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 7], ["record_type", "Video"], ["name", "thumbnailUrl"], ["LIMIT", 1]]
+  ↳ app/views/api/videos/show.json.jbuilder:6
+  [1m[36mActiveStorage::Blob Load (0.7ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/views/api/videos/show.json.jbuilder:6
+  Rendered api/videos/show.json.jbuilder (18.0ms)
+Completed 200 OK in 35ms (Views: 17.8ms | ActiveRecord: 15.8ms)
+
+
+Started GET "/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBFZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--2e092882f1217d532a5c1d4f01b9f270536973c4/test-video-thumbnail.png" for ::1 at 2019-04-03 00:04:09 -0400
+Processing by ActiveStorage::BlobsController#show as PNG
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBFZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--2e092882f1217d532a5c1d4f01b9f270536973c4", "filename"=>"test-video-thumbnail"}
+  [1m[36mActiveStorage::Blob Load (2.5ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ /Users/RayMunoz/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+[36m  S3 Storage (1.2ms) [0m[34mGenerated URL for file at key: bdtRDNMg9YxAcD1uhGDzqaTj (https://youtoob-dev.s3.amazonaws.com/bdtRDNMg9YxAcD1uhGDzqaTj?response-content-disposition=inline%3B%20filename%3D%22test-video-thumbnail.png%22%3B%20filename%2A%3DUTF-8%27%27test-video-thumbnail.png&response-content-type=image%2Fpng&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARYOR5JOMRZHBYBQE%2F20190403%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20190403T040409Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Signature=b1aaea22102c84fbff8fd7a97dfe8f5c17ea917dc2750f7d59912c699f6e23b4)[0m
+Redirected to https://youtoob-dev.s3.amazonaws.com/bdtRDNMg9YxAcD1uhGDzqaTj?response-content-disposition=inline%3B%20filename%3D%22test-video-thumbnail.png%22%3B%20filename%2A%3DUTF-8%27%27test-video-thumbnail.png&response-content-type=image%2Fpng&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARYOR5JOMRZHBYBQE%2F20190403%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20190403T040409Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Signature=b1aaea22102c84fbff8fd7a97dfe8f5c17ea917dc2750f7d59912c699f6e23b4
+Completed 302 Found in 12ms (ActiveRecord: 7.9ms)
+
+
+Started GET "/" for ::1 at 2019-04-03 00:05:36 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.4ms)
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "STTbslaXLBAVHwg4N2HRrA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+Completed 200 OK in 326ms (Views: 301.3ms | ActiveRecord: 4.7ms)
+
+
+Started GET "/" for ::1 at 2019-04-03 00:08:56 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.5ms)
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "STTbslaXLBAVHwg4N2HRrA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+Completed 200 OK in 415ms (Views: 386.0ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for ::1 at 2019-04-03 00:10:57 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.6ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "STTbslaXLBAVHwg4N2HRrA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+Completed 200 OK in 1281ms (Views: 1252.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for ::1 at 2019-04-03 00:11:58 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.4ms)
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "STTbslaXLBAVHwg4N2HRrA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+Completed 200 OK in 363ms (Views: 355.0ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/" for ::1 at 2019-04-03 00:14:16 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.4ms)
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "STTbslaXLBAVHwg4N2HRrA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+Completed 200 OK in 356ms (Views: 352.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for ::1 at 2019-04-03 00:15:19 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.6ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "STTbslaXLBAVHwg4N2HRrA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+Completed 200 OK in 314ms (Views: 311.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for ::1 at 2019-04-03 00:16:53 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.4ms)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "STTbslaXLBAVHwg4N2HRrA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+Completed 200 OK in 286ms (Views: 283.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for ::1 at 2019-04-03 00:18:31 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.5ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "STTbslaXLBAVHwg4N2HRrA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+Completed 200 OK in 1191ms (Views: 1170.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for ::1 at 2019-04-03 00:22:10 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.6ms)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "STTbslaXLBAVHwg4N2HRrA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+Completed 200 OK in 1257ms (Views: 1237.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for ::1 at 2019-04-03 00:23:02 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.6ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "STTbslaXLBAVHwg4N2HRrA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+Completed 200 OK in 1209ms (Views: 1191.7ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/api/videos" for ::1 at 2019-04-03 00:23:40 -0400
+Processing by Api::VideosController#create as JSON
+  Parameters: {"video"=>{"title"=>"", "description"=>"", "uploader_id"=>"1", "videoUrl"=>#<ActionDispatch::Http::UploadedFile:0x00007f904d3e0dc0 @tempfile=#<Tempfile:/var/folders/nj/29vg7zt120d6j_z24ywzgcr00000gn/T/RackMultipart20190403-57718-4x3qo3.mp4>, @original_filename="small.mp4", @content_type="video/mp4", @headers="Content-Disposition: form-data; name=\"video[videoUrl]\"; filename=\"small.mp4\"\r\nContent-Type: video/mp4\r\n">}}
+[36m  S3 Storage (1835.4ms) [0m[32mUploaded file to key: Tp1kecnwLcdU6hNb1G1u3gLF (checksum: o6x92rsmPC0Atz6Bd9FcjQ==)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/videos_controller.rb:14
+  [1m[36mActiveStorage::Blob Create (1.3ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "byte_size", "checksum", "created_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["key", "Tp1kecnwLcdU6hNb1G1u3gLF"], ["filename", "small.mp4"], ["content_type", "video/mp4"], ["metadata", "{\"identified\":true}"], ["byte_size", 383631], ["checksum", "o6x92rsmPC0Atz6Bd9FcjQ=="], ["created_at", "2019-04-03 04:23:41.870764"]]
+  ↳ app/controllers/api/videos_controller.rb:14
+  [1m[35m (44.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/videos_controller.rb:14
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/videos_controller.rb:14
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/videos_controller.rb:14
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/videos_controller.rb:15
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/videos_controller.rb:15
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/videos_controller.rb:15
+Completed 404 Not Found in 1902ms (Views: 0.3ms | ActiveRecord: 46.9ms)
+
+
+Started GET "/api/videos/7" for ::1 at 2019-04-03 00:24:52 -0400
+Processing by Api::VideosController#show as JSON
+  Parameters: {"id"=>"7"}
+  [1m[36mVideo Load (0.4ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" WHERE "videos"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/api/videos_controller.rb:9
+  Rendering api/videos/show.json.jbuilder
+  [1m[36mActiveStorage::Attachment Load (0.7ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 7], ["record_type", "Video"], ["name", "videoUrl"], ["LIMIT", 1]]
+  ↳ app/views/api/videos/show.json.jbuilder:5
+  [1m[36mActiveStorage::Blob Load (0.6ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/views/api/videos/show.json.jbuilder:5
+  [1m[36mActiveStorage::Attachment Load (0.6ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 7], ["record_type", "Video"], ["name", "thumbnailUrl"], ["LIMIT", 1]]
+  ↳ app/views/api/videos/show.json.jbuilder:6
+  [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/views/api/videos/show.json.jbuilder:6
+  Rendered api/videos/show.json.jbuilder (9.3ms)
+Completed 200 OK in 42ms (Views: 38.7ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBFZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--2e092882f1217d532a5c1d4f01b9f270536973c4/test-video-thumbnail.png" for ::1 at 2019-04-03 00:24:52 -0400
+Processing by ActiveStorage::BlobsController#show as PNG
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBFZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--2e092882f1217d532a5c1d4f01b9f270536973c4", "filename"=>"test-video-thumbnail"}
+  [1m[36mActiveStorage::Blob Load (0.4ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ /Users/RayMunoz/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+[36m  S3 Storage (1.6ms) [0m[34mGenerated URL for file at key: bdtRDNMg9YxAcD1uhGDzqaTj (https://youtoob-dev.s3.amazonaws.com/bdtRDNMg9YxAcD1uhGDzqaTj?response-content-disposition=inline%3B%20filename%3D%22test-video-thumbnail.png%22%3B%20filename%2A%3DUTF-8%27%27test-video-thumbnail.png&response-content-type=image%2Fpng&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARYOR5JOMRZHBYBQE%2F20190403%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20190403T042452Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Signature=37a9a11a1edcb20a01bbf5a1d98a76630e204fa7b674afe820b289be945da344)[0m
+Redirected to https://youtoob-dev.s3.amazonaws.com/bdtRDNMg9YxAcD1uhGDzqaTj?response-content-disposition=inline%3B%20filename%3D%22test-video-thumbnail.png%22%3B%20filename%2A%3DUTF-8%27%27test-video-thumbnail.png&response-content-type=image%2Fpng&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARYOR5JOMRZHBYBQE%2F20190403%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20190403T042452Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Signature=37a9a11a1edcb20a01bbf5a1d98a76630e204fa7b674afe820b289be945da344
+Completed 302 Found in 4ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/api/videos/7" for ::1 at 2019-04-03 00:25:25 -0400
+Processing by Api::VideosController#show as JSON
+  Parameters: {"id"=>"7"}
+  [1m[36mVideo Load (0.5ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" WHERE "videos"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/api/videos_controller.rb:9
+  Rendering api/videos/show.json.jbuilder
+  [1m[36mActiveStorage::Attachment Load (0.7ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 7], ["record_type", "Video"], ["name", "videoUrl"], ["LIMIT", 1]]
+  ↳ app/views/api/videos/show.json.jbuilder:5
+  [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/views/api/videos/show.json.jbuilder:5
+  [1m[36mActiveStorage::Attachment Load (0.5ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 7], ["record_type", "Video"], ["name", "thumbnailUrl"], ["LIMIT", 1]]
+  ↳ app/views/api/videos/show.json.jbuilder:6
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/views/api/videos/show.json.jbuilder:6
+  Rendered api/videos/show.json.jbuilder (8.1ms)
+Completed 200 OK in 28ms (Views: 24.8ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/api/videos/7" for ::1 at 2019-04-03 00:25:29 -0400
+Processing by Api::VideosController#show as JSON
+  Parameters: {"id"=>"7"}
+  [1m[36mVideo Load (0.6ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" WHERE "videos"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/api/videos_controller.rb:9
+  Rendering api/videos/show.json.jbuilder
+  [1m[36mActiveStorage::Attachment Load (0.6ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 7], ["record_type", "Video"], ["name", "videoUrl"], ["LIMIT", 1]]
+  ↳ app/views/api/videos/show.json.jbuilder:5
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/views/api/videos/show.json.jbuilder:5
+  [1m[36mActiveStorage::Attachment Load (0.7ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 7], ["record_type", "Video"], ["name", "thumbnailUrl"], ["LIMIT", 1]]
+  ↳ app/views/api/videos/show.json.jbuilder:6
+  [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/views/api/videos/show.json.jbuilder:6
+  Rendered api/videos/show.json.jbuilder (8.8ms)
+Completed 200 OK in 22ms (Views: 18.6ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBFUT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--a434ee700a08b96f391b14f2a782efc0eeb8c05b/small.mp4" for ::1 at 2019-04-03 00:25:29 -0400
+Processing by ActiveStorage::BlobsController#show as MP4
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBFUT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--a434ee700a08b96f391b14f2a782efc0eeb8c05b", "filename"=>"small"}
+  [1m[36mActiveStorage::Blob Load (0.4ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ /Users/RayMunoz/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+[36m  S3 Storage (1.4ms) [0m[34mGenerated URL for file at key: xrYPtEcfQkiZSUof65Mtjy8d (https://youtoob-dev.s3.amazonaws.com/xrYPtEcfQkiZSUof65Mtjy8d?response-content-disposition=attachment%3B%20filename%3D%22small.mp4%22%3B%20filename%2A%3DUTF-8%27%27small.mp4&response-content-type=video%2Fmp4&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARYOR5JOMRZHBYBQE%2F20190403%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20190403T042529Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Signature=de4ca91a047c2189a4d444af2d3831ac4f7c7081608912bc990388153a8e7972)[0m
+Redirected to https://youtoob-dev.s3.amazonaws.com/xrYPtEcfQkiZSUof65Mtjy8d?response-content-disposition=attachment%3B%20filename%3D%22small.mp4%22%3B%20filename%2A%3DUTF-8%27%27small.mp4&response-content-type=video%2Fmp4&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARYOR5JOMRZHBYBQE%2F20190403%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20190403T042529Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Signature=de4ca91a047c2189a4d444af2d3831ac4f7c7081608912bc990388153a8e7972
+Completed 302 Found in 4ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2019-04-03 00:35:27 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (3.2ms)
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "STTbslaXLBAVHwg4N2HRrA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+Completed 200 OK in 1945ms (Views: 1902.4ms | ActiveRecord: 7.5ms)
+
+
+Started GET "/" for ::1 at 2019-04-03 00:36:07 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.4ms)
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "STTbslaXLBAVHwg4N2HRrA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+Completed 200 OK in 53ms (Views: 43.1ms | ActiveRecord: 8.3ms)
+
+
+Started GET "/api/videos/7" for ::1 at 2019-04-03 00:36:08 -0400
+Processing by Api::VideosController#show as JSON
+  Parameters: {"id"=>"7"}
+  [1m[36mVideo Load (1.1ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" WHERE "videos"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/api/videos_controller.rb:9
+  Rendering api/videos/show.json.jbuilder
+  [1m[36mActiveStorage::Attachment Load (1.7ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 7], ["record_type", "Video"], ["name", "videoUrl"], ["LIMIT", 1]]
+  ↳ app/views/api/videos/show.json.jbuilder:5
+  [1m[36mActiveStorage::Blob Load (0.9ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/views/api/videos/show.json.jbuilder:5
+  [1m[36mActiveStorage::Attachment Load (0.6ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 7], ["record_type", "Video"], ["name", "thumbnailUrl"], ["LIMIT", 1]]
+  ↳ app/views/api/videos/show.json.jbuilder:6
+  [1m[36mActiveStorage::Blob Load (0.4ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/views/api/videos/show.json.jbuilder:6
+  Rendered api/videos/show.json.jbuilder (23.3ms)
+Completed 200 OK in 74ms (Views: 61.1ms | ActiveRecord: 11.8ms)
+
+
+Started GET "/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBFZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--2e092882f1217d532a5c1d4f01b9f270536973c4/test-video-thumbnail.png" for ::1 at 2019-04-03 00:36:08 -0400
+Processing by ActiveStorage::BlobsController#show as PNG
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBFZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--2e092882f1217d532a5c1d4f01b9f270536973c4", "filename"=>"test-video-thumbnail"}
+  [1m[36mActiveStorage::Blob Load (1.7ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ /Users/RayMunoz/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+[36m  S3 Storage (5.2ms) [0m[34mGenerated URL for file at key: bdtRDNMg9YxAcD1uhGDzqaTj (https://youtoob-dev.s3.amazonaws.com/bdtRDNMg9YxAcD1uhGDzqaTj?response-content-disposition=inline%3B%20filename%3D%22test-video-thumbnail.png%22%3B%20filename%2A%3DUTF-8%27%27test-video-thumbnail.png&response-content-type=image%2Fpng&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARYOR5JOMRZHBYBQE%2F20190403%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20190403T043608Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Signature=5e9f79cac1af9d94187cda2fc33233a336283f49c2f9de96015a675005f4e0e3)[0m
+Started GET "/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBFUT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--a434ee700a08b96f391b14f2a782efc0eeb8c05b/small.mp4" for ::1 at 2019-04-03 00:36:08 -0400
+Redirected to https://youtoob-dev.s3.amazonaws.com/bdtRDNMg9YxAcD1uhGDzqaTj?response-content-disposition=inline%3B%20filename%3D%22test-video-thumbnail.png%22%3B%20filename%2A%3DUTF-8%27%27test-video-thumbnail.png&response-content-type=image%2Fpng&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARYOR5JOMRZHBYBQE%2F20190403%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20190403T043608Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Signature=5e9f79cac1af9d94187cda2fc33233a336283f49c2f9de96015a675005f4e0e3
+Completed 302 Found in 19ms (ActiveRecord: 8.5ms)
+
+
+Processing by ActiveStorage::BlobsController#show as MP4
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBFUT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--a434ee700a08b96f391b14f2a782efc0eeb8c05b", "filename"=>"small"}
+  [1m[36mActiveStorage::Blob Load (0.7ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ /Users/RayMunoz/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+[36m  S3 Storage (1.8ms) [0m[34mGenerated URL for file at key: xrYPtEcfQkiZSUof65Mtjy8d (https://youtoob-dev.s3.amazonaws.com/xrYPtEcfQkiZSUof65Mtjy8d?response-content-disposition=attachment%3B%20filename%3D%22small.mp4%22%3B%20filename%2A%3DUTF-8%27%27small.mp4&response-content-type=video%2Fmp4&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARYOR5JOMRZHBYBQE%2F20190403%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20190403T043608Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Signature=8207b64892e91d06aecbcc76a4b0b2d3ec0525be887cfa006c7a109534e87def)[0m
+Redirected to https://youtoob-dev.s3.amazonaws.com/xrYPtEcfQkiZSUof65Mtjy8d?response-content-disposition=attachment%3B%20filename%3D%22small.mp4%22%3B%20filename%2A%3DUTF-8%27%27small.mp4&response-content-type=video%2Fmp4&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARYOR5JOMRZHBYBQE%2F20190403%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20190403T043608Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Signature=8207b64892e91d06aecbcc76a4b0b2d3ec0525be887cfa006c7a109534e87def
+Completed 302 Found in 5ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/" for ::1 at 2019-04-03 00:36:55 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.5ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "STTbslaXLBAVHwg4N2HRrA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+Completed 200 OK in 5463ms (Views: 5442.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/api/videos/7" for ::1 at 2019-04-03 00:37:57 -0400
+Processing by Api::VideosController#show as JSON
+  Parameters: {"id"=>"7"}
+  [1m[36mVideo Load (2.0ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" WHERE "videos"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/api/videos_controller.rb:9
+  Rendering api/videos/show.json.jbuilder
+  [1m[36mActiveStorage::Attachment Load (2.1ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 7], ["record_type", "Video"], ["name", "videoUrl"], ["LIMIT", 1]]
+  ↳ app/views/api/videos/show.json.jbuilder:5
+  [1m[36mActiveStorage::Blob Load (0.6ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/views/api/videos/show.json.jbuilder:5
+  [1m[36mActiveStorage::Attachment Load (0.4ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 7], ["record_type", "Video"], ["name", "thumbnailUrl"], ["LIMIT", 1]]
+  ↳ app/views/api/videos/show.json.jbuilder:6
+  [1m[36mActiveStorage::Blob Load (0.5ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/views/api/videos/show.json.jbuilder:6
+  Rendered api/videos/show.json.jbuilder (16.3ms)
+Completed 200 OK in 63ms (Views: 45.8ms | ActiveRecord: 15.5ms)
+
+
+Started GET "/" for ::1 at 2019-04-03 00:39:10 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.7ms)
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "STTbslaXLBAVHwg4N2HRrA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+Completed 200 OK in 1422ms (Views: 1398.7ms | ActiveRecord: 5.2ms)
+
+
+Started GET "/api/videos/7" for ::1 at 2019-04-03 00:39:21 -0400
+Processing by Api::VideosController#show as JSON
+  Parameters: {"id"=>"7"}
+  [1m[36mVideo Load (1.4ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" WHERE "videos"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/api/videos_controller.rb:9
+  Rendering api/videos/show.json.jbuilder
+  [1m[36mActiveStorage::Attachment Load (1.4ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 7], ["record_type", "Video"], ["name", "videoUrl"], ["LIMIT", 1]]
+  ↳ app/views/api/videos/show.json.jbuilder:5
+  [1m[36mActiveStorage::Blob Load (0.6ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/views/api/videos/show.json.jbuilder:5
+  [1m[36mActiveStorage::Attachment Load (0.7ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 7], ["record_type", "Video"], ["name", "thumbnailUrl"], ["LIMIT", 1]]
+  ↳ app/views/api/videos/show.json.jbuilder:6
+  [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/views/api/videos/show.json.jbuilder:6
+  Rendered api/videos/show.json.jbuilder (17.2ms)
+Completed 200 OK in 47ms (Views: 31.1ms | ActiveRecord: 13.9ms)
+
+
+Started GET "/" for ::1 at 2019-04-03 00:42:04 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.4ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "STTbslaXLBAVHwg4N2HRrA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+Completed 200 OK in 1126ms (Views: 1106.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/api/videos/7" for ::1 at 2019-04-03 00:42:15 -0400
+Processing by Api::VideosController#show as JSON
+  Parameters: {"id"=>"7"}
+  [1m[36mVideo Load (0.4ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" WHERE "videos"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/api/videos_controller.rb:9
+  Rendering api/videos/show.json.jbuilder
+  [1m[36mActiveStorage::Attachment Load (1.1ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 7], ["record_type", "Video"], ["name", "videoUrl"], ["LIMIT", 1]]
+  ↳ app/views/api/videos/show.json.jbuilder:5
+  [1m[36mActiveStorage::Blob Load (0.7ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/views/api/videos/show.json.jbuilder:5
+  [1m[36mActiveStorage::Attachment Load (1.1ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 7], ["record_type", "Video"], ["name", "thumbnailUrl"], ["LIMIT", 1]]
+  ↳ app/views/api/videos/show.json.jbuilder:6
+  [1m[36mActiveStorage::Blob Load (0.6ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/views/api/videos/show.json.jbuilder:6
+  Rendered api/videos/show.json.jbuilder (13.5ms)
+Completed 200 OK in 36ms (Views: 30.9ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBFUT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--a434ee700a08b96f391b14f2a782efc0eeb8c05b/small.mp4" for ::1 at 2019-04-03 00:42:15 -0400
+Started GET "/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBFZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--2e092882f1217d532a5c1d4f01b9f270536973c4/test-video-thumbnail.png" for ::1 at 2019-04-03 00:42:15 -0400
+Processing by ActiveStorage::BlobsController#show as MP4
+Processing by ActiveStorage::BlobsController#show as PNG
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBFZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--2e092882f1217d532a5c1d4f01b9f270536973c4", "filename"=>"test-video-thumbnail"}
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBFUT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--a434ee700a08b96f391b14f2a782efc0eeb8c05b", "filename"=>"small"}
+  [1m[36mActiveStorage::Blob Load (0.7ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mActiveStorage::Blob Load (0.4ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ /Users/RayMunoz/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+[36m  S3 Storage (1.3ms) [0m[34mGenerated URL for file at key: bdtRDNMg9YxAcD1uhGDzqaTj (https://youtoob-dev.s3.amazonaws.com/bdtRDNMg9YxAcD1uhGDzqaTj?response-content-disposition=inline%3B%20filename%3D%22test-video-thumbnail.png%22%3B%20filename%2A%3DUTF-8%27%27test-video-thumbnail.png&response-content-type=image%2Fpng&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARYOR5JOMRZHBYBQE%2F20190403%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20190403T044215Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Signature=3edfe021bef36a21b8cdd1c49e061db8c91bcad8e098d6e10bdac9f1dd038f4d)[0m
+Redirected to https://youtoob-dev.s3.amazonaws.com/bdtRDNMg9YxAcD1uhGDzqaTj?response-content-disposition=inline%3B%20filename%3D%22test-video-thumbnail.png%22%3B%20filename%2A%3DUTF-8%27%27test-video-thumbnail.png&response-content-type=image%2Fpng&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARYOR5JOMRZHBYBQE%2F20190403%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20190403T044215Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Signature=3edfe021bef36a21b8cdd1c49e061db8c91bcad8e098d6e10bdac9f1dd038f4d
+Completed 302 Found in 4ms (ActiveRecord: 0.7ms)
+
+
+  ↳ /Users/RayMunoz/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+[36m  S3 Storage (1.1ms) [0m[34mGenerated URL for file at key: xrYPtEcfQkiZSUof65Mtjy8d (https://youtoob-dev.s3.amazonaws.com/xrYPtEcfQkiZSUof65Mtjy8d?response-content-disposition=attachment%3B%20filename%3D%22small.mp4%22%3B%20filename%2A%3DUTF-8%27%27small.mp4&response-content-type=video%2Fmp4&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARYOR5JOMRZHBYBQE%2F20190403%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20190403T044215Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Signature=c0dea70c1b4f9573c56ac2cb984eaee477db102b8aacccaf9bf7cf4ddf28b5d8)[0m
+Redirected to https://youtoob-dev.s3.amazonaws.com/xrYPtEcfQkiZSUof65Mtjy8d?response-content-disposition=attachment%3B%20filename%3D%22small.mp4%22%3B%20filename%2A%3DUTF-8%27%27small.mp4&response-content-type=video%2Fmp4&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARYOR5JOMRZHBYBQE%2F20190403%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20190403T044215Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Signature=c0dea70c1b4f9573c56ac2cb984eaee477db102b8aacccaf9bf7cf4ddf28b5d8
+Completed 302 Found in 6ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2019-04-03 00:42:45 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.4ms)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "STTbslaXLBAVHwg4N2HRrA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+Completed 200 OK in 1317ms (Views: 1296.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/api/videos/7" for ::1 at 2019-04-03 00:42:49 -0400
+Processing by Api::VideosController#show as JSON
+  Parameters: {"id"=>"7"}
+  [1m[36mVideo Load (0.4ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" WHERE "videos"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/api/videos_controller.rb:9
+  Rendering api/videos/show.json.jbuilder
+  [1m[36mActiveStorage::Attachment Load (0.7ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 7], ["record_type", "Video"], ["name", "videoUrl"], ["LIMIT", 1]]
+  ↳ app/views/api/videos/show.json.jbuilder:5
+  [1m[36mActiveStorage::Blob Load (0.6ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/views/api/videos/show.json.jbuilder:5
+  [1m[36mActiveStorage::Attachment Load (0.8ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 7], ["record_type", "Video"], ["name", "thumbnailUrl"], ["LIMIT", 1]]
+  ↳ app/views/api/videos/show.json.jbuilder:6
+  [1m[36mActiveStorage::Blob Load (0.5ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/views/api/videos/show.json.jbuilder:6
+  Rendered api/videos/show.json.jbuilder (11.2ms)
+Completed 200 OK in 40ms (Views: 36.0ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBFUT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--a434ee700a08b96f391b14f2a782efc0eeb8c05b/small.mp4" for ::1 at 2019-04-03 00:42:49 -0400
+Processing by ActiveStorage::BlobsController#show as MP4
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBFUT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--a434ee700a08b96f391b14f2a782efc0eeb8c05b", "filename"=>"small"}
+  [1m[36mActiveStorage::Blob Load (0.6ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ /Users/RayMunoz/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+[36m  S3 Storage (2.0ms) [0m[34mGenerated URL for file at key: xrYPtEcfQkiZSUof65Mtjy8d (https://youtoob-dev.s3.amazonaws.com/xrYPtEcfQkiZSUof65Mtjy8d?response-content-disposition=attachment%3B%20filename%3D%22small.mp4%22%3B%20filename%2A%3DUTF-8%27%27small.mp4&response-content-type=video%2Fmp4&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARYOR5JOMRZHBYBQE%2F20190403%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20190403T044249Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Signature=c23bf6e04d62b8bf0b5a9cf882192170da21635631cbb9cff239aa3fe5f8ee09)[0m
+Redirected to https://youtoob-dev.s3.amazonaws.com/xrYPtEcfQkiZSUof65Mtjy8d?response-content-disposition=attachment%3B%20filename%3D%22small.mp4%22%3B%20filename%2A%3DUTF-8%27%27small.mp4&response-content-type=video%2Fmp4&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARYOR5JOMRZHBYBQE%2F20190403%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20190403T044249Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Signature=c23bf6e04d62b8bf0b5a9cf882192170da21635631cbb9cff239aa3fe5f8ee09
+Completed 302 Found in 5ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/" for ::1 at 2019-04-03 00:43:27 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.4ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "STTbslaXLBAVHwg4N2HRrA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+Completed 200 OK in 1452ms (Views: 1423.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/api/videos/7" for ::1 at 2019-04-03 00:43:30 -0400
+Processing by Api::VideosController#show as JSON
+  Parameters: {"id"=>"7"}
+  [1m[36mVideo Load (0.7ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" WHERE "videos"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/api/videos_controller.rb:9
+  Rendering api/videos/show.json.jbuilder
+  [1m[36mActiveStorage::Attachment Load (0.6ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 7], ["record_type", "Video"], ["name", "videoUrl"], ["LIMIT", 1]]
+  ↳ app/views/api/videos/show.json.jbuilder:5
+  [1m[36mActiveStorage::Blob Load (0.4ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/views/api/videos/show.json.jbuilder:5
+  [1m[36mActiveStorage::Attachment Load (0.9ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 7], ["record_type", "Video"], ["name", "thumbnailUrl"], ["LIMIT", 1]]
+  ↳ app/views/api/videos/show.json.jbuilder:6
+  [1m[36mActiveStorage::Blob Load (1.5ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/views/api/videos/show.json.jbuilder:6
+  Rendered api/videos/show.json.jbuilder (13.9ms)
+Completed 200 OK in 55ms (Views: 49.4ms | ActiveRecord: 4.1ms)
+
+
+Started GET "/api/videos/7" for ::1 at 2019-04-03 00:44:34 -0400
+Processing by Api::VideosController#show as JSON
+  Parameters: {"id"=>"7"}
+  [1m[36mVideo Load (0.8ms)[0m  [1m[34mSELECT  "videos".* FROM "videos" WHERE "videos"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/api/videos_controller.rb:9
+  Rendering api/videos/show.json.jbuilder
+  [1m[36mActiveStorage::Attachment Load (0.7ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 7], ["record_type", "Video"], ["name", "videoUrl"], ["LIMIT", 1]]
+  ↳ app/views/api/videos/show.json.jbuilder:5
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/views/api/videos/show.json.jbuilder:5
+  [1m[36mActiveStorage::Attachment Load (0.4ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 7], ["record_type", "Video"], ["name", "thumbnailUrl"], ["LIMIT", 1]]
+  ↳ app/views/api/videos/show.json.jbuilder:6
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/views/api/videos/show.json.jbuilder:6
+  Rendered api/videos/show.json.jbuilder (9.0ms)
+Completed 200 OK in 97ms (Views: 92.5ms | ActiveRecord: 2.4ms)
+
+

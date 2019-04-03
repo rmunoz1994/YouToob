@@ -9,21 +9,7 @@ import VideoEditContainer from './videos/video_edit_container';
 import { Route, Switch } from 'react-router-dom';
 import { AuthRoute, ProtectedRoute } from '../util/route_utils';
 import SideBar from './side_bar/side_bar';
-
-// const MainContent = () => (
-//     <>
-//         <NavBarContainer />
-//         <div className="after-header">
-//             <SideBar />
-//             <Switch>
-//                 <Route path="/" component={VideoIndexContainer} />
-//                 <Route path="/videos/:videoId" component={VideoShowContainer} />
-//                 <ProtectedRoute path="/upload" component={VideoUploadContainer} />
-//                 {/* <ProtectedRoute path="/user/:userId" component={UserShowContainer} /> */}
-//             </Switch>
-//         </div>
-//     </> 
-// );
+import { throttle } from 'lodash';
 
 class MainContent extends React.Component {
     constructor(props) {
