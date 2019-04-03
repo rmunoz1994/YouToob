@@ -38,7 +38,6 @@ class VideoShow extends React.Component {
         } else {
             let descriptionButton;
             if (this.props.currentUser && this.props.currentUser.id === this.props.video.uploaderId) {
-                console.log(currentUser);
                 descriptionButton = (<button className="edit-btn" onClick={this.handleEditLink}>EDIT VIDEO</button>);
             }
             return (
@@ -56,9 +55,12 @@ class VideoShow extends React.Component {
 
                         <div className="description-container">
                             <div className="top-row">
-                                <div className="upload-info">
-
-                                    <p>Published on {this.formatDate()}</p>
+                                <div className="top-row-left">
+                                    <button className="user-pic-show">{this.props.uploader.first_name.slice(0, 1).toUpperCase()}</button>
+                                    <div className="upload-info">
+                                        <p className="uploader-name">{this.props.uploader.first_name}</p>
+                                        <p>Published on {this.formatDate()}</p>
+                                    </div>
                                 </div>
                                 <div className="description-btn-container">
                                     {descriptionButton}

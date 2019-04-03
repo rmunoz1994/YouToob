@@ -9,6 +9,7 @@ class Login extends React.Component {
             password: ''
         };
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.loginDemoUser = this.loginDemoUser.bind(this);
     }
 
     componentDidMount() {
@@ -29,6 +30,15 @@ class Login extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         this.props.login(this.state)
+            .then(() => this.props.history.push('/'));
+    }
+
+    loginDemoUser(e) {
+        let demoUser = {
+            email: 'demo@gmail.com',
+            password: 'starwars'
+        };
+        this.props.login(demoUser)
             .then(() => this.props.history.push('/'));
     }
 
@@ -67,7 +77,7 @@ class Login extends React.Component {
                 {this.renderErrors()}
                 <div className="demo">
                     Not your computer? Use Guest mode to sign in privately.
-                    <Link to="/">Sign in as guest</Link>
+                    <div className="demo-user" onClick={this.loginDemoUser}>Sign in as guest</div>
                 </div>
                 <div className="session-form-submit">
                     <Link to="/signup">Create account</Link>

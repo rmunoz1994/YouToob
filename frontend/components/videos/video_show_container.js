@@ -4,8 +4,13 @@ import { fetchVideo, clearVideos } from '../../actions/video_actions';
 
 const mapStateToProps = (state, ownProps) => {
     const video = state.entities.videos[ownProps.match.params.videoId];
+    let uploader;
+    if (video) {
+        uploader = state.entities.users[video.uploaderId]
+    }
     return {
         currentUser: state.entities.users[state.session.currentUser],
+        uploader: uploader,
         video: video
     };
 };

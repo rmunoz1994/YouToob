@@ -51,6 +51,17 @@
      /* font-weight should be 500, but won't work for a link */
  }
 
+.demo-user {
+     color: #1a73e8;
+     text-align: left;
+     font-size: 14px;
+     font-weight: bold;
+     cursor: pointer;
+     width: 115px;
+     /* font-weight should be 500, but won't work for a link */
+ }
+
+
 .user-auth-input {
     border: 1px solid #dadce0;
     border-radius: 4px;
@@ -95,7 +106,7 @@
 
 .session-form div {
     display: flex;
-    margin-top: 26px;
+    // margin-top: 26px;
     padding-bottom: 20px;
     /* justify-content: space-between; */
 }
