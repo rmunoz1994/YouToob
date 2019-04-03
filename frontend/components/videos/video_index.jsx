@@ -7,20 +7,16 @@ class VideoIndex extends React.Component {
     }
 
     componentDidMount() {
-        this.props.fetchVideo(7);
+        this.props.fetchVideos();
     }
 
     render() {
-        if (this.props.video === undefined) {
+        if (this.props.videos.length === 0) {
             return null;
         } else {
-            let arr = [];
-            for(let i = 0; i < 14; i++) {
-                arr.push(this.props.video);
-            }
             return (
                 <div className="video-index-container">
-                    <VideoGrid videos={arr}/>
+                    <VideoGrid videos={this.props.videos}/>
                 </div>
             )
         }

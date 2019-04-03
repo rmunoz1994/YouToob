@@ -32,11 +32,7 @@ export const clearVideos = () => ({
 
 
 export const fetchVideos = () => dispatch => (
-    APIUtil.fetchVideos().then(videos => (
-        dispatch(receiveVideos(videos))
-    ), err => (
-        dispatch(receiveVideoErrors(err.responseJSON))
-    ))
+    APIUtil.fetchVideos().then(videos => dispatch(receiveVideos(videos)))
 );
 
 export const fetchVideo = id => dispatch => (

@@ -11,7 +11,7 @@ class VideoGrid extends React.Component {
         //     <VideoItem video={this.props.video}/>
         // ));
         let videoGrid = this.props.videos.map(video => (
-            <VideoItem video={video} />
+            <VideoItem key={video.uploaderId} video={video} />
         ));
         return (
             <div className="video-grid-container">

@@ -29,6 +29,7 @@ class VideoEdit extends React.Component {
     handleFile(field) {
         return (e) => {
             this.setState({ [field]: e.currentTarget.files[0] });
+
         };
     }
 
@@ -53,16 +54,18 @@ class VideoEdit extends React.Component {
     }
 
     renderErrors() {
-        return (
-            <ul className="error-list">
-                {this.props.errors.map((error, i) => (
-                    <li key={`error-${i}`}>
-                        <i className="fas fa-exclamation-circle"></i>
-                        {error}
-                    </li>
-                ))}
-            </ul>
-        );
+        if (this.props.errors.length > 0) {
+            return (
+                <ul className="error-upload-list">
+                    {this.props.errors.map((error, i) => (
+                        <li key={`error-${i}`}>
+                            <i className="fas fa-exclamation-circle"></i>
+                            {error}
+                        </li>
+                    ))}
+                </ul>
+            );
+        }
     }
 
     charCount(field) {
@@ -70,6 +73,8 @@ class VideoEdit extends React.Component {
             field.length();
         }
     }
+
+
 
     render() {
         if (this.props.video) {
@@ -82,7 +87,6 @@ class VideoEdit extends React.Component {
 
                             <div className="upload-part-one">
                                 <div className="edit-text">Edit your video</div>
-                                <input type="file" accept="image/*" onChange={this.handleFile("thumbnailFile")} />
                             </div>
 
                             <div className="upload-part-two">
@@ -106,7 +110,13 @@ class VideoEdit extends React.Component {
                                     </div>
                                 </div>
 
+                                <div className="file-edit-input-container">
+                                    <input className="upload-input" id="thumbnail-upload" type="file" accept="image/*" onChange={this.handleFile("thumbnailFile")} />
+                                    <label className="thumbnail-label" htmlFor="thumbnail-upload">Custom thumbnail</label>
+                                </div>
+
                                 {this.renderErrors()}
+
                                 <div className="edit-btn-row">
                                     <input className="edit-btn" type="submit" value="SAVE" />
                                     <button type="button" className="edit-btn" onClick={this.handleDelete}>DELETE</button>

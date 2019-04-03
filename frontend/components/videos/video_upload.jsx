@@ -51,39 +51,21 @@ class VideoUpload extends React.Component {
     }
 
     renderErrors() {
-        return (
-            <ul className="error-list">
-                {this.props.errors.map((error, i) => (
-                    <li key={`error-${i}`}>
-                        <i className="fas fa-exclamation-circle"></i>
-                        {error}
-                    </li>
-                ))}
-            </ul>
-        );
+        if (this.props.errors.length > 0) {
+            return (
+                <ul className="error-upload-list">
+                    {this.props.errors.map((error, i) => (
+                        <li key={`error-${i}`}>
+                            <i className="fas fa-exclamation-circle"></i>
+                            {error}
+                        </li>
+                    ))}
+                </ul>
+            );
+        }
     }
 
     render() {
-        // let form;
-        // if (this.state.firstForm) {
-        //     form = (
-        //         <form className="upload-prompt">
-        //             {/* <i id="upload-icon" className="fas fa-arrow-circle-up"></i> */}
-        //             <div className="upload-text">Select files to upload</div>
-        //             <input type="file" accept="video/mp4,video/*" onChange={this.handleFile("videoFile")} />
-        //         </form>
-        //     );
-        // } else {
-        //     form = (
-        //         <form onSubmit={this.handleSubmit} className="upload-prompt">
-        //             <input type="file" accept="image/*" onChange={this.handleFile("thumbnailFile")} />
-        //             <input className="title-input" type="text" value={this.state.title} onChange={this.handleInput("title")} />
-        //             <textarea className="description-input" value={this.state.description} onChange={this.handleInput("description")} />
-        //             <input className="edit-btn" type="submit" value="Publish" />
-        //         </form>
-        //     );
-        // }
-
         return (
             <div className="upload-page">
                 <div className="upload-container">
@@ -98,26 +80,21 @@ class VideoUpload extends React.Component {
                             </>
                         ) : (
                             <>
+                                <div className="upload-text-two">Add video information</div>
                                 <input className="title-input" type="text" placeholder="Title" onChange={this.handleInput("title")} />
                                 <textarea className="description-input" placeholder="Description" onChange={this.handleInput("description")} />
                                 <input className="upload-input" id="thumbnail-upload" type="file" accept="image/*" onChange={this.handleFile("thumbnailFile")} />
                                 <label className="thumbnail-label" htmlFor="thumbnail-upload">Custom thumbnail</label>
-                                <input className="edit-btn" type="submit" value="Publish" />
+                                <div className="error-upload-container">
+                                    {this.renderErrors()}
+                                </div>
+                                <input className="publish-btn" type="submit" value="Publish" />
                             </>
                         )}       
                     </form>
-                    {this.renderErrors()}
                 </div>
             </div>
         )
-        // return (
-        //     <div className="upload-page">
-        //         <div className="upload-container">
-        //             {form}
-        //             {this.renderErrors()}
-        //         </div>
-        //     </div>
-        // )
     }
 
 }
