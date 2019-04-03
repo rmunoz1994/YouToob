@@ -22,6 +22,7 @@ class VideoItem extends React.Component {
 
     render() {
         let itemType = this.props.isColumn ? "column" : "";
+
         return (
             <Link to={`/videos/${this.props.video.id}`} className="video-item-link">
                 <div className={"video-item-container " + itemType}>
@@ -34,6 +35,9 @@ class VideoItem extends React.Component {
                     </div>
                     <div className="video-details">
                         <h3>{this.props.video.title}</h3>
+                        <div>
+                            {this.props.user.first_name}
+                        </div>
                         <div className="upload-time">
                             {this.formatTimeDifference()}
                         </div>

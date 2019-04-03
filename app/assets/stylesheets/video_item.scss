@@ -13,11 +13,11 @@
 }
 
 .video-thumbnail-container {
-    display: block;
     width: 210px;
     height: 118px;
     display: flex;
     position: relative;
+    justify-content: center;
     align-items: center;
 }
 .video-thumbnail {
@@ -30,7 +30,8 @@
 
 .video-thumbnail-background {
     position: absolute;
-    background-color: rgb(65, 65, 65);
+    // background-color: rgb(65, 65, 65);
+    background-color: black;
     width: 210px;
     height: 118px;
 }

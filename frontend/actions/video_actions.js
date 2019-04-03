@@ -6,9 +6,10 @@ export const RECEIVE_VIDEO_ERRORS = "RECEIVE_VIDEO_ERRORS";
 export const REMOVE_VIDEO = "REMOVE_VIDEO";
 export const CLEAR_VIDEOS = "CLEAR_VIDEOS";
 
-const receiveVideos = videos => ({
+const receiveVideos = ({videos, users}) => ({
     type: RECEIVE_VIDEOS,
-    videos
+    videos,
+    users
 });
 
 const receiveVideo = video => ({
