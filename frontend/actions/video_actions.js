@@ -12,10 +12,14 @@ const receiveVideos = ({videos, users}) => ({
     users
 });
 
-const receiveVideo = video => ({
-    type: RECEIVE_VIDEO,
-    video
-});
+const receiveVideo = ({video, user}) => {
+    
+    return {
+        type: RECEIVE_VIDEO,
+        video,
+        user
+    };
+};
 
 const removeVideo = video => ({
     type: REMOVE_VIDEO,
@@ -61,7 +65,6 @@ export const updateVideo = video => dispatch => (
 );
 
 export const deleteVideo = video => dispatch => (
-    APIUtil.deleteVideo(video).then(() => dispatch(removeVideo(video))
-    )
+    APIUtil.deleteVideo(video).then(() => dispatch(removeVideo(video)))
 );
 

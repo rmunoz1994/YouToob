@@ -9,7 +9,13 @@ end
 json.users do
     @videos.each do |video|
         json.set! video.uploader_id do
-            json.partial! '/api/users/user', user: video.uploader
+            json.extract! video.uploader, :id, :first_name, :last_name
         end
     end
+    if current_user
+        json.set! current_user.id do
+            json.partial! '/api/users/user', user: current_user
+        end
+    end
+
 end

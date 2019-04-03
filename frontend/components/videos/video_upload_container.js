@@ -4,7 +4,7 @@ import { createVideo } from '../../actions/video_actions';
 
 const mapStateToProps = state => {
     return ({
-        currentUserId: state.session.currentUser.id,
+        currentUserId: state.session.currentUser,
         errors: state.errors.videos
     });
 };

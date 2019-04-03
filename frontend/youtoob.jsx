@@ -8,8 +8,13 @@ document.addEventListener('DOMContentLoaded', () => {
     let preloadedState;
     if (window.currentUser) {
         preloadedState = {
+            entities: {
+                users: {
+                    [window.currentUser.id]: window.currentUser
+                }
+            },
             session: {
-                currentUser: window.currentUser
+                currentUser: window.currentUser.id
             }
         };
     }

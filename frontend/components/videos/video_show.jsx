@@ -69,10 +69,10 @@ class VideoShow extends React.Component {
 
                     </div>
 
-                    <div className="up-next-container">
+                    {/* <div className="up-next-container">
                         Up next
                         <VideoItem video={this.props.video} isColumn={true}/>
-                    </div>
+                    </div> */}
 
                 </div>
             )

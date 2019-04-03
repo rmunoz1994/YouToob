@@ -5,7 +5,7 @@ import { fetchVideo, clearVideos } from '../../actions/video_actions';
 const mapStateToProps = (state, ownProps) => {
     const video = state.entities.videos[ownProps.match.params.videoId];
     return {
-        currentUser: state.session.currentUser,
+        currentUser: state.entities.users[state.session.currentUser],
         video: video
     };
 };

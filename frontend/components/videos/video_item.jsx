@@ -35,7 +35,7 @@ class VideoItem extends React.Component {
                     </div>
                     <div className="video-details">
                         <h3>{this.props.video.title}</h3>
-                        <div>
+                        <div className="upload-name">
                             {this.props.user.first_name}
                         </div>
                         <div className="upload-time">

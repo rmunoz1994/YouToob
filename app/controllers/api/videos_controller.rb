@@ -13,7 +13,7 @@ class Api::VideosController < ApplicationController
     def create
         @video = Video.new(video_params)
         if @video.save
-            render json: {message: "You did it!"}
+            render :show
         else
             render json: @video.errors.full_messages, status: 404
         end
@@ -22,7 +22,7 @@ class Api::VideosController < ApplicationController
     def update
         @video = Video.find_by(id: params[:video][:id])
         if @video.update_attributes(video_params)
-            render json: { message: "You did it!" }
+            render :show
         else
             render json: @video.errors.full_messages, status: 422
         end
