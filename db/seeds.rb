@@ -9,4 +9,4 @@
 User.destroy_all
 Video.destroy_all
 
-User.create(first_name: "Bob", last_name: "Smith", email: "demo@gmail.com" password: "starwars")
+User.create(first_name: "Bob", last_name: "Smith", email: "demo@gmail.com", password: "starwars")
