@@ -1,8 +1,14 @@
 import React from 'react';
+import CommentForm from './comment_form';
 
 class Comment extends React.Component {
     constructor(props) {
         super(props);
+        this.state = {
+            replying: false
+        };
+        this.setReplyTrue = this.setReplyTrue.bind(this);
+        this.toggleReply = this.toggleReply.bind(this);
     }
 
     formatTimeDifference() {
@@ -11,6 +17,18 @@ class Comment extends React.Component {
         let timeDiff = Math.abs(today.getTime() - uploadDate.getTime());
         let result = Math.ceil(timeDiff / (1000 * 3600 * 24));
         return result.toString() + " day ago";
+    }
+
+    setReplyTrue() {
+        this.setState({ replying: true });
+    }
+
+    toggleReply() {
+        if (!this.state.replying) {
+            this.setState({ replying: true });
+        } else {
+            this.setState({ replying: false });
+        }  
     }
 
     render() {
@@ -44,22 +62,39 @@ class Comment extends React.Component {
                         </div>
                         <p className="comment-body">
                             {commentBody}
-                            {/* This is a test comment
-
-
-                            More white space. */}
                         </p>
                         <div className="comment-action">
                             <button className="comment-like"><i className="fas fa-thumbs-up"></i></button>
                             <button className="comment-like"><i className="fas fa-thumbs-up fa-rotate-180"></i></button>
-                            <button className="reply-btn">REPLY</button>
+                            <button className="reply-btn" onClick={this.setReplyTrue}>REPLY</button>
                         </div>
                     </div>
+                    {this.state.replying ? (
+                        <CommentForm
+                            currentUser={this.props.currentUser}
+                            videoId={this.props.videoId}
+                            handler={this.handler}
+                            history={this.props.history}
+                            replying={true}
+                            toggleReply={this.toggleReply}
+                        />
+                    ) : (
+                        <>
+                        </>
+                    )}
                     <div className="reply-dropdown-container">
                         <div className="reply-dropdown">
                             <div>View replies</div>
                             <i id="comment-drop-icon" className="fas fa-caret-down"></i>
                         </div>
+                    </div>
+                </div>
+                <div className="comment-action-menu">
+                    <div className="action-icon">
+                        <button className="nav-bar-button">
+                            <i id="icon" className="fas fa-ellipsis-v"></i>
+                        </button>
+                        {/* <i className="fas fa-ellipsis-v"></i> */}
                     </div>
                 </div>
             </div>

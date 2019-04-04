@@ -26,7 +26,7 @@ class CommentsSection extends React.Component {
 
         if (this.props.comments) {
             comments = this.props.comments.map((comment, index) => (
-                <Comment key={index} comment={comment} videoId={this.props.videoId} author={this.props.users[comment.authorId]}/>
+                <Comment key={index} comment={comment} videoId={this.props.videoId} author={this.props.users[comment.authorId]} currentUser={this.props.currentUser}/>
             ));
             commentsLength = comments.length;
             if (commentsLength === 1) {

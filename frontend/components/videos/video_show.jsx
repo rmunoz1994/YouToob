@@ -92,7 +92,7 @@ class VideoShow extends React.Component {
                                 <div className="top-row-left">
                                     <button className="user-pic-show">{this.props.uploader.first_name.slice(0, 1).toUpperCase()}</button>
                                     <div className="upload-info">
-                                        <p className="uploader-name">{this.props.uploader.first_name}</p>
+                                        <p className="uploader-name">{this.props.uploader.first_name + " " + this.props.uploader.last_name}</p>
                                         <p>Published on {this.formatDate()}</p>
                                     </div>
                                 </div>
@@ -114,10 +114,10 @@ class VideoShow extends React.Component {
 
                     </div>
 
-                    {/* <div className="up-next-container">
+                    <div className="up-next-container">
                         Up next
                         <VideoItem video={this.props.video} user={this.props.users[this.props.video.uploaderId]}/>
-                    </div> */}
+                    </div>
 
                 </div>
             )
