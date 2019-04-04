@@ -1,6 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import VideoItem from './video_item';
+import CommentsSection from '../comments/comments_section';
 
 class VideoShow extends React.Component {
     constructor(props) {
@@ -31,6 +32,30 @@ class VideoShow extends React.Component {
         this.props.history.push(`/videos/${this.props.match.params.videoId}/edit`);
     }
 
+    // renderComments() {
+    //     return (
+    //         <div className="comments-section-container">
+    //             <div className="comments-header">
+    //                 <div className="comment-amount">
+    //                     13,713 Comments
+    //                 </div>
+    //                 <div className="comment-box-container">
+    //                     <button className="user-pic-author">{this.props.currentUser.first_name.slice(0, 1).toUpperCase()}</button>
+    //                     <div className="comment-box">
+    //                         <div className="comment-input-box">
+    //                             <textarea className="comment-textarea" placeholder="Add a public comment..."></textarea>
+    //                             <div className="comment-input-underline"></div>
+    //                         </div>
+    //                         <div className="comment-box-buttons">
+                            
+    //                         </div>
+    //                     </div>
+    //                 </div>
+    //             </div>
+    //         </div>
+    //     )
+    // }
+
     render() {
 
         if (this.props.video === undefined) {
@@ -51,6 +76,15 @@ class VideoShow extends React.Component {
                        
                         <div className="title-container">
                             <h2>{this.props.video.title}</h2>
+                            <div className="primary-info">
+                                <div className="views">
+                                    6,456,129 views
+                                </div>
+                                <div className="video-actions">
+                                    <button className="video-like"><i className="fas fa-thumbs-up"></i></button>
+                                    <button className="video-like"><i className="fas fa-thumbs-up fa-rotate-180"></i></button>
+                                </div>
+                            </div>
                         </div>
 
                         <div className="description-container">
@@ -68,12 +102,13 @@ class VideoShow extends React.Component {
                             </div>
                             <p className="description">{this.props.video.description}</p>
                         </div>
+                        <CommentsSection currentUser={this.props.currentUser} />
 
                     </div>
 
                     {/* <div className="up-next-container">
                         Up next
-                        <VideoItem video={this.props.video} isColumn={true}/>
+                        <VideoItem video={this.props.video} user={this.props.users[this.props.video.uploaderId]}/>
                     </div> */}
 
                 </div>

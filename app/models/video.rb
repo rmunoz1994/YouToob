@@ -25,6 +25,8 @@ class Video < ApplicationRecord
     has_one_attached :videoUrl
     has_one_attached :thumbnailUrl
 
+    has_many :comments, dependent: :destroy
+
     def ensure_videoUrl
         unless self.videoUrl.attached?
             errors[:video] << "file must be attached"

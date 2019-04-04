@@ -11,6 +11,7 @@ class ApplicationController < ActionController::Base
     end
 
     def ensure_logged_in
+        
     end
 
     def login!(user)
