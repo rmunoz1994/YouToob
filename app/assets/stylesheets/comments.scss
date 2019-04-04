@@ -136,6 +136,12 @@ $body-reg-theme: #f9f9f9;
         height: 20px;
         font-size: 14px;
         font-weight: 500;
+        .comment-author {
+            padding-right: 4px;
+        }
+        .comment-date {
+            
+        }
     }
     .comment-body {
         font-size: 14px;

@@ -14,11 +14,23 @@ class VideoItem extends React.Component {
     formatTimeDifference() {
         let today = new Date();
         let uploadDate = new Date(this.props.video.createdAt);
-        // let uploadDay = uploadDate.getDate();
         let timeDiff = Math.abs(today.getTime() - uploadDate.getTime());
         let result = Math.ceil(timeDiff / (1000 * 3600 * 24));
         return result.toString() + " day ago";
     }
+
+    // formatTimeDifference() {
+    //     let today = new Date();
+    //     let uploadDate = new Date(this.props.video.createdAt);
+    //     let timeDiff = Math.abs(today.getTime() - uploadDate.getTime());
+    //     if (timeDiff < 60) {
+    //         return 'now';
+    //     } else if (timeDiff < 3600) {
+
+    //     } else if (timeDiff < 3600 * 24) {
+
+    //     } else if (timeDiff < 3600* 24 * 2)
+    // }
 
     render() {
         let itemType = this.props.isColumn ? "column" : "";

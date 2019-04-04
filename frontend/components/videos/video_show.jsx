@@ -101,8 +101,14 @@ class VideoShow extends React.Component {
                                 </div>
                             </div>
                             <p className="description">{this.props.video.description}</p>
+                            
                         </div>
-                        <CommentsSection currentUser={this.props.currentUser} />
+                        <CommentsSection 
+                            currentUser={this.props.currentUser} 
+                            comments={this.props.comments} 
+                            createComment={this.props.createComment}
+                            videoId={this.props.video.id}
+                        />
 
                     </div>
 

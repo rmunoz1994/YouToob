@@ -1,8 +1,8 @@
-class CommentsController < ApplicationController
+class Api::CommentsController < ApplicationController
     before_action :ensure_logged_in
 
     def create
-        @comment = current_user.comments.new(comment_params)
+        @comment = Comment.new(comment_params)
         if @comment.save
             render :show
         else
@@ -15,7 +15,7 @@ class CommentsController < ApplicationController
     end
 
     def comment_params
-        params.require(:comment).permit(:body, :parent_comment_id)
+        params.require(:comment).permit(:body, :parent_comment_id, :author_id, :video_id)
     end
 
 end
