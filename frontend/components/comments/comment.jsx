@@ -26,7 +26,7 @@ class Comment extends React.Component {
         if (this.props.comment) {
             commentBody = this.props.comment.body;
             commentDate = this.formatTimeDifference();
-            commentAuthor = this.props.comment.author;
+            commentAuthor = `${this.props.author.first_name} ${this.props.author.last_name}`;
         } else {
             commentBody = (<></>);
             commentDate = (<></>);
@@ -35,7 +35,7 @@ class Comment extends React.Component {
         return (
             <div className="comment-container">
                 {/* <button className="user-pic-author">{this.props.user.first_name.slice(0, 1).toUpperCase()}</button> */}
-                <button className="user-pic-author">{"Bob".slice(0, 1).toUpperCase()}</button>
+                <button className="user-pic-author">{commentAuthor.slice(0, 1).toUpperCase()}</button>
                 <div className="comment-right">
                     <div className="main-comment">
                         <div className="comment-info">

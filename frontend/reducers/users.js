@@ -10,6 +10,8 @@ const usersReducer = (state = {}, action) => {
         case RECEIVE_VIDEOS:
             return merge({}, state, action.users);
         case RECEIVE_VIDEO:
+            let newState = merge({}, state, { [action.user.id]: action.user });
+            return merge({}, newState, action.commentAuthors);
         case RECEIVE_CURRENT_USER:
             return merge({}, state, {[action.user.id]: action.user});
         // case RECEIVE_ALL_USERS:

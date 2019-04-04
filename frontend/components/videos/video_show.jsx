@@ -108,6 +108,8 @@ class VideoShow extends React.Component {
                             comments={this.props.comments} 
                             createComment={this.props.createComment}
                             videoId={this.props.video.id}
+                            users={this.props.users}
+                            history={this.props.history}
                         />
 
                     </div>

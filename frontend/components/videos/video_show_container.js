@@ -14,7 +14,8 @@ const mapStateToProps = (state, ownProps) => {
         currentUser: state.entities.users[state.session.currentUser],
         uploader: uploader,
         video: video,
-        comments: comments
+        comments: comments,
+        users: state.entities.users
     };
 };
 
