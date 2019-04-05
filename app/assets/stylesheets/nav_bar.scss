@@ -7,7 +7,9 @@
     height: 56px;
     padding: 0px 16px;
     z-index: 1000;
-    position: relative;
+    position: fixed;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .logo {

@@ -27,6 +27,14 @@
     padding: 0;
  }
 
+ main {
+     height: 100%;
+ }
+
+ .outer-div {
+     height: 100%;
+ }
+
 body, h1, h2, h3, p {
     margin: 0;
     margin-block-start: 0;
@@ -57,7 +65,16 @@ body {
 
  .after-header {
     display: flex;
-    justify-content: space-between;
+    padding-top: 56px;
+ }
+
+ .sidebar-container {
+
+ }
+
+ .sidebar-empty-space {
+     width: 240px;
+     flex-shrink: 0;
  }
 
 

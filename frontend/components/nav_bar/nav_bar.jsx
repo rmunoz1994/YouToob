@@ -44,7 +44,7 @@ class NavBar extends React.Component {
         const uploadDrop = this.state.uploadDropHidden ? (<> </>) : (<UploadDropdown props={this.props}/>);
 
         return (
-            <div>
+
                 <header className="nav-bar">
                     <div className="nav-bar-left-icons">
                         <button className="nav-bar-button" onClick={this.props.toggleSideBar}>
@@ -63,7 +63,7 @@ class NavBar extends React.Component {
                         </form>
                     </div>
                     <div className="nav-bar-right-icons">
-                        <button className="nav-bar-button" onClick={this.toggleUploadDrop()}>
+                        <button className="nav-bar-button" onFocus={this.toggleUploadDrop()} onBlur={this.toggleUploadDrop()}>
                             <i id="icon" className="fas fa-video"></i>
                             {uploadDrop}
                         </button>
@@ -73,7 +73,7 @@ class NavBar extends React.Component {
                         {display}
                     </div>
                 </header>
-            </div>
+ 
         )
     }
 

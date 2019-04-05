@@ -87,13 +87,15 @@ class Login extends React.Component {
         )
 
         return (
-            <div className="session-form">
-                <img src="https://img.icons8.com/color/48/000000/youtube-play.png" /> 
-                <h1>Sign in</h1>
-                <h2>to continue to YouToob</h2>
-                <br/>
-                {form}
-            </div>
+            <div className="session-form-container">
+                <div className="session-form">
+                    <img src="https://img.icons8.com/color/48/000000/youtube-play.png" />
+                    <h1>Sign in</h1>
+                    <h2>to continue to YouToob</h2>
+                    <br />
+                    {form}
+                </div>
+            </div>       
         )
     }
 }

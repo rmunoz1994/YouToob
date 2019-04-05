@@ -1,13 +1,13 @@
 .create-user {
   display: flex;
-  margin: auto;
-  position: absolute;
+  // margin: auto;
+  // position: absolute;
   top:0;
   bottom: 0;
   left: 0;
   right: 0;
   width: 668px;
-  height: 442px;
+  min-height: 442px;
   border: 1px solid #dadce0;
   border-radius: 8px;
   padding: 48px 40px 36px;

@@ -52,63 +52,65 @@ class Signup extends React.Component {
     render() {
         const errorClass = this.props.errors.length > 0 ? "error-signup" : "";
         return (
-            <div className="create-user">
-                <div className="create-user-left">
-                    <img src="https://img.icons8.com/color/48/000000/youtube-play.png" />
-                    <h1>Create your YouToob Account</h1>
-                    <form onSubmit={this.handleSubmit} className="create-user-form">
-                        <div>
-                            <div className="full-name-inputs">
-                                <input 
-                                    className={"create-user-input " + errorClass}
-                                    type="text" 
-                                    value={this.state.first_name}
-                                    placeholder="First name"
-                                    onChange={this.handleInput("first_name")}
-                                />
-                                <input
-                                    className={"create-user-input " + errorClass}
-                                    type="text"
-                                    value={this.state.last_name}
-                                    placeholder="Last name"
-                                    onChange={this.handleInput("last_name")}
-                                />
-                            </div>
+            <div className="session-form-container">
+                <div className="create-user">
+                    <div className="create-user-left">
+                        <img src="https://img.icons8.com/color/48/000000/youtube-play.png" />
+                        <h1>Create your YouToob Account</h1>
+                        <form onSubmit={this.handleSubmit} className="create-user-form">
                             <div>
-                                <input
-                                    className={"create-user-input " + errorClass}
-                                    type="text"
-                                    value={this.state.email}
-                                    placeholder="Email"
-                                    onChange={this.handleInput("email")}
-                                />
+                                <div className="full-name-inputs">
+                                    <input 
+                                        className={"create-user-input " + errorClass}
+                                        type="text" 
+                                        value={this.state.first_name}
+                                        placeholder="First name"
+                                        onChange={this.handleInput("first_name")}
+                                    />
+                                    <input
+                                        className={"create-user-input " + errorClass}
+                                        type="text"
+                                        value={this.state.last_name}
+                                        placeholder="Last name"
+                                        onChange={this.handleInput("last_name")}
+                                    />
+                                </div>
+                                <div>
+                                    <input
+                                        className={"create-user-input " + errorClass}
+                                        type="text"
+                                        value={this.state.email}
+                                        placeholder="Email"
+                                        onChange={this.handleInput("email")}
+                                    />
+                                </div>
+                                <div>
+                                    <input
+                                        className={"create-user-input " + errorClass}
+                                        type="password"
+                                        value={this.state.password}
+                                        placeholder="Password"
+                                        onChange={this.handleInput("password")}
+                                    />
+                                </div>
+                                <div className="password-hint">
+                                    Use 6 or more characters
+                                </div>
+                                {this.renderErrors()}
+                                <div className="create-user-form-submit">
+                                    <Link to="/login" >Sign in instead</Link>
+                                    <button className="next-button"> Next </button>
+                                </div>
                             </div>
-                            <div>
-                                <input
-                                    className={"create-user-input " + errorClass}
-                                    type="password"
-                                    value={this.state.password}
-                                    placeholder="Password"
-                                    onChange={this.handleInput("password")}
-                                />
-                            </div>
-                            <div className="password-hint">
-                                Use 6 or more characters
-                            </div>
-                            {this.renderErrors()}
-                            <div className="create-user-form-submit">
-                                <Link to="/login" >Sign in instead</Link>
-                                <button className="next-button"> Next </button>
-                            </div>
-                        </div>
-                    </form>
+                        </form>
+                    </div>
+                    
+                    <figure className="image-placeholder">
+                        <button></button>
+                        <figcaption>One Account. All of YouToob working for you.</figcaption>
+                    </figure>
+                    
                 </div>
-                
-                <figure className="image-placeholder">
-                    <button></button>
-                    <figcaption>One Account. All of YouToob working for you.</figcaption>
-                </figure>
-                
             </div>
         )
     }
