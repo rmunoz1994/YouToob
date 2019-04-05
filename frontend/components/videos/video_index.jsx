@@ -15,8 +15,13 @@ class VideoIndex extends React.Component {
             return null;
         } else {
             return (
-                <div className="video-index-container">
-                    <VideoGrid videos={this.props.videos} users={this.props.users}/>
+                <div className="index-container">
+                    <div className="video-index-container">
+                        <VideoGrid videos={this.props.videos} users={this.props.users} title={"Recommended"}/>
+                    </div>
+                    <div className="video-index-container">
+                        <VideoGrid videos={this.props.videos} users={this.props.users} title={"Trending"} />
+                    </div>
                 </div>
             )
         }

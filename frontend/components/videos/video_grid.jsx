@@ -16,7 +16,7 @@ class VideoGrid extends React.Component {
         return (
             <div className="video-grid-container">
                 <div className="grid-subheader">
-                    <h3>Recommended</h3>
+                    <h3>{this.props.title}</h3>
                 </div>
                 <div className="contents">
                     {videoGrid}
