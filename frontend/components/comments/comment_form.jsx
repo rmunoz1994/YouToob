@@ -45,7 +45,7 @@ class CommentForm extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         this.props.createComment(this.state.comment).then(() => this.props.handler());
-        this.setState({comment:{body: ''}});
+        this.setState({ comment: { ...this.state.comment, body: "" } });
     }
 
     handleLink() {

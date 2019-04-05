@@ -1,6 +1,7 @@
 import { RECEIVE_ALL_USERS, RECEIVE_USER } from "../actions/user_actions";
 import { RECEIVE_VIDEOS, RECEIVE_VIDEO, CLEAR_VIDEOS } from "../actions/video_actions";
 import merge from 'lodash/merge';
+import { RECEIVE_COMMENT } from "../actions/comment_actions";
 import { RECEIVE_CURRENT_USER } from "../actions/session";
 
 
@@ -13,6 +14,7 @@ const usersReducer = (state = {}, action) => {
             let newState = merge({}, state, { [action.user.id]: action.user });
             return merge({}, newState, action.commentAuthors);
         case RECEIVE_CURRENT_USER:
+        case RECEIVE_COMMENT:
             return merge({}, state, {[action.user.id]: action.user});
         // case RECEIVE_ALL_USERS:
         // case RECEIVE_USER:

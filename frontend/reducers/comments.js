@@ -1,4 +1,5 @@
 import { RECEIVE_VIDEOS, RECEIVE_VIDEO, REMOVE_VIDEO, CLEAR_VIDEOS } from "../actions/video_actions";
+import  { RECEIVE_COMMENT } from "../actions/comment_actions";
 import merge from 'lodash/merge';
 
 const commentsReducer = (state = {}, action) => {
@@ -8,7 +9,10 @@ const commentsReducer = (state = {}, action) => {
             if (action.comments) {
                 return action.comments;
             }
-            return {};
+            return {}
+        case RECEIVE_COMMENT:
+            const newComment = { [action.comment.id]: action.comment };
+            return merge({}, state, newComment);
         case CLEAR_VIDEOS:
             return {};
         default:
