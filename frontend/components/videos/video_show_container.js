@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import VideoShow from './video_show';
-import { fetchVideo, clearVideos } from '../../actions/video_actions';
+import { fetchVideo, fetchVideos, clearVideos } from '../../actions/video_actions';
 import { createComment } from '../../actions/comment_actions';
 
 const mapStateToProps = (state, ownProps) => {
@@ -15,13 +15,15 @@ const mapStateToProps = (state, ownProps) => {
         uploader: uploader,
         video: video,
         comments: comments,
-        users: state.entities.users
+        users: state.entities.users,
+        videos: Object.values(state.entities.videos),
     };
 };
 
 const mapDispatchToProps = dispatch => {
     return {
         fetchVideo: id => dispatch(fetchVideo(id)),
+        fetchVideos: () => dispatch(fetchVideos()),
         clearVideos: () => dispatch(clearVideos()),
         createComment: comment => dispatch(createComment(comment))
     };

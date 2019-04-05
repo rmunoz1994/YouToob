@@ -1,5 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import UpNext from './up_next';
 import VideoItem from './video_item';
 import CommentsSection from '../comments/comments_section';
 
@@ -13,6 +14,7 @@ class VideoShow extends React.Component {
     componentDidMount() {
         this.props.clearVideos();
         this.props.fetchVideo(this.props.match.params.videoId);
+        this.props.fetchVideos();
     }
 
     componentDidUpdate(prevProps) {
@@ -113,12 +115,7 @@ class VideoShow extends React.Component {
                         />
 
                     </div>
-
-                    <div className="up-next-container">
-                        Up next
-                        <VideoItem video={this.props.video} user={this.props.users[this.props.video.uploaderId]}/>
-                    </div>
-
+                    <UpNext videos={this.props.videos} users={this.props.users}/>
                 </div>
             )
 
