@@ -121,7 +121,11 @@ class CommentForm extends React.Component {
                                 ) : (
                                     <button type="button" className="cancel-btn" onClick={this.toggleButtons}>CANCEL</button>
                                 )}
-                                <button onClick={this.handleSubmit} className={buttonColorClass}>{buttonText}</button>
+                                {this.state.comment.body === '' ? (
+                                    <button className={buttonColorClass}>{buttonText}</button>
+                                ) : (
+                                    <button onClick={this.handleSubmit} className={buttonColorClass}>{buttonText}</button>
+                                )}
                             </div>
                         ) : (
                             <></>

@@ -93,19 +93,20 @@ class Comment extends React.Component {
                         </>
                     )}
                     <div className="reply-dropdown-container">
-                        
+                        <div className="reply-dropdown" onClick={this.toggleChildren}>
                         {!this.state.viewReplies ? (
-                            <div className="reply-dropdown" onClick={this.toggleChildren}>
+                            <>
                                 <div>View replies</div>
                                 <i id="comment-drop-icon" className="fas fa-angle-down"></i>
                                 {/* <i id="comment-drop-icon" className="fas fa-caret-down"></i> */}
-                            </div>
+                            </>
                         ) : (
-                            <div className="reply-dropdown" onClick={this.toggleChildren}>
+                            <>
                                 <div>Hide replies</div>
                                 <i id="comment-drop-icon-up" className="fas fa-angle-up"></i>
-                            </div>
+                            </>
                         )}
+                        </div>
                     </div>
                 </div>
                 <div className="comment-action-menu">
