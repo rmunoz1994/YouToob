@@ -5,10 +5,12 @@ class Comment extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            replying: false
+            replying: false,
+            viewReplies: false
         };
         this.setReplyTrue = this.setReplyTrue.bind(this);
         this.toggleReply = this.toggleReply.bind(this);
+        this.toggleChildren = this.toggleChildren.bind(this);
     }
 
     formatTimeDifference() {
@@ -28,6 +30,14 @@ class Comment extends React.Component {
             this.setState({ replying: true });
         } else {
             this.setState({ replying: false });
+        }  
+    }
+
+    toggleChildren() {
+        if (!this.state.viewReplies) {
+            this.setState({ viewReplies: true });
+        } else {
+            this.setState({ viewReplies: false });
         }  
     }
 
@@ -83,10 +93,19 @@ class Comment extends React.Component {
                         </>
                     )}
                     <div className="reply-dropdown-container">
-                        <div className="reply-dropdown">
-                            <div>View replies</div>
-                            <i id="comment-drop-icon" className="fas fa-caret-down"></i>
-                        </div>
+                        
+                        {!this.state.viewReplies ? (
+                            <div className="reply-dropdown" onClick={this.toggleChildren}>
+                                <div>View replies</div>
+                                <i id="comment-drop-icon" className="fas fa-angle-down"></i>
+                                {/* <i id="comment-drop-icon" className="fas fa-caret-down"></i> */}
+                            </div>
+                        ) : (
+                            <div className="reply-dropdown" onClick={this.toggleChildren}>
+                                <div>Hide replies</div>
+                                <i id="comment-drop-icon-up" className="fas fa-angle-up"></i>
+                            </div>
+                        )}
                     </div>
                 </div>
                 <div className="comment-action-menu">
@@ -94,7 +113,6 @@ class Comment extends React.Component {
                         <button className="nav-bar-button">
                             <i id="icon" className="fas fa-ellipsis-v"></i>
                         </button>
-                        {/* <i className="fas fa-ellipsis-v"></i> */}
                     </div>
                 </div>
             </div>

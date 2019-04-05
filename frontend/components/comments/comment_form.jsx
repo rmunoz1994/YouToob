@@ -44,7 +44,6 @@ class CommentForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        debugger
         this.props.createComment(this.state.comment).then(() => this.props.handler());
         this.setState({comment:{body: ''}});
     }
@@ -56,6 +55,7 @@ class CommentForm extends React.Component {
     toggleButtons() {
         if (this.state.btnsVisible) {
             this.setState({btnsVisible: false});
+            this.setState({ comment: { ...this.state.comment, body: '' } });
         } else {
             this.setState({ btnsVisible: true });
         }
@@ -72,6 +72,7 @@ class CommentForm extends React.Component {
     render() {
         let userPic;
         let userPicClass;
+        let buttonColorClass;
         let buttonText;
         if (this.props.replying) {
             userPicClass = "user-pic-author-replying";
@@ -84,6 +85,11 @@ class CommentForm extends React.Component {
             userPic = (<button className={userPicClass}>{this.props.currentUser.first_name.slice(0, 1).toUpperCase()}</button>);
         } else {
             userPic = (<button className={userPicClass}></button>);
+        }
+        if (this.state.comment.body.length > 0) {
+            buttonColorClass = "comment-btn"
+        } else {
+            buttonColorClass = "comment-btn-off"
         }
         return (
             <div className="comment-box-container">
@@ -115,7 +121,7 @@ class CommentForm extends React.Component {
                                 ) : (
                                     <button type="button" className="cancel-btn" onClick={this.toggleButtons}>CANCEL</button>
                                 )}
-                                <button onClick={this.handleSubmit} className="comment-btn">{buttonText}</button>
+                                <button onClick={this.handleSubmit} className={buttonColorClass}>{buttonText}</button>
                             </div>
                         ) : (
                             <></>
