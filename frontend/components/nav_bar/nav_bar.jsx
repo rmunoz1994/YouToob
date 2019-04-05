@@ -50,7 +50,7 @@ class NavBar extends React.Component {
                         <button className="nav-bar-button" onClick={this.props.toggleSideBar}>
                             <i id="icon" className="fas fa-bars"></i>
                         </button>
-                        <img className="logo" src="/assets/youtoob_logo-590e7d0fbd1e2f8b5e277d19d97e1c7e5fb16983034876e67b1c783816daaeed.svg" 
+                        <img className="logo" src={window.logo}
                             onClick={this.handleIndexLink}
                         />
                     </div>

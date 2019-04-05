@@ -106,7 +106,8 @@ class Signup extends React.Component {
                     </div>
                     
                     <figure className="image-placeholder">
-                        <button></button>
+                        <img src={window.signUpLogo}/>
+                        {/* <button></button> */}
                         <figcaption>One Account. All of YouToob working for you.</figcaption>
                     </figure>
                     
