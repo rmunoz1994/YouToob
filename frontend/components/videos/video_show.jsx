@@ -14,13 +14,14 @@ class VideoShow extends React.Component {
     componentDidMount() {
         this.props.clearVideos();
         this.props.fetchVideo(this.props.match.params.videoId);
-        this.props.fetchVideos();
+        // this.props.fetchVideos();
     }
 
     componentDidUpdate(prevProps) {
         if (prevProps.match.params.videoId !== this.props.match.params.videoId) {
             this.props.clearVideos();
             this.props.fetchVideo(this.props.match.params.videoId);
+            // this.props.fetchVideos();
         }
     }
 
@@ -33,30 +34,6 @@ class VideoShow extends React.Component {
     handleEditLink() {
         this.props.history.push(`/videos/${this.props.match.params.videoId}/edit`);
     }
-
-    // renderComments() {
-    //     return (
-    //         <div className="comments-section-container">
-    //             <div className="comments-header">
-    //                 <div className="comment-amount">
-    //                     13,713 Comments
-    //                 </div>
-    //                 <div className="comment-box-container">
-    //                     <button className="user-pic-author">{this.props.currentUser.first_name.slice(0, 1).toUpperCase()}</button>
-    //                     <div className="comment-box">
-    //                         <div className="comment-input-box">
-    //                             <textarea className="comment-textarea" placeholder="Add a public comment..."></textarea>
-    //                             <div className="comment-input-underline"></div>
-    //                         </div>
-    //                         <div className="comment-box-buttons">
-                            
-    //                         </div>
-    //                     </div>
-    //                 </div>
-    //             </div>
-    //         </div>
-    //     )
-    // }
 
     render() {
 
@@ -115,7 +92,7 @@ class VideoShow extends React.Component {
                         />
 
                     </div>
-                    <UpNext videos={this.props.videos} users={this.props.users}/>
+                    {/* <UpNext videos={this.props.videos} users={this.props.users}/> */}
                 </div>
             )
 

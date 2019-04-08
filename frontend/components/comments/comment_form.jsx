@@ -17,10 +17,10 @@ class CommentForm extends React.Component {
         }
         this.state = {
             comment: {
-                body: '',
+                body: this.props.initialBody || "",
                 author_id: authorId,
                 video_id: videoId,
-                parent_comment_id: null
+                parent_comment_id: this.props.parentCommentId || null
             },
             btnsVisible: btnsVisible,
             replying: replying
@@ -44,7 +44,7 @@ class CommentForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        this.props.createComment(this.state.comment).then(() => this.props.handler());
+        this.props.createComment(this.state.comment);
         this.setState({ comment: { ...this.state.comment, body: "" } });
     }
 
@@ -67,6 +67,33 @@ class CommentForm extends React.Component {
                 this.setState({btnsVisible: true});
             }
         };
+    }
+
+    renderInput() {
+        if (this.props.shouldAutoFocus) {
+            return (
+                <textarea
+                    className="comment-textarea"
+                    placeholder="Add a public comment..."
+                    value={this.state.comment.body}
+                    onChange={this.handleInput()}
+                    onClick={this.inputToggle()}
+                    autoFocus
+                >
+                </textarea>
+            )
+        } else {
+            return (
+                <textarea
+                    className="comment-textarea"
+                    placeholder="Add a public comment..."
+                    value={this.state.comment.body}
+                    onChange={this.handleInput()}
+                    onClick={this.inputToggle()}
+                >
+                </textarea>
+            )
+        }
     }
 
     render() {
@@ -98,14 +125,7 @@ class CommentForm extends React.Component {
                     <form>
                         <div className="comment-input-box">
                             {this.props.currentUser ? (
-                                <textarea 
-                                    className="comment-textarea" 
-                                    placeholder="Add a public comment..." 
-                                    value={this.state.comment.body} 
-                                    onChange={this.handleInput()}
-                                    onClick={this.inputToggle()}
-                                >
-                                </textarea>
+                                this.renderInput()
                             ) : (
                                 <textarea className="comment-textarea" placeholder="Add a public comment..." onClick={this.handleLink}></textarea>
                             )}

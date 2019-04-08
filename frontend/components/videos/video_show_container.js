@@ -5,7 +5,7 @@ import { createComment } from '../../actions/comment_actions';
 
 const mapStateToProps = (state, ownProps) => {
     const video = state.entities.videos[ownProps.match.params.videoId];
-    const comments = Object.values(state.entities.comments);
+    const comments = state.entities.comments;
     let uploader;
     if (video) {
         uploader = state.entities.users[video.uploaderId];

@@ -11,10 +11,11 @@ const receiveComments = ({ comments, users }) => ({
     users
 });
 
-const receiveComment = ({comment, user}) => ({
+const receiveComment = ({comment, user, parentComment}) => ({
     type: RECEIVE_COMMENT,
     comment,
-    user
+    user,
+    parentComment
 });
 
 const removeComment = comment => ({

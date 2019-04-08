@@ -15,6 +15,11 @@ end
     json.comments do
         json.set! comment.id do
             json.partial! '/api/comments/comment', comment: comment
+            if comment.replies.present?
+                json.commentIds do
+                    json.array! comment.replies.pluck(:id)
+                end
+            end
         end
     end
 

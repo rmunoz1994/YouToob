@@ -1,5 +1,5 @@
-import { RECEIVE_VIDEOS, RECEIVE_VIDEO, REMOVE_VIDEO, CLEAR_VIDEOS } from "../actions/video_actions";
-import  { RECEIVE_COMMENT } from "../actions/comment_actions";
+import { RECEIVE_VIDEO, REMOVE_VIDEO, CLEAR_VIDEOS } from "../actions/video_actions";
+import  { RECEIVE_COMMENT, REMOVE_COMMENT } from "../actions/comment_actions";
 import merge from 'lodash/merge';
 
 const commentsReducer = (state = {}, action) => {
@@ -9,21 +9,22 @@ const commentsReducer = (state = {}, action) => {
             if (action.comments) {
                 return action.comments;
             }
-            return {}
+            return {};
         case RECEIVE_COMMENT:
-            const newComment = { [action.comment.id]: action.comment };
+            let newComment = { [action.comment.id]: action.comment };
+            if (action.parentComment) {
+                newComment[[action.parentComment.id]] = action.parentComment;
+            }
             return merge({}, state, newComment);
+        case REMOVE_COMMENT:
+            const newState = merge({}, state);
+            delete newState[action.comment.id];
+            return newState;
         case CLEAR_VIDEOS:
+        case REMOVE_VIDEO: 
             return {};
         default:
             return state;
-        // case RECEIVE_COMMENT:
-        //     const newVideo = { [action.video.id]: action.video };
-        //     return merge({}, state, newVideo);
-        // case REMOVE_VIDEO:
-        //     const newState = merge({}, state);
-        //     delete newState[action.video.id];
-        //     return newState;
     }
 };
 

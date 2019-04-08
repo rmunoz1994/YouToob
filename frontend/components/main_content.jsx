@@ -30,12 +30,7 @@ class MainContent extends React.Component {
     }
 
     render() {
-        const sideBar = this.state.sideBarHidden ? (<div></div>) : (
-            <>
-                <SideBar />
-                <div className="sidebar-empty-space"></div>
-            </>
-        );
+        const sideBar = this.state.sideBarHidden ? (<div></div>) : (<SideBar />);
         return (
             <>
                 <NavBarContainer toggleSideBar={this.toggleSideBar()} />

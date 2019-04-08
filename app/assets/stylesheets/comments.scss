@@ -189,7 +189,7 @@ $body-reg-theme: #f9f9f9;
 
 .reply-dropdown {
     height: 24px;
-    width: 100px;
+    width: 120px;
     font-size: 14px;
     font-weight: 500;
     margin-top: 8px;
@@ -226,6 +226,10 @@ $body-reg-theme: #f9f9f9;
     .action-icon {
         visibility: visible;
     }
+}
+
+.replies-container {
+    margin-left: 56px;
 }
 
   

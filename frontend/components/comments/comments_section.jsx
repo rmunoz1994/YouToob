@@ -25,9 +25,26 @@ class CommentsSection extends React.Component {
         let commentPlural;
 
         if (this.props.comments) {
-            comments = this.props.comments.map((comment, index) => (
-                <Comment key={index} comment={comment} videoId={this.props.videoId} author={this.props.users[comment.authorId]} currentUser={this.props.currentUser}/>
-            ));
+            // comments = this.props.comments.map((comment, index) => {
+            //     if (comment.parentCommentId === null) {
+            //         return <Comment key={index} comment={comment} videoId={this.props.videoId} author={this.props.users[comment.authorId]} currentUser={this.props.currentUser}/>
+            //     }
+            // });
+            comments = Object.values(this.props.comments).map((comment, index) => {
+                if (comment.parentCommentId === null) {
+                    return <Comment 
+                        key={index} 
+                        comment={comment} 
+                        comments={this.props.comments} 
+                        videoId={this.props.videoId} 
+                        author={this.props.users[comment.authorId]} 
+                        users={this.props.users}
+                        currentUser={this.props.currentUser} 
+                        createComment={this.props.createComment}
+                        handler={this.handler}
+                    />
+                }
+            });
             commentsLength = comments.length;
             if (commentsLength === 1) {
                 commentPlural = 'Comment';

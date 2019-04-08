@@ -68,14 +68,15 @@ body {
     padding-top: 56px;
  }
 
- .sidebar-container {
-
+ .side-bar-container {
+    width: 240px;
+    flex-shrink: 0;
  }
 
- .sidebar-empty-space {
-     width: 240px;
-     flex-shrink: 0;
- }
+//  .sidebar-empty-space {
+//      width: 240px;
+//      flex-shrink: 0;
+//  }
 
 
 

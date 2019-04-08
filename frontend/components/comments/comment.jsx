@@ -5,10 +5,11 @@ class Comment extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            reply: this.props.reply || false,
             replying: false,
             viewReplies: false
         };
-        this.setReplyTrue = this.setReplyTrue.bind(this);
+        this.setReplyingTrue = this.setReplyingTrue.bind(this);
         this.toggleReply = this.toggleReply.bind(this);
         this.toggleChildren = this.toggleChildren.bind(this);
     }
@@ -18,10 +19,14 @@ class Comment extends React.Component {
         let uploadDate = new Date(this.props.comment.createdAt);
         let timeDiff = Math.abs(today.getTime() - uploadDate.getTime());
         let result = Math.ceil(timeDiff / (1000 * 3600 * 24));
-        return result.toString() + " day ago";
+        let pluralize = " days ago";
+        if (result === 1) {
+            pluralize = " day ago";
+        }
+        return result.toString() + pluralize;
     }
 
-    setReplyTrue() {
+    setReplyingTrue() {
         this.setState({ replying: true });
     }
 
@@ -41,16 +46,37 @@ class Comment extends React.Component {
         }  
     }
 
+    renderReplyDropdown() {
+        let pluralize = " replies";
+        if (this.props.comment.commentIds.length === 1) {
+            pluralize = " reply";
+        }
+        return (
+            <div className="reply-dropdown-container">
+                <div className="reply-dropdown" onClick={this.toggleChildren}>
+                    {!this.state.viewReplies ? (
+                        <>
+                            <div>View {this.props.comment.commentIds.length} {pluralize}</div>
+                            <i id="comment-drop-icon" className="fas fa-angle-down"></i>
+                        </>
+                    ) : (
+                        <>
+                            <div>Hide {pluralize}</div>
+                            <i id="comment-drop-icon-up" className="fas fa-angle-up"></i>
+                        </>
+                    )}
+                </div>
+            </div>
+        )
+    }
+
     render() {
-        // let userPic;
-        // if (this.props.currentUser) {
-        //     userPic = ();
-        // } else {
-        //     userPic = (<button className="user-pic-author"></button>);
-        // }
         let commentBody;
         let commentDate;
         let commentAuthor;
+        let replies;
+        let userPicClass = "user-pic-author";
+        let parent = this.props.comment;
         if (this.props.comment) {
             commentBody = this.props.comment.body;
             commentDate = this.formatTimeDifference();
@@ -60,10 +86,38 @@ class Comment extends React.Component {
             commentDate = (<></>);
             commentAuthor = (<></>);
         }
+        if (this.props.comment.commentIds && !this.state.reply) {
+            replies = this.props.comment.commentIds.map((id, index) => {
+                return (
+                    <Comment 
+                        key={index}
+                        comment={this.props.comments[id]}
+                        videoId={this.props.videoId}
+                        author={this.props.users[this.props.comments[id].authorId]}
+                        users={this.props.users}
+                        handler={this.props.handler}
+                        currentUser={this.props.currentUser} 
+                        createComment={this.props.createComment}
+                        reply={true}
+                        parent={this.props.comment}
+                    />
+                )
+            });
+        } else {
+            replies = (<></>);
+        }
+        if (this.state.reply) {
+            userPicClass = "user-pic-author-replying";
+            parent = this.props.parent;
+        }
+        // if (this.state.replying) {
+        //     debugger
+        // }
         return (
+            <>
             <div className="comment-container">
                 {/* <button className="user-pic-author">{this.props.user.first_name.slice(0, 1).toUpperCase()}</button> */}
-                <button className="user-pic-author">{commentAuthor.slice(0, 1).toUpperCase()}</button>
+                <button className={userPicClass}>{commentAuthor.slice(0, 1).toUpperCase()}</button>
                 <div className="comment-right">
                     <div className="main-comment">
                         <div className="comment-info">
@@ -76,9 +130,10 @@ class Comment extends React.Component {
                         <div className="comment-action">
                             <button className="comment-like"><i className="fas fa-thumbs-up"></i></button>
                             <button className="comment-like"><i className="fas fa-thumbs-up fa-rotate-180"></i></button>
-                            <button className="reply-btn" onClick={this.setReplyTrue}>REPLY</button>
+                            <button className="reply-btn" onClick={this.setReplyingTrue}>REPLY</button>
                         </div>
                     </div>
+
                     {this.state.replying ? (
                         <CommentForm
                             currentUser={this.props.currentUser}
@@ -87,27 +142,21 @@ class Comment extends React.Component {
                             history={this.props.history}
                             replying={true}
                             toggleReply={this.toggleReply}
+                            parentCommentId={parent.id}
+                            createComment={this.props.createComment}
+                            handler={this.props.handler}
+                            initialBody={commentAuthor + " "}
+                            shouldAutoFocus={true}
                         />
                     ) : (
                         <>
                         </>
                     )}
-                    <div className="reply-dropdown-container">
-                        <div className="reply-dropdown" onClick={this.toggleChildren}>
-                        {!this.state.viewReplies ? (
-                            <>
-                                <div>View replies</div>
-                                <i id="comment-drop-icon" className="fas fa-angle-down"></i>
-                                {/* <i id="comment-drop-icon" className="fas fa-caret-down"></i> */}
-                            </>
-                        ) : (
-                            <>
-                                <div>Hide replies</div>
-                                <i id="comment-drop-icon-up" className="fas fa-angle-up"></i>
-                            </>
-                        )}
-                        </div>
-                    </div>
+                    {this.props.comment.commentIds ? (
+                        this.renderReplyDropdown()
+                    ) : (
+                        <></>
+                    )}
                 </div>
                 <div className="comment-action-menu">
                     <div className="action-icon">
@@ -117,6 +166,14 @@ class Comment extends React.Component {
                     </div>
                 </div>
             </div>
+            {this.state.viewReplies ? (
+                <div className="replies-container">
+                    {replies}
+                </div>
+            ) : (
+                <></>
+            )}
+            </>
         )
     }
 }
