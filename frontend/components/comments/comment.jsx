@@ -1,5 +1,7 @@
 import React from 'react';
 import CommentForm from './comment_form';
+import { timeSincePost } from '../../util/format_util';
+
 
 class Comment extends React.Component {
     constructor(props) {
@@ -12,18 +14,6 @@ class Comment extends React.Component {
         this.setReplyingTrue = this.setReplyingTrue.bind(this);
         this.toggleReply = this.toggleReply.bind(this);
         this.toggleChildren = this.toggleChildren.bind(this);
-    }
-
-    formatTimeDifference() {
-        let today = new Date();
-        let uploadDate = new Date(this.props.comment.createdAt);
-        let timeDiff = Math.abs(today.getTime() - uploadDate.getTime());
-        let result = Math.ceil(timeDiff / (1000 * 3600 * 24));
-        let pluralize = " days ago";
-        if (result === 1) {
-            pluralize = " day ago";
-        }
-        return result.toString() + pluralize;
     }
 
     setReplyingTrue() {
@@ -79,7 +69,7 @@ class Comment extends React.Component {
         let parent = this.props.comment;
         if (this.props.comment) {
             commentBody = this.props.comment.body;
-            commentDate = this.formatTimeDifference();
+            commentDate = timeSincePost(this.props.comment.createdAt);
             commentAuthor = `${this.props.author.first_name} ${this.props.author.last_name}`;
         } else {
             commentBody = (<></>);
@@ -110,9 +100,6 @@ class Comment extends React.Component {
             userPicClass = "user-pic-author-replying";
             parent = this.props.parent;
         }
-        // if (this.state.replying) {
-        //     debugger
-        // }
         return (
             <>
             <div className="comment-container">

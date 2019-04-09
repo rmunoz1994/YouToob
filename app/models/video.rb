@@ -26,6 +26,7 @@ class Video < ApplicationRecord
     has_one_attached :thumbnailUrl
 
     has_many :comments, dependent: :destroy
+    has_many :likes, :as => :likeable
 
     def ensure_videoUrl
         unless self.videoUrl.attached?

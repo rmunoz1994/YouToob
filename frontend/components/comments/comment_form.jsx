@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
+import LoadingSpinner from '../misc/loading_spinner';
 
 class CommentForm extends React.Component {
     constructor(props) {
@@ -23,17 +24,12 @@ class CommentForm extends React.Component {
                 parent_comment_id: this.props.parentCommentId || null
             },
             btnsVisible: btnsVisible,
-            replying: replying
+            replying: replying,
+            loading: false
         };
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleLink = this.handleLink.bind(this);
         this.toggleButtons = this.toggleButtons.bind(this);
-    }
-
-    formatDate() {
-        let date = new Date(this.props.comment.createdAt);
-        date = date.toString().split(" ");
-        return date[1] + " " + date[2] + ", " + date[3];
     }
 
     handleInput() {
@@ -44,7 +40,8 @@ class CommentForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        this.props.createComment(this.state.comment);
+        this.setState({loading: true});
+        this.props.createComment(this.state.comment).then(() => this.setState({ loading: false }));
         this.setState({ comment: { ...this.state.comment, body: "" } });
     }
 
@@ -119,6 +116,7 @@ class CommentForm extends React.Component {
             buttonColorClass = "comment-btn-off"
         }
         return (
+            <>
             <div className="comment-box-container">
                 {userPic}
                 <div className="comment-box">
@@ -153,6 +151,8 @@ class CommentForm extends React.Component {
                     </form>
                 </div>
             </div>
+            {/* { this.state.loading ? <LoadingSpinner /> : <></> } */}
+            </>
         )
     }
 }
