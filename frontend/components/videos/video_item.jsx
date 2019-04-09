@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-// import { url } from 'inspector';
+import { timeSincePost } from '../../util/format_util';
 
 class VideoItem extends React.Component {
     constructor(props) {
@@ -8,29 +8,7 @@ class VideoItem extends React.Component {
         this.state = {
             isColumn: this.props.isColumn
         };
-        this.formatTimeDifference = this.formatTimeDifference.bind(this);
     }
-
-    formatTimeDifference() {
-        let today = new Date();
-        let uploadDate = new Date(this.props.video.createdAt);
-        let timeDiff = Math.abs(today.getTime() - uploadDate.getTime());
-        let result = Math.ceil(timeDiff / (1000 * 3600 * 24));
-        return result.toString() + " day ago";
-    }
-
-    // formatTimeDifference() {
-    //     let today = new Date();
-    //     let uploadDate = new Date(this.props.video.createdAt);
-    //     let timeDiff = Math.abs(today.getTime() - uploadDate.getTime());
-    //     if (timeDiff < 60) {
-    //         return 'now';
-    //     } else if (timeDiff < 3600) {
-
-    //     } else if (timeDiff < 3600 * 24) {
-
-    //     } else if (timeDiff < 3600* 24 * 2)
-    // }
 
     render() {
         const isColumn = this.state.isColumn;
@@ -72,7 +50,7 @@ class VideoItem extends React.Component {
                             {this.props.user.first_name}
                         </div>
                         <div className="upload-time">
-                            {this.formatTimeDifference()}
+                            {timeSincePost(this.props.video.createdAt)}
                         </div>
                     </div>
                 </div>

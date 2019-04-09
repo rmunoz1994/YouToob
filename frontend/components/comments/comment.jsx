@@ -1,5 +1,6 @@
 import React from 'react';
 import CommentForm from './comment_form';
+import CommentPopup from './comment_popup';
 import { timeSincePost } from '../../util/format_util';
 
 
@@ -9,11 +10,13 @@ class Comment extends React.Component {
         this.state = {
             reply: this.props.reply || false,
             replying: false,
-            viewReplies: false
+            viewReplies: false,
+            showDrop: false
         };
         this.setReplyingTrue = this.setReplyingTrue.bind(this);
         this.toggleReply = this.toggleReply.bind(this);
         this.toggleChildren = this.toggleChildren.bind(this);
+        this.toggleDrop = this.toggleDrop.bind(this);
     }
 
     setReplyingTrue() {
@@ -34,6 +37,14 @@ class Comment extends React.Component {
         } else {
             this.setState({ viewReplies: false });
         }  
+    }
+
+    toggleDrop() {
+        if (this.state.showDrop) {
+            this.setState({showDrop: false});
+        } else {
+            this.setState({showDrop: true});
+        }
     }
 
     renderReplyDropdown() {
@@ -147,11 +158,12 @@ class Comment extends React.Component {
                 </div>
                 <div className="comment-action-menu">
                     <div className="action-icon">
-                        <button className="nav-bar-button">
+                        <button className="nav-bar-button" onClick={this.toggleDrop}>
                             <i id="icon" className="fas fa-ellipsis-v"></i>
                         </button>
                     </div>
                 </div>
+                {this.state.showDrop && this.props.currentUser ? <CommentPopup /> : <></>}
             </div>
             {this.state.viewReplies ? (
                 <div className="replies-container">

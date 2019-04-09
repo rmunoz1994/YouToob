@@ -34,7 +34,7 @@ class User < ApplicationRecord
         primary_key: :id,
         foreign_key: :author_id
 
-    has_many :likes, :as => :likeable
+    has_many :likes, dependent: :destroy
 
     def self.find_by_credentials(email, password)
         user = User.find_by(email: email)

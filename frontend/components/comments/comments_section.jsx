@@ -18,20 +18,11 @@ class CommentsSection extends React.Component {
     }
 
     render() {
-
-        // let videoGrid = this.props.videos.map((video, index) => (
-        //     <VideoItem key={index} video={video} user={this.props.users[video.uploaderId]} />
-        // ));
         let comments;
         let commentsLength;
         let commentPlural;
 
         if (this.props.comments) {
-            // comments = this.props.comments.map((comment, index) => {
-            //     if (comment.parentCommentId === null) {
-            //         return <Comment key={index} comment={comment} videoId={this.props.videoId} author={this.props.users[comment.authorId]} currentUser={this.props.currentUser}/>
-            //     }
-            // });
             comments = Object.values(this.props.comments).map((comment, index) => {
                 if (comment.parentCommentId === null) {
                     return <Comment 

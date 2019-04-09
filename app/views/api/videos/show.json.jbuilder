@@ -10,7 +10,7 @@ json.user do
     json.partial! '/api/users/user', user: @video.uploader
 end
 
-@video.comments.includes(:author).each do |comment|
+@video.comments.includes(:author, :replies).each do |comment|
 
     json.comments do
         json.set! comment.id do
