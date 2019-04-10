@@ -30,6 +30,7 @@ class Comment < ApplicationRecord
 
     has_many :replies, dependent: :destroy,
         class_name: :Comment,
+        primary_key: :id,
         foreign_key: :parent_comment_id
 
     has_many :likes, :as => :likeable, dependent: :destroy

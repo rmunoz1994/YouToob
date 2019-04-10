@@ -163,7 +163,7 @@ class Comment extends React.Component {
                         </button>
                     </div>
                 </div>
-                {this.state.showDrop && this.props.currentUser ? <CommentPopup /> : <></>}
+                {this.state.showDrop && this.props.currentUser ? <CommentPopup comment={this.props.comment}/> : <></>}
             </div>
             {this.state.viewReplies ? (
                 <div className="replies-container">

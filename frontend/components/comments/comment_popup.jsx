@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { updateComment, deleteComment } from '../../actions/comment_actions';
+import { withRouter } from 'react-router-dom';
 
 // const mapStateToProps = state => ({
 //     errors: errors.session,
@@ -14,6 +15,22 @@ const mapDispatchToProps = dispatch => ({
 
 
 class CommentPopup extends React.Component {
+    constructor(props) {
+        super(props);
+        this.handleDelete = this.handleDelete.bind(this);
+    }
+
+    handleDelete() {
+        const comment = {
+            id: this.props.comment.id,
+            body: this.props.comment.body,
+            author_id: this.props.comment.authorId,
+            video_id: this.props.comment.videoId,
+            parent_comment_id: this.props.comment.parentCommentId 
+        };
+        debugger
+        this.props.deleteComment(comment);
+    }
 
 
     render() {
@@ -23,7 +40,7 @@ class CommentPopup extends React.Component {
                     <div className="comment-popup-item">
                         Edit
                     </div>
-                    <div className="comment-popup-item">
+                    <div className="comment-popup-item" onClick={this.handleDelete}>
                         Delete
                     </div>
                 </div>
@@ -34,4 +51,4 @@ class CommentPopup extends React.Component {
 }
 
 
-export default connect(null, mapDispatchToProps)(CommentPopup);
+export default withRouter(connect(null, mapDispatchToProps)(CommentPopup));

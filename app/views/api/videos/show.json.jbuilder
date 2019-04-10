@@ -4,6 +4,8 @@ json.video do
     json.createdAt @video.created_at
     json.videoUrl url_for(@video.videoUrl)
     json.thumbnailUrl url_for(@video.thumbnailUrl)
+    json.likes @video.likes.where(liked: true).count
+    json.dislikes @video.likes.where(liked: false).count
 end
 
 json.user do 
@@ -30,6 +32,8 @@ end
     end
     
 end
+
+
 
 
 

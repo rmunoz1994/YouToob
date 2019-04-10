@@ -1,9 +1,12 @@
-class LikesController < ApplicationController
+class Api::LikesController < ApplicationController
 
     def create
-        @like = Like.new(like_params)
+        @like = Like.find_or_initialize_by(like_params)
+        @like.liked = params[:like][:liked]
         if @like.save
             render :show
+        else 
+            render json: @like.errors.full_messages, status: 422
         end
     end
     
@@ -14,7 +17,7 @@ class LikesController < ApplicationController
     end
 
     def like_params
-        params.require(:like).permit(:liked, :likeable_id, :likeable_type, :user_id)
+        params.require(:like).permit(:likeable_id, :likeable_type, :user_id)
     end
 
 end

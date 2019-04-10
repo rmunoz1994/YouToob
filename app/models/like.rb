@@ -13,7 +13,7 @@
 
 class Like < ApplicationRecord
 
-    validates :liked, presence: true
+    validates_inclusion_of :liked, in: [true, false]
     validates :user_id, :uniqueness => { :scope => [:likeable_type, :likeable_id] }
     validates :likeable_type, :likeable_id, :presence => true
 

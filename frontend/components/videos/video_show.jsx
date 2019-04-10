@@ -2,6 +2,7 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 import UpNext from './up_next';
 import VideoItem from './video_item';
+import Likes from '../likes/likes';
 import CommentsSection from '../comments/comments_section';
 
 class VideoShow extends React.Component {
@@ -36,7 +37,6 @@ class VideoShow extends React.Component {
     }
 
     render() {
-
         if (this.props.video === undefined) {
             return null;
         } else {
@@ -60,8 +60,15 @@ class VideoShow extends React.Component {
                                     6,456,129 views
                                 </div>
                                 <div className="video-actions">
-                                    <button className="video-like"><i className="fas fa-thumbs-up"></i></button>
-                                    <button className="video-like"><i className="fas fa-thumbs-up fa-rotate-180"></i></button>
+                                    <Likes video={this.props.video}/>
+                                    {/* <div className="likes-container">
+                                        <button className="video-like"><i className="fas fa-thumbs-up"></i></button>
+                                        <span className="like-amount">{this.props.video.likes}</span>
+                                    </div>
+                                    <div className="dislikes-container">
+                                        <button className="video-like"><i className="fas fa-thumbs-up fa-rotate-180"></i></button>
+                                        <span className="like-amount">{this.props.video.dislikes}</span>
+                                    </div> */}
                                 </div>
                             </div>
                         </div>

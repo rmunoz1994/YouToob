@@ -19,6 +19,11 @@ const commentsReducer = (state = {}, action) => {
         case REMOVE_COMMENT:
             const newState = merge({}, state);
             delete newState[action.comment.id];
+            // if (action.comment.commentIds) {
+            //     action.comment.commentIds.forEach(child => (
+            //         delete newState[action.child.id]
+            //     ));
+            // }
             return newState;
         case CLEAR_VIDEOS:
         case REMOVE_VIDEO: 
