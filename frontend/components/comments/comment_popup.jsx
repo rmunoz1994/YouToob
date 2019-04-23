@@ -28,7 +28,6 @@ class CommentPopup extends React.Component {
             video_id: this.props.comment.videoId,
             parent_comment_id: this.props.comment.parentCommentId 
         };
-        debugger
         this.props.deleteComment(comment);
     }
 
@@ -37,9 +36,9 @@ class CommentPopup extends React.Component {
         return (
             <div className="comment-popup-container">
                 <div className="comment-popup">
-                    <div className="comment-popup-item">
+                    {/* <div className="comment-popup-item">
                         Edit
-                    </div>
+                    </div> */}
                     <div className="comment-popup-item" onClick={this.handleDelete}>
                         Delete
                     </div>
