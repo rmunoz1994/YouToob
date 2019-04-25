@@ -2,6 +2,17 @@ import React from 'react';
 import CommentForm from './comment_form';
 import CommentPopup from './comment_popup';
 import { timeSincePost } from '../../util/format_util';
+import { connect } from 'react-redux';
+import { fetchComment } from '../../actions/comment_actions';
+
+const mapStateToProps = (state, ownProps) => ({
+    comments: state.entities.comments,
+    comment: state.entities.comments[ownProps.commentId] 
+});
+
+const mapDispatchToProps = dispatch => ({
+    fetchComment: id => dispatch(fetchComment(id))
+});
 
 
 class Comment extends React.Component {
@@ -11,7 +22,7 @@ class Comment extends React.Component {
             reply: this.props.reply || false,
             replying: false,
             viewReplies: false,
-            showDrop: false
+            showDrop: false,
         };
         this.setReplyingTrue = this.setReplyingTrue.bind(this);
         this.toggleReply = this.toggleReply.bind(this);
@@ -52,6 +63,9 @@ class Comment extends React.Component {
         if (this.props.comment.commentIds.length === 1) {
             pluralize = " reply";
         }
+        if (this.props.comment.commentIds.length === 0) {
+            return (<></>);
+        }
         return (
             <div className="reply-dropdown-container">
                 <div className="reply-dropdown" onClick={this.toggleChildren}>
@@ -89,20 +103,22 @@ class Comment extends React.Component {
         }
         if (this.props.comment.commentIds && !this.state.reply) {
             replies = this.props.comment.commentIds.map((id, index) => {
-                return (
-                    <Comment 
-                        key={index}
-                        comment={this.props.comments[id]}
-                        videoId={this.props.videoId}
-                        author={this.props.users[this.props.comments[id].authorId]}
-                        users={this.props.users}
-                        handler={this.props.handler}
-                        currentUser={this.props.currentUser} 
-                        createComment={this.props.createComment}
-                        reply={true}
-                        parent={this.props.comment}
-                    />
-                )
+                if (this.props.comments[id]) {  ///This should work without if statement
+                    return (
+                        <Comment 
+                            key={index}
+                            comment={this.props.comments[id]}
+                            videoId={this.props.videoId}
+                            author={this.props.users[this.props.comments[id].authorId]}
+                            users={this.props.users}
+                            handler={this.props.handler}
+                            currentUser={this.props.currentUser} 
+                            createComment={this.props.createComment}
+                            reply={true}
+                            parent={this.props.comment}
+                        />
+                    )
+                }
             });
         } else {
             replies = (<></>);
@@ -114,7 +130,6 @@ class Comment extends React.Component {
         return (
             <>
             <div className="comment-container">
-                {/* <button className="user-pic-author">{this.props.user.first_name.slice(0, 1).toUpperCase()}</button> */}
                 <button className={userPicClass}>{commentAuthor.slice(0, 1).toUpperCase()}</button>
                 <div className="comment-right">
                     <div className="main-comment">
@@ -158,12 +173,13 @@ class Comment extends React.Component {
                 </div>
                 <div className="comment-action-menu">
                     <div className="action-icon">
-                        <button className="nav-bar-button" onClick={this.toggleDrop}>
+                        <button className="nav-bar-button" onFocus={this.toggleDrop} onBlur={this.toggleDrop}>
                             <i id="icon" className="fas fa-ellipsis-v"></i>
+                            {this.state.showDrop && this.props.currentUser && this.props.currentUser.id === this.props.comment.authorId ? <CommentPopup comment={this.props.comment} /> : <></>}
                         </button>
                     </div>
                 </div>
-                    {this.state.showDrop && this.props.currentUser && this.props.currentUser.id === this.props.comment.authorId ? <CommentPopup comment={this.props.comment}/> : <></>}
+                    
             </div>
             {this.state.viewReplies ? (
                 <div className="replies-container">
@@ -177,4 +193,4 @@ class Comment extends React.Component {
     }
 }
 
-export default Comment;
+export default connect(mapStateToProps, mapDispatchToProps)(Comment);

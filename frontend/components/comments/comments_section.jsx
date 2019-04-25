@@ -3,6 +3,12 @@ import CommentForm from './comment_form';
 import Comment from './comment';
 import LoadingSpinner from '../misc/loading_spinner';
 
+import { connect } from 'react-redux';
+
+const mapStateToProps = state => ({
+    comments: state.entities.comments,
+});
+
 
 class CommentsSection extends React.Component {
     constructor(props) {
@@ -12,6 +18,8 @@ class CommentsSection extends React.Component {
         };
         this.handler = this.handler.bind(this);
     }
+
+    
 
     handler() {
         this.setState({refreshComments: true});
@@ -23,12 +31,12 @@ class CommentsSection extends React.Component {
         let commentPlural;
 
         if (this.props.comments) {
-            comments = Object.values(this.props.comments).map((comment, index) => {
+            comments = Object.values(this.props.comments).slice(0).reverse().map((comment, index) => {
                 if (comment.parentCommentId === null) {
                     return <Comment 
                         key={index} 
-                        comment={comment} 
-                        comments={this.props.comments} 
+                        commentId={comment.id} 
+                        // comments={this.props.comments} 
                         videoId={this.props.videoId} 
                         author={this.props.users[comment.authorId]} 
                         users={this.props.users}
@@ -70,4 +78,4 @@ class CommentsSection extends React.Component {
     }
 }
 
-export default CommentsSection;
+export default connect(mapStateToProps, null)(CommentsSection);

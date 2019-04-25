@@ -18,15 +18,21 @@ const receiveComment = ({comment, user, parentComment}) => ({
     parentComment
 });
 
-const removeComment = comment => ({
-    type: REMOVE_COMMENT,
-    comment
-});
+const removeComment = comment => {
+    return {
+        type: REMOVE_COMMENT,
+        comment
+    };
+};
 
 const receiveCommentErrors = errors => ({
     type: RECEIVE_COMMENT_ERRORS,
     errors
 });
+
+export const fetchComment = () => dispatch => (
+    APIUtil.fetchComment().then(comment => dispatchEvent(receiveComment(comment)))
+);
 
 export const fetchComments = () => dispatch => (
     APIUtil.fetchComments().then(comments => dispatch(receiveComments(comments)))

@@ -47,7 +47,9 @@ class UserNav extends React.Component {
         }
         return (
             <div className="dropdown">
-                <button className="user-pic" onClick={this.toggleVisibility}>{this.props.currentUser.first_name.slice(0, 1).toUpperCase()}</button>
+                <button className="user-pic" onClick={this.toggleVisibility}>
+                    {this.props.currentUser.first_name.slice(0, 1).toUpperCase()}
+                </button>
                 {dropdown}
             </div>
         )

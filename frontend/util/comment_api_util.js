@@ -5,12 +5,12 @@ export const fetchComments = videoId => (
     })
 );
 
-// export const fetchComment = id => (
-//     $.ajax({
-//         method: "GET",
-//         url: `/api/videos/${id}`
-//     })
-// );
+export const fetchComment = id => (
+    $.ajax({
+        method: "GET",
+        url: `/api/videos/${id}`
+    })
+);
 
 export const createComment = comment => (
     $.ajax({
