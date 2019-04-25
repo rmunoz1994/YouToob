@@ -18,16 +18,17 @@ const commentsReducer = (state = {}, action) => {
             return merge({}, state, newComment);
         case REMOVE_COMMENT:
             const newState = merge({}, state);
-            delete newState[action.comment.id];
             if (action.comment.parent_comment_id) {
                 let commentIds = newState[action.comment.parent_comment_id].commentIds;
                 commentIds.splice(commentIds.indexOf(action.comment.id), 1);
             } 
-            // if (action.comment.commentIds) {
-            //     action.comment.commentIds.forEach(child => (
-            //         delete newState[action.child.id]
-            //     ));
-            // }
+            if (newState[action.comment.id].commentIds) {
+                let commentIds = newState[action.comment.id].commentIds;
+                newState[action.comment.id].commentIds.forEach(child => (
+                    delete newState[child]
+                ));
+            }
+            delete newState[action.comment.id];
             return newState;
         case CLEAR_VIDEOS:
         case REMOVE_VIDEO: 
