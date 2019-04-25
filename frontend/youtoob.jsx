@@ -22,9 +22,9 @@ document.addEventListener('DOMContentLoaded', () => {
     let store = configureStore(preloadedState);
     const root = document.getElementById('root');
 
-    //TESTING
-    window.store = store;
-    //TESTING
+    // //TESTING
+    // window.store = store;
+    // //TESTING
 
     ReactDOM.render(<Root store={ store }/>, root);
 });

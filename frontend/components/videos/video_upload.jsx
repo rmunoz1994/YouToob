@@ -1,4 +1,5 @@
 import React from 'react';
+import LoadingSpinner from '../misc/loading_spinner';
 
 class VideoUpload extends React.Component {
 
@@ -9,7 +10,8 @@ class VideoUpload extends React.Component {
             description: '',
             videoFile: null,
             thumbnailFile: null,
-            firstForm: true
+            firstForm: true,
+            loading: false
         };
         this.handleSubmit = this.handleSubmit.bind(this);
         this.toggleForm = this.toggleForm.bind(this);
@@ -47,7 +49,11 @@ class VideoUpload extends React.Component {
         if (this.state.thumbnailFile) {
             formData.append('video[thumbnailUrl]', this.state.thumbnailFile);
         }
-        this.props.uploadVideo(formData).then(video => this.props.history.push('/'));
+        this.setState({loading: true});
+        this.props.uploadVideo(formData).then(video => {
+            this.setState({loading: false});
+            this.props.history.push('/');
+        });
     }
 
     renderErrors() {
@@ -89,6 +95,7 @@ class VideoUpload extends React.Component {
                                     {this.renderErrors()}
                                 </div>
                                 <input className="publish-btn" type="submit" value="Publish" />
+                                {this.state.loading ? (<LoadingSpinner />) : (<></>)}
                             </>
                         )}       
                     </form>

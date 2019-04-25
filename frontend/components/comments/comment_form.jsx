@@ -40,8 +40,10 @@ class CommentForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        this.setState({loading: true});
-        this.props.createComment(this.state.comment).then(() => this.setState({ loading: false }));
+        // if (this.props.toggleChildren) {
+        //     this.props.toggleChildren();
+        // }
+        this.props.createComment(this.state.comment);
         this.setState({ comment: { ...this.state.comment, body: "" } });
     }
 

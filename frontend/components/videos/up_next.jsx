@@ -16,7 +16,7 @@ class UpNext extends React.Component {
             return (
                 <div className="up-next-container">
                     <div className="up-next-header">
-                        Up next
+                        All videos
                     </div>
                     <div className="up-next-first">
                         {videoList.shift()}

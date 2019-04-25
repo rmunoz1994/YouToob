@@ -77,7 +77,7 @@ class Comment extends React.Component {
                     ) : (
                         <>
                             <div>Hide {pluralize}</div>
-                            <i id="comment-drop-icon-up" className="fas fa-angle-up"></i>
+                            <i id="comment-drop-icon" className="fas fa-angle-up"></i>
                         </>
                     )}
                 </div>
@@ -141,8 +141,8 @@ class Comment extends React.Component {
                             {commentBody}
                         </p>
                         <div className="comment-action">
-                            <button className="comment-like"><i className="fas fa-thumbs-up"></i></button>
-                            <button className="comment-like"><i className="fas fa-thumbs-up fa-rotate-180"></i></button>
+                            {/* <button className="comment-like"><i className="fas fa-thumbs-up"></i></button>
+                            <button className="comment-like"><i className="fas fa-thumbs-up fa-rotate-180"></i></button> */}
                             <button className="reply-btn" onClick={this.setReplyingTrue}>REPLY</button>
                         </div>
                     </div>
@@ -155,6 +155,7 @@ class Comment extends React.Component {
                             history={this.props.history}
                             replying={true}
                             toggleReply={this.toggleReply}
+                            toggleChildren={this.toggleChildren}
                             parentCommentId={parent.id}
                             createComment={this.props.createComment}
                             handler={this.props.handler}
@@ -171,15 +172,18 @@ class Comment extends React.Component {
                         <></>
                     )}
                 </div>
-                <div className="comment-action-menu">
-                    <div className="action-icon">
-                        <button className="nav-bar-button" onFocus={this.toggleDrop} onBlur={this.toggleDrop}>
-                            <i id="icon" className="fas fa-ellipsis-v"></i>
-                            {this.state.showDrop && this.props.currentUser && this.props.currentUser.id === this.props.comment.authorId ? <CommentPopup comment={this.props.comment} /> : <></>}
-                        </button>
+                {(this.props.currentUser && this.props.currentUser.id === this.props.comment.authorId) ? (
+                    <div className="comment-action-menu">
+                        <div className="action-icon">
+                            <button className="nav-bar-button" onFocus={this.toggleDrop} onBlur={this.toggleDrop}>
+                                <i id="icon" className="fas fa-ellipsis-v"></i>
+                                {this.state.showDrop && this.props.currentUser && this.props.currentUser.id === this.props.comment.authorId ? <CommentPopup comment={this.props.comment} /> : <></>}
+                            </button>
+                        </div>
                     </div>
-                </div>
-                    
+                ) : (
+                    <></>
+                )}      
             </div>
             {this.state.viewReplies ? (
                 <div className="replies-container">
