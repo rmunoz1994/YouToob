@@ -103,7 +103,7 @@ class Comment extends React.Component {
         }
         if (this.props.comment.commentIds && !this.state.reply) {
             replies = this.props.comment.commentIds.map((id, index) => {
-                if (this.props.comments[id]) {  ///This should work without if statement
+                if (this.props.comments[id]) {  
                     return (
                         <Comment 
                             key={index}
