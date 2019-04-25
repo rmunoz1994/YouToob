@@ -26,7 +26,7 @@ class SideBar extends React.Component {
                                     Home
                                 </div>
                             </div>
-                            <div className="side-bar-item">
+                            {/* <div className="side-bar-item">
                                 <div>
                                     <i className="fas fa-fire"></i>
                                 </div>
@@ -41,27 +41,43 @@ class SideBar extends React.Component {
                                 <div>
                                     History
                                 </div>
-                            </div>
+                            </div> */}
                         </div>
                         <div className="side-bar-section">
                             <div className="best-of-youtoob">
                                 <div>BEST OF YOUTOOB</div>
                             </div>
-                            <div className="side-bar-item">
-                                <div>
-                                    Music
+                            <a href="https://github.com/rmunoz1994">
+                                <div className="side-bar-item">
+                                    <div className="icon-container">
+                                        <i className="fab fa-github"></i>
+                                    </div>
+                                    <div>
+                                        Github
+                                    </div>
                                 </div>
-                            </div>
-                            <div className="side-bar-item">
-                                <div>
-                                    Sports
+                            </a>
+                            <a href="https://www.linkedin.com/in/raymond-muñoz/">
+                                <div className="side-bar-item">
+
+                                    <div className="icon-container">
+                                        <i className="fab fa-linkedin"></i>
+                                    </div>
+                                    <div>
+                                        LinkedIn
+                                    </div>
                                 </div>
-                            </div>
-                            <div className="side-bar-item">
-                                <div>
-                                    Gaming
+                            </a>
+                            <a href="https://angel.co/raymond-munoz">
+                                <div className="side-bar-item">
+                                    <div className="icon-container">
+                                        <i className="fab fa-angellist"></i>
+                                    </div>
+                                    <div>
+                                        AngelList
+                                    </div>
                                 </div>
-                            </div>
+                            </a>
                         </div>
                     </div>
                 </div>

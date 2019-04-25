@@ -6,7 +6,6 @@
 
 .video-index-container {
     display: flex;
-    justify-content: center;
     width: 100%;
     overflow: hidden;
 }
@@ -18,7 +17,6 @@
     max-width: 1284px;
     display: flex;
     flex-direction: column;
-    // align-items: center;
     .grid-subheader {
         display: flex;
         flex-direction: row;

@@ -23,7 +23,6 @@ const commentsReducer = (state = {}, action) => {
                 commentIds.splice(commentIds.indexOf(action.comment.id), 1);
             } 
             if (newState[action.comment.id].commentIds) {
-                let commentIds = newState[action.comment.id].commentIds;
                 newState[action.comment.id].commentIds.forEach(child => (
                     delete newState[child]
                 ));
