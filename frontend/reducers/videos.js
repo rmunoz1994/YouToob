@@ -16,6 +16,18 @@ const videosReducer = (state = {}, action) => {
             newState = merge({}, state);
             delete newState[action.video.id];
             return newState;
+        case RECEIVE_LIKE:
+            newState = merge({}, state);
+            if (action.like.likeableType === "Video") {
+                const videoId = action.like.likeableId;
+                if (action.like.liked) {
+                    newState[videoId].likes += 1;
+                } else {
+                    newState[videoId].dislikes += 1;
+                }
+                return newState;
+            }
+            return newState;
         case CLEAR_VIDEOS:
             return {};
         default: 

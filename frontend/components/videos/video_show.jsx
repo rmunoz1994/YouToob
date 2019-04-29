@@ -60,7 +60,13 @@ class VideoShow extends React.Component {
                                     6,456,129 views
                                 </div>
                                 <div className="video-actions">
-                                    <Likes video={this.props.video}/>
+                                    <Likes 
+                                        video={this.props.video}
+                                        likeable_type="Video"
+                                        likeable_id={this.props.video.id}
+                                        likes={this.props.video.likes}
+                                        dislikes={this.props.video.dislikes}
+                                    />
                                     {/* <div className="likes-container">
                                         <button className="video-like"><i className="fas fa-thumbs-up"></i></button>
                                         <span className="like-amount">{this.props.video.likes}</span>

@@ -33,6 +33,6 @@ class Comment < ApplicationRecord
         primary_key: :id,
         foreign_key: :parent_comment_id
 
-    has_many :likes, :as => :likeable, dependent: :destroy
+    has_many :likes, as: :likeable, dependent: :destroy
 
 end

@@ -6,10 +6,7 @@ import { createLike, deleteLike } from '../../actions/like_actions';
 const mapStateToProps = (state, ownProps) => {
     const video = ownProps.video;
     return {
-        likes: video.likes,
-        dislikes: video.dislikes,
         currentUserId: state.session.currentUser,
-        videoId: video.id
     };
 };
 
@@ -24,8 +21,8 @@ class Likes extends React.Component {
         super(props);
         this.state = {
             liked: null,
-            likeable_type: "Video",
-            likeable_id: this.props.videoId,
+            likeable_type: this.props.likeable_type,
+            likeable_id: this.props.likeable_id,
             user_id: this.props.currentUserId
         };
         this.handleSubmit = this.handleSubmit.bind(this);
