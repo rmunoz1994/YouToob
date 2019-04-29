@@ -28,8 +28,10 @@ class Likes extends React.Component {
         this.handleLike = this.handleLike.bind(this);
         if (this.props.likeable_type === "Video") {
             this.btnClass = "video-like";
+            this.dislikesContainer = "dislikes-container";
         } else {
             this.btnClass = "comment-like";
+            this.dislikesContainer = "comment-dislikes-container";
         }
     }
 
@@ -55,9 +57,13 @@ class Likes extends React.Component {
                     <button className={this.btnClass} onClick={() => this.handleLike(true)}><i className="fas fa-thumbs-up"></i></button>
                     <span className="like-amount">{this.props.likes}</span>
                 </div>
-                <div className="dislikes-container">
+                <div className={this.dislikesContainer}>
                     <button className={this.btnClass} onClick={() => this.handleLike(false)}><i className="fas fa-thumbs-up fa-rotate-180"></i></button>
-                    <span className="like-amount">{this.props.dislikes}</span>
+                    {this.props.likeable_type === "Video" ? (
+                        <span className="like-amount">{this.props.dislikes}</span>
+                    ) : (
+                        <></>
+                    )}
                 </div>
             </>
         )
