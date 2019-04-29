@@ -4,7 +4,6 @@ import { createLike, deleteLike } from '../../actions/like_actions';
 
 
 const mapStateToProps = (state, ownProps) => {
-    const video = ownProps.video;
     return {
         currentUserId: state.session.currentUser,
     };
@@ -27,6 +26,11 @@ class Likes extends React.Component {
         };
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleLike = this.handleLike.bind(this);
+        if (this.props.likeable_type === "Video") {
+            this.btnClass = "video-like";
+        } else {
+            this.btnClass = "comment-like";
+        }
     }
 
 
@@ -48,11 +52,11 @@ class Likes extends React.Component {
         return (
             <>
                 <div className="likes-container">
-                    <button className="video-like" onClick={() => this.handleLike(true)}><i className="fas fa-thumbs-up"></i></button>
+                    <button className={this.btnClass} onClick={() => this.handleLike(true)}><i className="fas fa-thumbs-up"></i></button>
                     <span className="like-amount">{this.props.likes}</span>
                 </div>
                 <div className="dislikes-container">
-                    <button className="video-like" onClick={() => this.handleLike(false)}><i className="fas fa-thumbs-up fa-rotate-180"></i></button>
+                    <button className={this.btnClass} onClick={() => this.handleLike(false)}><i className="fas fa-thumbs-up fa-rotate-180"></i></button>
                     <span className="like-amount">{this.props.dislikes}</span>
                 </div>
             </>
