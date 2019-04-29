@@ -1,6 +1,6 @@
 import { RECEIVE_VIDEOS, RECEIVE_VIDEO, REMOVE_VIDEO, CLEAR_VIDEOS } from "../actions/video_actions";
 import merge from 'lodash/merge';
-import { REMOVE_LIKE } from "../actions/like_actions";
+import { REMOVE_LIKE, RECEIVE_LIKE } from "../actions/like_actions";
 
 
 const videosReducer = (state = {}, action) => {

@@ -15,14 +15,14 @@ class VideoShow extends React.Component {
     componentDidMount() {
         this.props.clearVideos();
         this.props.fetchVideo(this.props.match.params.videoId);
-        this.props.fetchVideos();
+        // this.props.fetchVideos();
     }
 
     componentDidUpdate(prevProps) {
         if (prevProps.match.params.videoId !== this.props.match.params.videoId) {
             this.props.clearVideos();
             this.props.fetchVideo(this.props.match.params.videoId);
-            this.props.fetchVideos();
+            // this.props.fetchVideos();
         }
     }
 
@@ -56,11 +56,11 @@ class VideoShow extends React.Component {
                         <div className="title-container">
                             <h2>{this.props.video.title}</h2>
                             <div className="primary-info">
-                                {/* <div className="views">
+                                <div className="views">
                                     6,456,129 views
-                                </div> */}
-                                {/* <div className="video-actions">
-                                    <Likes video={this.props.video}/> */}
+                                </div>
+                                <div className="video-actions">
+                                    <Likes video={this.props.video}/>
                                     {/* <div className="likes-container">
                                         <button className="video-like"><i className="fas fa-thumbs-up"></i></button>
                                         <span className="like-amount">{this.props.video.likes}</span>
@@ -69,7 +69,7 @@ class VideoShow extends React.Component {
                                         <button className="video-like"><i className="fas fa-thumbs-up fa-rotate-180"></i></button>
                                         <span className="like-amount">{this.props.video.dislikes}</span>
                                     </div> */}
-                                {/* </div> */}
+                                </div>
                             </div>
                         </div>
 
@@ -99,7 +99,7 @@ class VideoShow extends React.Component {
                         />
 
                     </div>
-                    <UpNext videos={this.props.videos} users={this.props.users}/>
+                    {/* <UpNext videos={this.props.videos} users={this.props.users}/> */}
                 </div>
             )
 
