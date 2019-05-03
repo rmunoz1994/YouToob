@@ -8,7 +8,11 @@ class Signup extends React.Component {
             first_name: '',
             last_name: '',
             email: '',
-            password: ''
+            password: '',
+            firstNameGroup: 'input-group-signup',
+            lastNameGroup: 'input-group-signup',
+            emailGroup: 'input-group-signup',
+            passwordGroup: 'input-group-signup'
         };
         this.handleSubmit = this.handleSubmit.bind(this);
         this.makeActive = this.makeActive.bind(this);
@@ -31,21 +35,25 @@ class Signup extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        console.log(this.state);
-        this.props.createNewUser(this.state)
+        const user = {
+            first_name: this.state.first_name,
+            last_name: this.state.last_name,
+            email: this.state.email,
+            password: this.state.password
+        };
+        this.props.createNewUser(user)
             .then(() => this.props.history.push('/'));
     }
 
     makeActive(type) {
         return (e) => {
-            const inputGroup = document.getElementById(type);
             if (e.type === "focus") {
-                inputGroup.classList.remove('filled');
-                inputGroup.classList.add('active');
+                this.setState({ [type]: 'input-group-signup active' });
             } else {
-                inputGroup.classList.remove('active');
                 if (e.target.value !== "") {
-                    inputGroup.classList.add('filled');
+                    this.setState({ [type]: 'input-group-signup filled' });
+                } else {
+                    this.setState({ [type]: 'input-group-signup' });
                 }
             }
         };
@@ -75,7 +83,7 @@ class Signup extends React.Component {
                         <form onSubmit={this.handleSubmit} className="create-user-form">
                             <div>
                                 <div className="full-name-inputs">
-                                    <div id="firstNameGroup" className="input-group-signup">
+                                    <div id="firstNameGroup" className={this.state.firstNameGroup}>
                                         <input 
                                             id="firstName"
                                             className={"create-user-input " + errorClass}
@@ -87,7 +95,7 @@ class Signup extends React.Component {
                                         />
                                         <label htmlFor="firstName">First name</label>
                                     </div>
-                                    <div id="lastNameGroup" className="input-group-signup">
+                                    <div id="lastNameGroup" className={this.state.lastNameGroup}>
                                         <input
                                             id="lastName"
                                             className={"create-user-input " + errorClass}
@@ -101,7 +109,7 @@ class Signup extends React.Component {
                                     </div>
                                 </div>
                                 <div>
-                                    <div id="emailGroup" className="input-group-signup">
+                                    <div id="emailGroup" className={this.state.emailGroup}>
                                         <input
                                             id="email"
                                             className={"create-user-input " + errorClass}
@@ -115,7 +123,7 @@ class Signup extends React.Component {
                                     </div>
                                 </div>
                                 <div>
-                                    <div id="passwordGroup" className="input-group-signup">
+                                    <div id="passwordGroup" className={this.state.passwordGroup}>
                                         <input
                                             id="password"
                                             className={"create-user-input " + errorClass}

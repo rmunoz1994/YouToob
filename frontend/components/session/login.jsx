@@ -6,13 +6,13 @@ class Login extends React.Component {
         super(props);
         this.state = {
             email: '',
-            password: ''
+            password: '',
+            emailGroup: 'input-group',
+            passwordGroup: 'input-group'
         };
         this.handleSubmit = this.handleSubmit.bind(this);
         this.loginDemoUser = this.loginDemoUser.bind(this);
         this.makeActive = this.makeActive.bind(this);
-
-        
     }
 
     componentDidMount() {
@@ -32,7 +32,11 @@ class Login extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        this.props.login(this.state)
+        let user = {
+            email: this.state.email,
+            password: this.state.password
+        };
+        this.props.login(user)
             .then(() => this.props.history.push('/'));
     }
 
@@ -47,18 +51,32 @@ class Login extends React.Component {
 
     makeActive(type) {
         return (e) => {
-            const inputGroup = document.getElementById(type);
             if (e.type === "focus") {
-                inputGroup.classList.remove('filled');
-                inputGroup.classList.add('active');
+                this.setState({[type]: 'input-group active'});
             } else {
-                inputGroup.classList.remove('active');
+                this.setState({ [type]: 'input-group' });
                 if (e.target.value !== "") {
-                    inputGroup.classList.add('filled');
-                } 
+                    this.setState({ [type]: 'input-group filled' });
+                }
             }
         };
     }
+
+    //Make this using refs
+    // makeActive(type) {
+    //     return (e) => {
+    //         const inputGroup = document.getElementById(type);
+    //         if (e.type === "focus") {
+    //             inputGroup.classList.remove('filled');
+    //             inputGroup.classList.add('active');
+    //         } else {
+    //             inputGroup.classList.remove('active');
+    //             if (e.target.value !== "") {
+    //                 inputGroup.classList.add('filled');
+    //             } 
+    //         }
+    //     };
+    // }
 
     renderErrors() {
         return(
@@ -77,7 +95,7 @@ class Login extends React.Component {
         const errorClass = this.props.errors.length > 0 ? "error-login" : "";
         let form = (
             <form onSubmit={this.handleSubmit}>
-                <div id="emailGroup" className="input-group">
+                <div id="emailGroup" className={this.state.emailGroup}>
                     <input
                         id="email"
                         className={"user-auth-input login " + errorClass}
@@ -89,7 +107,7 @@ class Login extends React.Component {
                     />
                     <label htmlFor="email">Email</label>
                 </div>
-                <div id="passwordGroup" className="input-group">
+                <div id="passwordGroup" className={this.state.passwordGroup}>
                     <input
                         id="password"
                         className={"user-auth-input login " + errorClass}
