@@ -89,7 +89,6 @@ class Login extends React.Component {
                     />
                     <label htmlFor="email">Email</label>
                 </div>
-                <br />
                 <div id="passwordGroup" className="input-group">
                     <input
                         id="password"

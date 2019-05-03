@@ -104,6 +104,7 @@
     text-align: left;
     font-size: 14px;
     color: gray;
+    margin-bottom: 20px;
 } 
 
 
@@ -135,7 +136,7 @@
 
 .input-group {
     position: relative;
-    margin: 8px 1px 8px 0;
+    margin: 8px 1px 20px 0;
     .user-auth-input {
         position: relative;
         border: 1px solid #dadce0;
@@ -158,6 +159,7 @@
         z-index: 1;
         padding: 0 8px;
         background: #fff;
+        cursor: text;
         font: 400 16px Roboto, RobotoDraft, Helvetica, Arial, sans-serif;
     }
 }
