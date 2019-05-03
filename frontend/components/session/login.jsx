@@ -10,10 +10,20 @@ class Login extends React.Component {
         };
         this.handleSubmit = this.handleSubmit.bind(this);
         this.loginDemoUser = this.loginDemoUser.bind(this);
+
+        
     }
 
     componentDidMount() {
         document.body.style.backgroundColor = "white";
+        const email = document.getElementById('email');
+        const inputGroup = document.getElementById('inputGroup');
+        email.addEventListener('focus', () => {
+            inputGroup.classList.add('active');
+        });
+        email.addEventListener('blur', () => {
+            inputGroup.classList.remove('active');
+        });
     }
 
     componentWillUnmount() {
@@ -59,21 +69,29 @@ class Login extends React.Component {
         const errorClass = this.props.errors.length > 0 ? "error-login" : "";
         let form = (
             <form onSubmit={this.handleSubmit}>
-                <input
-                    className={"user-auth-input login " + errorClass}
-                    type="text"
-                    value={this.state.email}
-                    placeholder="Email"
-                    onChange={this.handleInput("email")}
-                />
+                <div id="inputGroup" className="input-group">
+                    <input
+                        id="email"
+                        className={"user-auth-input login " + errorClass}
+                        type="text"
+                        value={this.state.email}
+                        // placeholder="Email"
+                        onChange={this.handleInput("email")}
+                    />
+                    <label htmlFor="email">Email</label>
+                </div>
                 <br />
-                <input
-                    className={"user-auth-input login " + errorClass}
-                    type="password"
-                    value={this.state.password}
-                    placeholder="Enter your password"
-                    onChange={this.handleInput("password")}
-                /> 
+                <div id="inputGroup" className="input-group">
+                    <input
+                        id="password"
+                        className={"user-auth-input login " + errorClass}
+                        type="password"
+                        value={this.state.password}
+                        // placeholder="Enter your password"
+                        onChange={this.handleInput("password")}
+                    /> 
+                    <label htmlFor="password">Enter your password</label>
+                </div>
                 {this.renderErrors()}
                 <div className="demo">
                     Not your computer? Use Guest mode to sign in privately.
