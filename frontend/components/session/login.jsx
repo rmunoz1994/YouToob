@@ -10,20 +10,13 @@ class Login extends React.Component {
         };
         this.handleSubmit = this.handleSubmit.bind(this);
         this.loginDemoUser = this.loginDemoUser.bind(this);
+        this.makeActive = this.makeActive.bind(this);
 
         
     }
 
     componentDidMount() {
         document.body.style.backgroundColor = "white";
-        const email = document.getElementById('email');
-        const inputGroup = document.getElementById('inputGroup');
-        email.addEventListener('focus', () => {
-            inputGroup.classList.add('active');
-        });
-        email.addEventListener('blur', () => {
-            inputGroup.classList.remove('active');
-        });
     }
 
     componentWillUnmount() {
@@ -52,6 +45,21 @@ class Login extends React.Component {
             .then(() => this.props.history.push('/'));
     }
 
+    makeActive(type) {
+        return (e) => {
+            const inputGroup = document.getElementById(type);
+            if (e.type === "focus") {
+                inputGroup.classList.remove('filled');
+                inputGroup.classList.add('active');
+            } else {
+                inputGroup.classList.remove('active');
+                if (e.target.value !== "") {
+                    inputGroup.classList.add('filled');
+                } 
+            }
+        };
+    }
+
     renderErrors() {
         return(
             <ul className="error-list">
@@ -69,26 +77,28 @@ class Login extends React.Component {
         const errorClass = this.props.errors.length > 0 ? "error-login" : "";
         let form = (
             <form onSubmit={this.handleSubmit}>
-                <div id="inputGroup" className="input-group">
+                <div id="emailGroup" className="input-group">
                     <input
                         id="email"
                         className={"user-auth-input login " + errorClass}
                         type="text"
                         value={this.state.email}
-                        // placeholder="Email"
                         onChange={this.handleInput("email")}
+                        onFocus={this.makeActive("emailGroup")}
+                        onBlur={this.makeActive("emailGroup")}
                     />
                     <label htmlFor="email">Email</label>
                 </div>
                 <br />
-                <div id="inputGroup" className="input-group">
+                <div id="passwordGroup" className="input-group">
                     <input
                         id="password"
                         className={"user-auth-input login " + errorClass}
                         type="password"
                         value={this.state.password}
-                        // placeholder="Enter your password"
                         onChange={this.handleInput("password")}
+                        onFocus={this.makeActive("passwordGroup")}
+                        onBlur={this.makeActive("passwordGroup")}
                     /> 
                     <label htmlFor="password">Enter your password</label>
                 </div>

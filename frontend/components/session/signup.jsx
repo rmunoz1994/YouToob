@@ -11,7 +11,7 @@ class Signup extends React.Component {
             password: ''
         };
         this.handleSubmit = this.handleSubmit.bind(this);
-        // this.handleLink = this.handleLink.bind(this);
+        this.makeActive = this.makeActive.bind(this);
     }
 
     componentDidMount() {
@@ -34,6 +34,21 @@ class Signup extends React.Component {
         console.log(this.state);
         this.props.createNewUser(this.state)
             .then(() => this.props.history.push('/'));
+    }
+
+    makeActive(type) {
+        return (e) => {
+            const inputGroup = document.getElementById(type);
+            if (e.type === "focus") {
+                inputGroup.classList.remove('filled');
+                inputGroup.classList.add('active');
+            } else {
+                inputGroup.classList.remove('active');
+                if (e.target.value !== "") {
+                    inputGroup.classList.add('filled');
+                }
+            }
+        };
     }
 
     renderErrors() {
@@ -60,38 +75,58 @@ class Signup extends React.Component {
                         <form onSubmit={this.handleSubmit} className="create-user-form">
                             <div>
                                 <div className="full-name-inputs">
-                                    <input 
-                                        className={"create-user-input " + errorClass}
-                                        type="text" 
-                                        value={this.state.first_name}
-                                        placeholder="First name"
-                                        onChange={this.handleInput("first_name")}
-                                    />
-                                    <input
-                                        className={"create-user-input " + errorClass}
-                                        type="text"
-                                        value={this.state.last_name}
-                                        placeholder="Last name"
-                                        onChange={this.handleInput("last_name")}
-                                    />
+                                    <div id="firstNameGroup" className="input-group-signup">
+                                        <input 
+                                            id="firstName"
+                                            className={"create-user-input " + errorClass}
+                                            type="text" 
+                                            value={this.state.first_name}
+                                            onChange={this.handleInput("first_name")}
+                                            onFocus={this.makeActive("firstNameGroup")}
+                                            onBlur={this.makeActive("firstNameGroup")}
+                                        />
+                                        <label htmlFor="firstName">First name</label>
+                                    </div>
+                                    <div id="lastNameGroup" className="input-group-signup">
+                                        <input
+                                            id="lastName"
+                                            className={"create-user-input " + errorClass}
+                                            type="text"
+                                            value={this.state.last_name}
+                                            onChange={this.handleInput("last_name")}
+                                            onFocus={this.makeActive("lastNameGroup")}
+                                            onBlur={this.makeActive("lastNameGroup")}
+                                        />
+                                        <label htmlFor="lastName">Last name</label>
+                                    </div>
                                 </div>
                                 <div>
-                                    <input
-                                        className={"create-user-input " + errorClass}
-                                        type="text"
-                                        value={this.state.email}
-                                        placeholder="Email"
-                                        onChange={this.handleInput("email")}
-                                    />
+                                    <div id="emailGroup" className="input-group-signup">
+                                        <input
+                                            id="email"
+                                            className={"create-user-input " + errorClass}
+                                            type="text"
+                                            value={this.state.email}
+                                            onChange={this.handleInput("email")}
+                                            onFocus={this.makeActive("emailGroup")}
+                                            onBlur={this.makeActive("emailGroup")}
+                                        />
+                                        <label htmlFor="email">Email</label>
+                                    </div>
                                 </div>
                                 <div>
-                                    <input
-                                        className={"create-user-input " + errorClass}
-                                        type="password"
-                                        value={this.state.password}
-                                        placeholder="Password"
-                                        onChange={this.handleInput("password")}
-                                    />
+                                    <div id="passwordGroup" className="input-group-signup">
+                                        <input
+                                            id="password"
+                                            className={"create-user-input " + errorClass}
+                                            type="password"
+                                            value={this.state.password}
+                                            onChange={this.handleInput("password")}
+                                            onFocus={this.makeActive("passwordGroup")}
+                                            onBlur={this.makeActive("passwordGroup")}
+                                        />
+                                        <label htmlFor="password">Password</label>
+                                    </div>
                                 </div>
                                 <div className="password-hint">
                                     Use 6 or more characters
