@@ -3,9 +3,10 @@ import { connect } from 'react-redux';
 import { createLike, deleteLike } from '../../actions/like_actions';
 
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = ({state}, ownProps) => {
     return {
         currentUserId: state.session.currentUser,
+        likes: Object.values(state.entities.likes)
     };
 };
 

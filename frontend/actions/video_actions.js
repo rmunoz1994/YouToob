@@ -12,14 +12,16 @@ const receiveVideos = ({videos, users}) => ({
     users
 });
 
-const receiveVideo = ({video, user, comments, commentAuthors}) => {
+const receiveVideo = ({video, user, comments, commentAuthors, likes, userCommentLikes}) => {
     
     return {
         type: RECEIVE_VIDEO,
         video,
         user,
         comments,
-        commentAuthors
+        commentAuthors,
+        likes,
+        userCommentLikes
     };
 };
 
