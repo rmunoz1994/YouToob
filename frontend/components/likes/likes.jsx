@@ -40,12 +40,48 @@ class Likes extends React.Component {
         }
     }
 
+    componentDidMount() {
+
+        const likedThing = this.props.likes.filter(like => like.likeableType === this.props.likeable_type && like.likeableId === this.props.likeable_id);
+        console.log(likedThing);
+
+        
+        if (this.props.likes[this.state.like.likeable_id]) {
+            console.log(this.props.likes[this.state.like.likeable_id]);
+        }
+    }
+
 
     handleLike(type) {
         if (!this.props.currentUserId) {
             return;
         }
-        this.setState({ like: { ...this.state.like, liked: type } }, () => this.props.createLike(this.state));
+        //Check if like already exists for current user
+        const likedFeature = this.props.likes.filter(like => like.likeableType === this.props.likeable_type && like.likeableId === this.props.likeable_id)[0];
+        console.log(likedFeature);
+
+        if (likedFeature) {
+            if (type === true && likedFeature.likeableType === true) {
+
+            } else if (type === true && likedFeature.likeableType === false) {
+
+            } else if (type === false && likedFeature.likeableType === true) {
+
+            } else if (type === false && likedFeature.likeableType === false) {
+
+            }
+        } else {
+            
+        }
+
+
+
+
+        if (this.props.likes[this.state.like.likeable_id]) {
+            console.log(this.props.likes[this.state.like.likeable_id]);
+        }
+
+        // this.setState({ like: { ...this.state.like, liked: type } }, () => this.props.createLike(this.state));
         // this.setState({ liked: type }, () => this.props.createLike(this.state));
     }
 
