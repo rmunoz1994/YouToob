@@ -61,24 +61,35 @@ class Likes extends React.Component {
         console.log(likedFeature);
 
         if (likedFeature) {
-            if (type === true && likedFeature.likeableType === true) {
-
-            } else if (type === true && likedFeature.likeableType === false) {
-
-            } else if (type === false && likedFeature.likeableType === true) {
-
-            } else if (type === false && likedFeature.likeableType === false) {
-
+            if (type === true && likedFeature.liked === true) {
+                this.props.removeLike(this.state.like);
+                this.setState({ like: { ...this.state.like, liked: null } });
+                this.setState({sumLikes: --this.state.sumLikes});
+            } else if (type === true && likedFeature.liked === false) {
+                console.log('this');
+                this.setState({ like: { ...this.state.like, liked: type } }, () => this.props.createLike(this.state));
+                this.setState({ 
+                    sumLikes: ++this.state.sumLikes, 
+                    sumDislikes: --this.state.sumDislikes
+                });
+            } else if (type === false && likedFeature.liked === true) {
+                this.setState({ like: { ...this.state.like, liked: type } }, () => this.props.createLike(this.state));
+                this.setState({
+                    sumLikes: --this.state.sumLikes,
+                    sumDislikes: ++this.state.sumDislikes
+                });
+            } else if (type === false && likedFeature.liked === false) {
+                this.props.removeLike(this.state.like);
+                this.setState({ like: { ...this.state.like, liked: null } });
+                this.setState({ sumDislikes: --this.state.sumDislikes });
             }
         } else {
-            
-        }
-
-
-
-
-        if (this.props.likes[this.state.like.likeable_id]) {
-            console.log(this.props.likes[this.state.like.likeable_id]);
+            this.setState({ like: { ...this.state.like, liked: type } }, () => this.props.createLike(this.state));
+            if (type) {
+                this.setState({ sumLikes: ++this.state.sumLikes });
+            } else {
+                this.setState({ sumDislikes: --this.state.sumDislikes });
+            }
         }
 
         // this.setState({ like: { ...this.state.like, liked: type } }, () => this.props.createLike(this.state));
@@ -96,12 +107,12 @@ class Likes extends React.Component {
             <>
                 <div className="likes-container">
                     <button className={this.btnClass} onClick={() => this.handleLike(true)}><i className="fas fa-thumbs-up"></i></button>
-                    <span className="like-amount">{this.props.sumLikes}</span>
+                    <span className="like-amount">{this.state.sumLikes}</span>
                 </div>
                 <div className={this.dislikesContainer}>
                     <button className={this.btnClass} onClick={() => this.handleLike(false)}><i className="fas fa-thumbs-up fa-rotate-180"></i></button>
                     {this.props.likeable_type === "Video" ? (
-                        <span className="like-amount">{this.props.sumDislikes}</span>
+                        <span className="like-amount">{this.state.sumDislikes}</span>
                     ) : (
                         <></>
                     )}
