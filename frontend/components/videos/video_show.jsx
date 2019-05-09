@@ -64,8 +64,8 @@ class VideoShow extends React.Component {
                                         video={this.props.video}
                                         likeable_type="Video"
                                         likeable_id={this.props.video.id}
-                                        likes={this.props.video.likes}
-                                        dislikes={this.props.video.dislikes}
+                                        sumLikes={this.props.video.likes}
+                                        sumDislikes={this.props.video.dislikes}
                                     />
                                 </div>
                             </div>

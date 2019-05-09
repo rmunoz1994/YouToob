@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { createLike, deleteLike } from '../../actions/like_actions';
 
 
-const mapStateToProps = ({state}, ownProps) => {
+const mapStateToProps = (state, ownProps) => {
     return {
         currentUserId: state.session.currentUser,
         likes: Object.values(state.entities.likes)
@@ -20,10 +20,14 @@ class Likes extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            liked: null,
-            likeable_type: this.props.likeable_type,
-            likeable_id: this.props.likeable_id,
-            user_id: this.props.currentUserId
+            like: {
+                liked: null,
+                likeable_type: this.props.likeable_type,
+                likeable_id: this.props.likeable_id,
+                user_id: this.props.currentUserId
+            },
+            sumLikes: this.props.sumLikes,
+            sumDislikes: this.props.sumDislikes
         };
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleLike = this.handleLike.bind(this);
@@ -41,8 +45,8 @@ class Likes extends React.Component {
         if (!this.props.currentUserId) {
             return;
         }
-
-        this.setState({ liked: type }, () => this.props.createLike(this.state));
+        this.setState({ like: { ...this.state.like, liked: type } }, () => this.props.createLike(this.state));
+        // this.setState({ liked: type }, () => this.props.createLike(this.state));
     }
 
     handleSubmit() {
@@ -56,12 +60,12 @@ class Likes extends React.Component {
             <>
                 <div className="likes-container">
                     <button className={this.btnClass} onClick={() => this.handleLike(true)}><i className="fas fa-thumbs-up"></i></button>
-                    <span className="like-amount">{this.props.likes}</span>
+                    <span className="like-amount">{this.props.sumLikes}</span>
                 </div>
                 <div className={this.dislikesContainer}>
                     <button className={this.btnClass} onClick={() => this.handleLike(false)}><i className="fas fa-thumbs-up fa-rotate-180"></i></button>
                     {this.props.likeable_type === "Video" ? (
-                        <span className="like-amount">{this.props.dislikes}</span>
+                        <span className="like-amount">{this.props.sumDislikes}</span>
                     ) : (
                         <></>
                     )}

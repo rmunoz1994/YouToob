@@ -146,8 +146,8 @@ class Comment extends React.Component {
                             <Likes
                                 likeable_type="Comment"
                                 likeable_id={this.props.comment.id}
-                                likes={this.props.comment.likes}
-                                dislikes={this.props.comment.dislikes}
+                                sumLikes={this.props.comment.likes}
+                                sumDislikes={this.props.comment.dislikes}
                             />
                             {/* <button className="comment-like"><i className="fas fa-thumbs-up"></i></button>
                             <button className="comment-like"><i className="fas fa-thumbs-up fa-rotate-180"></i></button> */}
