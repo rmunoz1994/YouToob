@@ -62,29 +62,30 @@ class Likes extends React.Component {
 
         if (likedFeature) {
             if (type === true && likedFeature.liked === true) {
-                this.props.removeLike(this.state.like);
+                this.props.deleteLike(this.state.like);
                 this.setState({ like: { ...this.state.like, liked: null } });
                 this.setState({sumLikes: --this.state.sumLikes});
             } else if (type === true && likedFeature.liked === false) {
                 console.log('this');
-                this.setState({ like: { ...this.state.like, liked: type } }, () => this.props.createLike(this.state));
+                console.log(this.state.like);
+                this.setState({ like: { ...this.state.like, liked: type } }, () => this.props.createLike(this.state.like));
                 this.setState({ 
                     sumLikes: ++this.state.sumLikes, 
                     sumDislikes: --this.state.sumDislikes
                 });
             } else if (type === false && likedFeature.liked === true) {
-                this.setState({ like: { ...this.state.like, liked: type } }, () => this.props.createLike(this.state));
+                this.setState({ like: { ...this.state.like, liked: type } }, () => this.props.createLike(this.state.like));
                 this.setState({
                     sumLikes: --this.state.sumLikes,
                     sumDislikes: ++this.state.sumDislikes
                 });
             } else if (type === false && likedFeature.liked === false) {
-                this.props.removeLike(this.state.like);
+                this.props.deleteLike(this.state.like);
                 this.setState({ like: { ...this.state.like, liked: null } });
                 this.setState({ sumDislikes: --this.state.sumDislikes });
             }
         } else {
-            this.setState({ like: { ...this.state.like, liked: type } }, () => this.props.createLike(this.state));
+            this.setState({ like: { ...this.state.like, liked: type } }, () => this.props.createLike(this.state.like));
             if (type) {
                 this.setState({ sumLikes: ++this.state.sumLikes });
             } else {
