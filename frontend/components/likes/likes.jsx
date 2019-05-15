@@ -86,7 +86,7 @@ class Likes extends React.Component {
             if (type) {
                 this.setState({ sumLikes: ++this.state.sumLikes });
             } else {
-                this.setState({ sumDislikes: --this.state.sumDislikes });
+                this.setState({ sumDislikes: ++this.state.sumDislikes });
             }
         }
 
