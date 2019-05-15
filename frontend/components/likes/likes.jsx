@@ -62,12 +62,10 @@ class Likes extends React.Component {
 
         if (likedFeature) {
             if (type === true && likedFeature.liked === true) {
-                this.props.deleteLike(this.state.like);
-                this.setState({ like: { ...this.state.like, liked: null } });
+                this.setState({ like: { ...this.state.like, liked: null } }, () => this.props.deleteLike(likedFeature));
+                // this.props.deleteLike(likedFeature);
                 this.setState({sumLikes: --this.state.sumLikes});
             } else if (type === true && likedFeature.liked === false) {
-                console.log('this');
-                console.log(this.state.like);
                 this.setState({ like: { ...this.state.like, liked: type } }, () => this.props.createLike(this.state.like));
                 this.setState({ 
                     sumLikes: ++this.state.sumLikes, 
@@ -80,8 +78,7 @@ class Likes extends React.Component {
                     sumDislikes: ++this.state.sumDislikes
                 });
             } else if (type === false && likedFeature.liked === false) {
-                this.props.deleteLike(this.state.like);
-                this.setState({ like: { ...this.state.like, liked: null } });
+                this.setState({ like: { ...this.state.like, liked: null } }, () => this.props.deleteLike(likedFeature));
                 this.setState({ sumDislikes: --this.state.sumDislikes });
             }
         } else {

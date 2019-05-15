@@ -11,13 +11,13 @@ class Api::LikesController < ApplicationController
     end
     
     def destroy
-        @like = current_user.likes.find(params[:id])
+        @like = current_user.likes.find(params[:like][:id])
         @like.destroy
         render json: @like
     end
 
     def like_params
-        params.require(:like).permit(:likeable_id, :likeable_type, :user_id)
+        params.require(:like).permit(:id, :likeable_id, :likeable_type, :user_id)
     end
 
 end
