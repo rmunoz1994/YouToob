@@ -56,9 +56,6 @@ $body-reg-theme: #f9f9f9;
     padding-right: 8px;
 }
 
-.comment-dislikes-container {
-    
-}
 
 
 .video-area-test {
@@ -93,10 +90,18 @@ $body-reg-theme: #f9f9f9;
     outline: none;
     border: none;
     font-size: 18px;
-    // color: rgb(96, 96, 96);
-    color: rgb(144, 144, 144);
     background-color: $body-reg-theme;
     cursor: pointer;
+}
+
+.video-like, .comment-like {
+    color: rgb(144, 144, 144);
+}
+
+.selected {
+    .video-like, .comment-like {
+        color: #065FD4;
+    }
 }
 
 .comment-like {
@@ -106,13 +111,11 @@ $body-reg-theme: #f9f9f9;
     outline: none;
     border: none;
     font-size: 13px;
-    // color: rgb(96, 96, 96);
-    color: rgb(144, 144, 144);
     background-color: $body-reg-theme;
     cursor: pointer;
 }
 
-.video-like:hover, .comment-like:hover {
+.comment-like:hover {
     color: rgb(96,96,96);
 }
 
