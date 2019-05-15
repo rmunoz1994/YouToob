@@ -41,6 +41,9 @@ class Likes extends React.Component {
         }
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleLike = this.handleLike.bind(this);
+        this.createBar = this.createBar.bind(this);
+        this.likeBarStyle = {};
+        this.createBar();
         if (this.props.likeable_type === "Video") {
             this.likeBtn = "video-like";
             this.dislikesContainer = "dislikes-container";
@@ -104,14 +107,19 @@ class Likes extends React.Component {
                 this.dislikeSelected = "selected";
             }
         }
-
-        // this.setState({ like: { ...this.state.like, liked: type } }, () => this.props.createLike(this.state));
-        // this.setState({ liked: type }, () => this.props.createLike(this.state));
     }
 
     handleSubmit() {
         
         this.props.createLike(this.state);
+    }
+
+    createBar() {
+        const total = this.state.sumLikes + this.state.sumDislikes;
+        const percentage = (this.state.sumLikes / total) * 100;
+        this.likeBarStyle = {
+            width: `${percentage}%`
+        };
     }
 
     render() {
@@ -130,6 +138,12 @@ class Likes extends React.Component {
                         <></>
                     )}
                 </div>
+                {this.props.likeable_type === "Comment" ? null : (
+                    <div className="like-bar-container">
+                        <div className="like-bar" style={this.likeBarStyle}>
+                        </div>        
+                    </div>
+                )}
             </>
         )
     }
