@@ -43,10 +43,10 @@ class Likes extends React.Component {
         this.handleLike = this.handleLike.bind(this);
         this.createBar = this.createBar.bind(this);
         this.likeBarStyle = {};
-        this.createBar();
         if (this.props.likeable_type === "Video") {
             this.likeBtn = "video-like";
             this.dislikesContainer = "dislikes-container";
+            this.createBar();
         } else {
             this.likeBtn = "comment-like";
             this.dislikesContainer = "comment-dislikes-container";
@@ -107,6 +107,7 @@ class Likes extends React.Component {
                 this.dislikeSelected = "selected";
             }
         }
+        if (this.props.likeable_type === "Video") this.createBar();
     }
 
     handleSubmit() {
