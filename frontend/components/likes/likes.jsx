@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import { createLike, deleteLike } from '../../actions/like_actions';
 
 
@@ -46,6 +47,7 @@ class Likes extends React.Component {
 
     handleLike(type, likedFeature) {
         if (!this.props.currentUserId) {
+            this.props.history.push('/login');
             return;
         }
         //Check if like already exists for current user
@@ -85,9 +87,9 @@ class Likes extends React.Component {
         this.props.createLike(this.state);
     }
 
-    createBar(likedFeature) {
+    createBar() {
         const total = this.state.sumLikes + this.state.sumDislikes;
-        const percentage = (this.state.sumLikes / total) * 100;
+        const percentage = total === 0 ? 50 : (this.state.sumLikes / total) * 100;
         this.likeBarStyle = {
             width: `${percentage}%`,
         };
@@ -122,4 +124,4 @@ class Likes extends React.Component {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Likes);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Likes));

@@ -2,6 +2,7 @@ import React from 'react';
 import UserNav from './user_nav';
 import UploadDropdown from './upload_dropdown';
 import { Link, withRouter } from 'react-router-dom';
+import Search from '../search/search';
 
 class NavBar extends React.Component {
 
@@ -26,8 +27,6 @@ class NavBar extends React.Component {
     handleIndexLink() {
         this.props.history.push('/');
     }
-
-    
 
     render() {
 
@@ -54,14 +53,7 @@ class NavBar extends React.Component {
                             onClick={this.handleIndexLink}
                         />
                     </div>
-                    {/* <div className="search-bar-container">
-                        <form className="search-form">
-                            <input type="text" placeholder="Search" className="search-input" />
-                            <button className="search-btn">
-                                <i id="search-icon" className="fas fa-search"></i>
-                            </button>
-                        </form>
-                    </div> */}
+                    <Search />
                     <div className="nav-bar-right-icons">
                         <button className="nav-bar-button" onFocus={this.toggleUploadDrop()} onBlur={this.toggleUploadDrop()}>
                             <i id="icon" className="fas fa-video"></i>
