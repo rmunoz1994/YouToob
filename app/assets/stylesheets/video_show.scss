@@ -118,6 +118,9 @@ $body-reg-theme: #f9f9f9;
     .video-like, .comment-like, .like-amount {
         color: #065FD4;
     }
+    .like-bar {
+        background-color: #065FD4;
+    }
 }
 
 .comment-like {
@@ -138,15 +141,15 @@ $body-reg-theme: #f9f9f9;
 .like-bar-container {
     width: 100%;
     // height: 2px;
-    background-color: rgb(144, 144, 144);
+    background-color: #CCCCCC;
     bottom: -8px;
     position: absolute;
 }
 
 .like-bar {
     height: 2px;
-    background-color: #065FD4;
     transition: width 0.3s;
+    background-color: #909090;
 }
 
 .description-container {

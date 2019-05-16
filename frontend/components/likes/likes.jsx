@@ -29,16 +29,6 @@ class Likes extends React.Component {
             sumLikes: this.props.sumLikes,
             sumDislikes: this.props.sumDislikes
         };
-        this.likeSelected = "";
-        this.dislikeSelected = "";
-        const likedFeature = this.props.likes.filter(like => like.likeableType === this.props.likeable_type && like.likeableId === this.props.likeable_id)[0];
-        if (likedFeature) {
-            if (likedFeature.liked === true) {
-                this.likeSelected = "selected";
-            } else {
-                this.dislikeSelected = "selected";
-            }
-        }
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleLike = this.handleLike.bind(this);
         this.createBar = this.createBar.bind(this);
@@ -53,58 +43,38 @@ class Likes extends React.Component {
         }
     }
 
-    componentDidMount() {
 
-        const likedThing = this.props.likes.filter(like => like.likeableType === this.props.likeable_type && like.likeableId === this.props.likeable_id);
-        console.log(likedThing);
-
-        
-        if (this.props.likes[this.state.like.likeable_id]) {
-            console.log(this.props.likes[this.state.like.likeable_id]);
-        }
-    }
-
-
-    handleLike(type) {
+    handleLike(type, likedFeature) {
         if (!this.props.currentUserId) {
             return;
         }
         //Check if like already exists for current user
-        const likedFeature = this.props.likes.filter(like => like.likeableType === this.props.likeable_type && like.likeableId === this.props.likeable_id)[0];
         if (likedFeature) {
             if (type === true && likedFeature.liked === true) {
                 this.setState({ like: { ...this.state.like, liked: null } }, () => this.props.deleteLike(likedFeature));
                 this.setState({sumLikes: --this.state.sumLikes});
-                this.likeSelected = "";
             } else if (type === true && likedFeature.liked === false) {
                 this.setState({ like: { ...this.state.like, liked: type } }, () => this.props.createLike(this.state.like));
                 this.setState({ 
                     sumLikes: ++this.state.sumLikes, 
                     sumDislikes: --this.state.sumDislikes
                 });
-                this.likeSelected = "selected";
-                this.dislikeSelected = "";
             } else if (type === false && likedFeature.liked === true) {
                 this.setState({ like: { ...this.state.like, liked: type } }, () => this.props.createLike(this.state.like));
                 this.setState({
                     sumLikes: --this.state.sumLikes,
                     sumDislikes: ++this.state.sumDislikes
                 });
-                this.likeSelected = "";
-                this.dislikeSelected = "selected";
             } else if (type === false && likedFeature.liked === false) {
                 this.setState({ like: { ...this.state.like, liked: null } }, () => this.props.deleteLike(likedFeature));
                 this.setState({ sumDislikes: --this.state.sumDislikes });
-                this.dislikeSelected = "";
             }
         } else {
             this.setState({ like: { ...this.state.like, liked: type } }, () => this.props.createLike(this.state.like));
             if (type) {
                 this.setState({ sumLikes: ++this.state.sumLikes });
-                this.likeSelected = "selected";
             } else {
                 this.setState({ sumDislikes: ++this.state.sumDislikes });
-                this.dislikeSelected = "selected";
             }
         }
         if (this.props.likeable_type === "Video") this.createBar();
@@ -115,26 +85,26 @@ class Likes extends React.Component {
         this.props.createLike(this.state);
     }
 
-    createBar() {
+    createBar(likedFeature) {
         const total = this.state.sumLikes + this.state.sumDislikes;
         const percentage = (this.state.sumLikes / total) * 100;
         this.likeBarStyle = {
-            width: `${percentage}%`
+            width: `${percentage}%`,
         };
     }
 
     render() {
-        const total = this.state.likes + this.state.dislikes;
+        const likedFeature = this.props.likes.filter(like => like.likeableType === this.props.likeable_type && like.likeableId === this.props.likeable_id)[0];
         return (
             <>
-                <div className={`likes-container ${this.likeSelected}`}>
-                    <button className={`${this.likeBtn} like-button`} onClick={() => this.handleLike(true)}><i className="fas fa-thumbs-up"></i></button>
+                <div className={`likes-container ${likedFeature && likedFeature.liked === true ? "selected" : ""}`}>
+                    <button className={`${this.likeBtn} like-button`} onClick={() => this.handleLike(true, likedFeature)}><i className="fas fa-thumbs-up"></i></button>
                     {this.state.sumLikes === 0 && this.props.likeable_type === "Comment" ? (<></>) : (
                         <span className="like-amount">{this.state.sumLikes}</span>
                     )}
                 </div>
-                <div className={`${this.dislikesContainer} ${this.dislikeSelected}`}>
-                    <button className={`${this.likeBtn} like-button`} onClick={() => this.handleLike(false)}><i className="fas fa-thumbs-up fa-rotate-180"></i></button>
+                <div className={`${this.dislikesContainer} ${likedFeature && likedFeature.liked === false ? "selected" : ""}`}>
+                    <button className={`${this.likeBtn} like-button`} onClick={() => this.handleLike(false, likedFeature)}><i className="fas fa-thumbs-up fa-rotate-180"></i></button>
                     {this.props.likeable_type === "Video" ? (
                         <span className="like-amount">{this.state.sumDislikes}</span>
                     ) : (
@@ -142,7 +112,7 @@ class Likes extends React.Component {
                     )}
                 </div>
                 {this.props.likeable_type === "Comment" ? null : (
-                    <div className="like-bar-container">
+                    <div className={`like-bar-container ${likedFeature ? "selected" : ""}`}>
                         <div className="like-bar" style={this.likeBarStyle}>
                         </div>        
                     </div>
