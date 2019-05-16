@@ -128,13 +128,13 @@ class Likes extends React.Component {
         return (
             <>
                 <div className={`likes-container ${this.likeSelected}`}>
-                    <button className={this.likeBtn} onClick={() => this.handleLike(true)}><i className="fas fa-thumbs-up"></i></button>
+                    <button className={`${this.likeBtn} like-button`} onClick={() => this.handleLike(true)}><i className="fas fa-thumbs-up"></i></button>
                     {this.state.sumLikes === 0 && this.props.likeable_type === "Comment" ? (<></>) : (
                         <span className="like-amount">{this.state.sumLikes}</span>
                     )}
                 </div>
                 <div className={`${this.dislikesContainer} ${this.dislikeSelected}`}>
-                    <button className={this.likeBtn} onClick={() => this.handleLike(false)}><i className="fas fa-thumbs-up fa-rotate-180"></i></button>
+                    <button className={`${this.likeBtn} like-button`} onClick={() => this.handleLike(false)}><i className="fas fa-thumbs-up fa-rotate-180"></i></button>
                     {this.props.likeable_type === "Video" ? (
                         <span className="like-amount">{this.state.sumDislikes}</span>
                     ) : (
