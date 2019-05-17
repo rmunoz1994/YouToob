@@ -23,7 +23,7 @@ class Search extends React.Component {
         e.preventDefault();
         if (this.state.query === "") return;
         const searchQuery = this.state.query.split(" ").join("+");
-        this.props.history.push(`results?search_query=${searchQuery}`);
+        this.props.history.push(`/results?search_query=${searchQuery}`);
     }
 
     render() {
