@@ -57,7 +57,7 @@ class VideoShow extends React.Component {
                             <h2>{this.props.video.title}</h2>
                             <div className="primary-info">
                                 <div className="views">
-                                    6,456,129 views
+                                    
                                 </div>
                                 <div className="video-actions">
                                     <Likes 
