@@ -7,6 +7,7 @@ class VideoIndex extends React.Component {
     }
 
     componentDidMount() {
+        this.props.clearVideos();
         this.props.fetchVideos();
     }
 
