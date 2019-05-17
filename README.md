@@ -1,24 +1,16 @@
-# README
+# YouToob
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+[YouToob Live Link](http://youtoob-rm.herokuapp.com/#/)
 
-Things you may want to cover:
+YouToob is a single-page YouTube clone application.
 
-* Ruby version
+### Technologies
+ * Ruby on Rails
+ * React
+ * Redux
+ * PostgreSQL
+ * Javascript
+ * HTML5
+ * CSS3
 
-* System dependencies
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
