@@ -2,11 +2,40 @@ import React from 'react';
 
 class Search extends React.Component {
 
+    constructor(props) {
+        super(props);
+        this.state = {
+            query: ""
+        };
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    update() {
+        return (e) => {
+            this.setState({
+                query: e.target.value
+            });
+        };
+    }
+
+    handleSubmit(e) {
+        e.preventDefault();
+        const searchQuery = this.state.split(" ").join("+");
+        this.props.clearVideos();
+        this.props.history.push(`results?search_query=${searchQuery}`);
+    }
+
     render() {
         return (
             <div className="search-bar-container">
                 <form className="search-form">
-                    <input type="text" placeholder="Search" className="search-input" />
+                    <input 
+                        type="text" 
+                        placeholder="Search" 
+                        className="search-input"
+                        value={this.state.query}
+                        onChange={this.update()} 
+                    />
                     <button className="search-btn">
                         <i id="search-icon" className="fas fa-search"></i>
                     </button>

@@ -6,10 +6,12 @@ import VideoIndexContainer from './videos/video_index_container';
 import VideoShowContainer from './videos/video_show_container';
 import VideoUploadContainer from './videos/video_upload_container';
 import VideoEditContainer from './videos/video_edit_container';
+import SearchResultsContainer from './search/search_results_container';
 import { Route, Switch } from 'react-router-dom';
 import { AuthRoute, ProtectedRoute } from '../util/route_utils';
 import SideBar from './side_bar/side_bar';
 import { throttle } from 'lodash';
+import search_results_container from './search/search_results_container';
 
 class MainContent extends React.Component {
     constructor(props) {
@@ -41,6 +43,7 @@ class MainContent extends React.Component {
                         <ProtectedRoute exact path="/videos/:videoId/edit" component={VideoEditContainer} />
                         <Route path="/videos/:videoId" component={VideoShowContainer} />
                         <ProtectedRoute path="/upload" component={VideoUploadContainer} />
+                        <Route path="/results" component={SearchResultsContainer} />
                     </Switch>
                 </div>
             </> 

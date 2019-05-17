@@ -40,8 +40,8 @@ export const clearVideos = () => ({
 });
 
 
-export const fetchVideos = () => dispatch => (
-    APIUtil.fetchVideos().then(videos => dispatch(receiveVideos(videos)))
+export const fetchVideos = filters => dispatch => (
+    APIUtil.fetchVideos(filters).then(videos => dispatch(receiveVideos(videos)))
 );
 
 export const fetchVideo = id => dispatch => (
