@@ -221,6 +221,10 @@ $body-reg-theme: #f9f9f9;
     flex-shrink: 0;
 }
 
+.left {
+    margin-left: -8px;
+}
+
 .comment-like:hover {
     color: rgb(96,96,96);
 }

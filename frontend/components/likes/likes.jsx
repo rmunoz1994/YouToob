@@ -35,11 +35,12 @@ class Likes extends React.Component {
         this.createBar = this.createBar.bind(this);
         this.likeBarStyle = {};
         if (this.props.likeable_type === "Video") {
-            this.likeBtn = "video-like";
+            this.likeBtnLeft = this.likeBtnRight = "video-like";
             this.dislikesContainer = "dislikes-container";
             this.createBar();
         } else {
-            this.likeBtn = "comment-like";
+            this.likeBtnLeft = "comment-like left";
+            this.likeBtnRight = "comment-like";
             this.dislikesContainer = "comment-dislikes-container";
         }
     }
@@ -100,13 +101,13 @@ class Likes extends React.Component {
         return (
             <>
                 <div className={`likes-container ${likedFeature && likedFeature.liked === true ? "selected" : ""}`}>
-                    <button className={`${this.likeBtn} like-button`} onClick={() => this.handleLike(true, likedFeature)}><i className="fas fa-thumbs-up"></i></button>
+                    <button className={`${this.likeBtnLeft} like-button`} onClick={() => this.handleLike(true, likedFeature)}><i className="fas fa-thumbs-up"></i></button>
                     {this.state.sumLikes === 0 && this.props.likeable_type === "Comment" ? (<></>) : (
                         <span className="like-amount">{this.state.sumLikes}</span>
                     )}
                 </div>
                 <div className={`${this.dislikesContainer} ${likedFeature && likedFeature.liked === false ? "selected" : ""}`}>
-                    <button className={`${this.likeBtn} like-button`} onClick={() => this.handleLike(false, likedFeature)}><i className="fas fa-thumbs-up fa-rotate-180"></i></button>
+                    <button className={`${this.likeBtnRight} like-button`} onClick={() => this.handleLike(false, likedFeature)}><i className="fas fa-thumbs-up fa-rotate-180"></i></button>
                     {this.props.likeable_type === "Video" ? (
                         <span className="like-amount">{this.state.sumDislikes}</span>
                     ) : (
