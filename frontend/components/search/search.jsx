@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 
 class Search extends React.Component {
 
@@ -20,15 +21,16 @@ class Search extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        const searchQuery = this.state.split(" ").join("+");
+        const searchQuery = this.state.query.split(" ").join("+");
         this.props.clearVideos();
+        this.props.fetchVideos({ search: searchQuery });
         this.props.history.push(`results?search_query=${searchQuery}`);
     }
 
     render() {
         return (
             <div className="search-bar-container">
-                <form className="search-form">
+                <form className="search-form" onSubmit={this.handleSubmit}>
                     <input 
                         type="text" 
                         placeholder="Search" 
@@ -45,4 +47,4 @@ class Search extends React.Component {
     }
 }
 
-export default Search;
+export default withRouter(Search);
