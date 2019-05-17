@@ -21,6 +21,7 @@ class Search extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
+        if (this.state.query === "") return;
         const searchQuery = this.state.query.split(" ").join("+");
         this.props.history.push(`results?search_query=${searchQuery}`);
     }

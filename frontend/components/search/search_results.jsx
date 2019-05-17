@@ -15,6 +15,8 @@ class SearchResults extends React.Component {
 
     render() {
         let searchResultItems;
+        let message;
+        const searchTerm = this.props.search.split("+").join(" ");
         if (this.props.videos.length > 0) {
             searchResultItems = this.props.videos.map((video, idx) => {
                 let user = this.props.users[video.uploaderId];
@@ -22,13 +24,17 @@ class SearchResults extends React.Component {
                     <SearchItem key={idx} video={video} user={user}/>
                 )
             });
+            message = `Search results for "${searchTerm}"`;
         } else {
             searchResultItems = "";
+            message = `Search for "${searchTerm}" returned no results`;
         }
         return (
             <div className="search-results-container">
                 <div className="search-results-list">
-                    <div className="search-results-header"></div>
+                    <div className="search-results-header">
+                        <h3>{message}</h3>
+                    </div>
                     <div className="search-results">
                         {searchResultItems}
                     </div>
