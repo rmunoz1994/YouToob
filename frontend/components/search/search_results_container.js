@@ -1,6 +1,6 @@
 import SearchResults from "./search_results";
 import { connect } from 'react-redux';
-import { fetchVideos } from "../../actions/video_actions";
+import { fetchVideos, clearVideos } from "../../actions/video_actions";
 
 const msp = (state, ownProps) => ({
     videos: Object.values(state.entities.videos),
@@ -9,7 +9,8 @@ const msp = (state, ownProps) => ({
 });
 
 const mdp = dispatch => ({
-    fetchVideos: filters => dispatch(fetchVideos(filters))
+    fetchVideos: filters => dispatch(fetchVideos(filters)),
+    clearVideos: () => dispatch(clearVideos())
 });
 
 export default connect(msp, mdp)(SearchResults);

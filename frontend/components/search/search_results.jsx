@@ -4,6 +4,7 @@ import SearchItem from './search_item';
 class SearchResults extends React.Component {
 
     componentDidMount() {
+        this.props.clearVideos();
         this.props.fetchVideos({search: this.props.search});
     }
     componentDidUpdate(prevProps) {

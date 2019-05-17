@@ -38,9 +38,10 @@ class Api::VideosController < ApplicationController
     end
 
     def search
-        query_words = params[:search].split("+").map(&:downcase)
+        query_words = params[:search].split("+").map(&:downcase).join(" ")
+        p query_words
         query = "%#{query_words}%"
-        @videos = Video.where("title ILIKE ?", query_words)
+        @videos = Video.where("title ILIKE ?", query)
     end
 
     def video_params
