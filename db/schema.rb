@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_09_135606) do
+ActiveRecord::Schema.define(version: 2019_10_07_190542) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,16 @@ ActiveRecord::Schema.define(version: 2019_04_09_135606) do
     t.string "checksum", null: false
     t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
+
+  create_table "channels", force: :cascade do |t|
+    t.string "name", null: false
+    t.text "description"
+    t.integer "creator_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["creator_id"], name: "index_channels_on_creator_id"
+    t.index ["name", "creator_id"], name: "index_channels_on_name_and_creator_id", unique: true
   end
 
   create_table "comments", force: :cascade do |t|
