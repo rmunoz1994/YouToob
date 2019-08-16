@@ -33,6 +33,12 @@ class UserNav extends React.Component {
                         </ul>
                     </div>
                     <div className="drop-group">
+                        <div className="drop-item">
+                            <div className="drop-icon">
+                                <i class="fas fa-portrait"></i>
+                            </div>
+                            <div>Your channel</div>
+                        </div>
                         <div className="drop-item" onClick={this.props.logout}>
                             <div className="drop-icon">
                                 <i className="fas fa-sign-out-alt"></i>
