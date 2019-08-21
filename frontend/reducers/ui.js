@@ -1,4 +1,6 @@
 import { SHOW_SIDE_BAR } from '../actions/ui_actions';
+import { combineReducers } from 'redux';
+import modal from './modal_reducer';
 
 const initialState = {
     sideBarOpen: false
@@ -16,4 +18,7 @@ const uiReducer = (state = initialState, action) => {
     }
 };
 
-export default uiReducer;
+export default combineReducers({
+    uiReducer,
+    modal
+});
