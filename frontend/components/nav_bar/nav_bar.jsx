@@ -12,6 +12,7 @@ class NavBar extends React.Component {
             uploadDropHidden: true
         };
         this.handleIndexLink = this.handleIndexLink.bind(this);
+        this.handleChannelLink = this.handleChannelLink.bind(this);
     }
 
     toggleUploadDrop() {
@@ -28,11 +29,16 @@ class NavBar extends React.Component {
         this.props.history.push('/');
     }
 
+    handleChannelLink() {
+        this.props.history.push('/channel');
+        this.props.openModal();
+    }
+
     render() {
 
         const display = this.props.currentUser ? (
             <div>
-                <UserNav currentUser={this.props.currentUser} logout={this.props.logout} />
+                <UserNav currentUser={this.props.currentUser} logout={this.props.logout} channel={this.handleChannelLink}/>
             </div>
         ) : (
             <div>

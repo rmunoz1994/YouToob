@@ -33,9 +33,9 @@ class UserNav extends React.Component {
                         </ul>
                     </div>
                     <div className="drop-group">
-                        <div className="drop-item">
+                        <div className="drop-item" onClick={this.props.channel}>
                             <div className="drop-icon">
-                                <i class="fas fa-portrait"></i>
+                                <i className="fas fa-portrait"></i>
                             </div>
                             <div>Your channel</div>
                         </div>

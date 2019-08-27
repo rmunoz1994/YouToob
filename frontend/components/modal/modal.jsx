@@ -1,7 +1,7 @@
 import React from 'react';
 import { closeModal } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
-import ChannelCreateContainer from '../channel/channel_create_container';
+import ChannelCreateModalContainer from '../channel/channel_create_modal_container';
 
 function Modal({ modal, closeModal }) {
     if (!modal) {
@@ -10,7 +10,7 @@ function Modal({ modal, closeModal }) {
     let component;
     switch (modal) {
         case 'createChannel':
-            component = <ChannelCreateContainer />;
+            component = <ChannelCreateModalContainer />;
             break;
         default:
             return null;
