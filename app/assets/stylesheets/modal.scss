@@ -4,8 +4,8 @@
   bottom: 0;
   right: 0;
   left: 0;
-  background: rgba(0, 0, 0, 0.7);
-  z-index: 10;
+  background: rgba(255,255,255,0.8);
+  z-index: 2000;
 }
 
 .modal-child {
@@ -17,22 +17,22 @@
 
 #channel-create-container {
     width: 480px;
-    height: 313px;
     background-color: white;
     border: 1px solid #e2e2e2;
     text-align: left;
     box-shadow: 0 0 15px rgba(0,0,0,.18);
-    padding: 0px 20px 20px;
     font-family: sans-serif;
     header {
         border-bottom: 1px solid #e2e2e2;
+        margin-bottom: 20px;
         height: 60px;
-        padding: 0 20px;
+    }
+    h2 {
         font-size: 20px;
         font-weight: normal;
         line-height: 60px;
-        border-bottom: 0;
         color: #555;
+        padding: 0 20px;
     }
     section {
         display: block;
@@ -41,6 +41,17 @@
         width: 64px;
         height: 64px;
         float: left;
+        margin-left: 20px;
+    }
+    footer {
+        background: #f1f1f1;
+        margin-top: 20px;
+        padding: 15px 20px;
+        text-align: right;
+        position: relative;
+        bottom: 0px;
+        height: 28px;
+
     }
 }
 
@@ -54,12 +65,65 @@
     border: 1px solid #d3d3d3;
     color: #333;
     outline: none;
+    margin-left: 10px;
 }
 
 .modal-input:focus {
     border: 1px solid #1c62b9;
 }
 
-.modal-input:hover {
+.modal-input:hover:not(:focus) {
     border: 1px solid #bbbbbb;
+}
+
+.cancel-channel-btn {
+    margin: 0 3px;
+    border: 1px solid #d3d3d3;
+    background: #f8f8f8;
+    color: #333;
+    width: 65px;
+    height: 28px;
+    padding: 0 10px;
+    outline: none;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 11px;
+    border-radius: 2px;
+    box-shadow: 0 1px 0 rgba(0,0,0,0.05);
+}
+
+.cancel-channel-btn:hover {
+    background-color: #f0f0f0;
+    border-color: #c6c6c6;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+}
+
+.cancel-channel-btn:focus {
+    background-color: #e7e7e7;
+}
+
+#create-channel-btn {
+    border: 1px solid #167ac6;
+    margin: 0 3px;
+    margin-left: 5px;
+    background: #167ac6;
+    color: #fff;
+    height: 28px;
+    padding: 0 10px;
+    outline: none;
+    flex-shrink: 0;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 11px;
+    border-radius: 2px;
+    box-shadow: 0 1px 0 rgba(0,0,0,0.05);
+}
+
+#create-channel-btn:hover {
+    background: #115f9b;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+}
+
+#create-channel-btn:focus {
+    background: #0d4b7a;
 }
