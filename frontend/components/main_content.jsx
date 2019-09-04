@@ -11,6 +11,7 @@ import { Route, Switch } from 'react-router-dom';
 import { AuthRoute, ProtectedRoute } from '../util/route_utils';
 import SideBar from './side_bar/side_bar';
 import ChannelCreateContainer from './channel/channel_create_container';
+import ChannelShowContainer from './channel/channel_show_container';
 import { throttle } from 'lodash';
 import search_results_container from './search/search_results_container';
 
@@ -46,6 +47,7 @@ class MainContent extends React.Component {
                         <ProtectedRoute path="/upload" component={VideoUploadContainer} />
                         <Route path="/results" component={SearchResultsContainer} />
                         <Route path="/channel" component={ChannelCreateContainer} />
+                        <Route path="/user" component={ChannelShowContainer} />
                     </Switch>
                 </div>
             </> 

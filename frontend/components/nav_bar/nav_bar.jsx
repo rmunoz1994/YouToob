@@ -30,8 +30,7 @@ class NavBar extends React.Component {
     }
 
     handleChannelLink() {
-        this.props.history.push('/channel');
-        this.props.openModal();
+        this.props.history.push('/user');
     }
 
     render() {

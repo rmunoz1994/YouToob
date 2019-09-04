@@ -1,0 +1,73 @@
+#channel-show-container {
+    header {
+       
+    }
+}
+
+#channel-info {
+    padding: 16px 107px 4px;
+    width: 100%;
+    display: flex;
+    justify-items: center;
+}
+
+// #customize-channel-btn {
+//     display: block;
+//     overflow: hidden;
+//     text-overflow: ellipsis;
+//     white-space: nowrap;
+// }
+
+#customize-channel-btn {
+    border: 1px solid rgb(6, 95, 212);;
+    margin: 0 3px;
+    margin-left: 5px;
+    background: rgb(6, 95, 212);;
+    color: #fff;
+    height: 36px;
+    padding: 10px 16px;
+    outline: none;
+    flex-shrink: 0;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 14px;
+    border-radius: 2px;
+    box-shadow: 0 1px 0 rgba(0,0,0,0.05);
+    
+}
+
+    // height: 37px;
+    // width: 105px;
+    // padding: 10px 16px;
+    // background-color: rgb(6, 95, 212);
+    // letter-spacing: 0.007px;
+    // box-sizing: border-box;
+    // outline: none;
+    // border-radius: 2px;
+    // border: none;
+    // color: white;
+    // font-weight: 400;
+    // font-size: 14px;
+    // font-family: 'Roboto', Arial, sans-serif;
+    // align-items: center;
+    // flex: 1 1 auto;
+    // cursor: pointer;
+    // font-stretch: 100%;
+
+#channel-nav {
+    ul {
+        list-style: none;
+        display: flex;
+    }
+    li {
+        height: 47px;
+        padding: 0px 32px;
+        font-size: 14px;
+    }
+
+}
+
+.channel-show-selection {
+    background-color: #f1f1f1;
+    height: 100%;
+}
