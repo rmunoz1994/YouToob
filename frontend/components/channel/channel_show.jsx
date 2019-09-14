@@ -28,16 +28,18 @@ class ChannelShow extends React.Component {
                         <button className="large-user-pic user-pic">
                             T
                         </button>
-                        <div>
-                            <h2>Channel Name</h2>
-                            <span>35 subscribers</span>
-                        </div>
-                        <button id="customize-channel-btn">CUSTOMIZE CHANNEL</button>
+                        <div id="channel-info-reflow">
+                            <div id="name-and-subscribers">
+                                <h2>Channel Name</h2>
+                                <span>35 subscribers</span>
+                            </div>
+                            <button id="customize-channel-btn">CUSTOMIZE CHANNEL</button>
+                        </div>  
                     </section>
                     <nav id="channel-nav">
                         <ul>
-                            <li>VIDEOS</li>
-                            <li>ABOUT</li>
+                            <li><button>VIDEOS</button></li>
+                            <li><button>ABOUT</button></li>
                         </ul>
                     </nav>
                 </header>
