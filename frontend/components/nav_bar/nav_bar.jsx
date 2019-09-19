@@ -8,21 +8,8 @@ class NavBar extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = {
-            uploadDropHidden: true
-        };
         this.handleIndexLink = this.handleIndexLink.bind(this);
         this.handleChannelLink = this.handleChannelLink.bind(this);
-    }
-
-    toggleUploadDrop() {
-        return e => {
-            if (this.state.uploadDropHidden) {
-                this.setState({ uploadDropHidden: false });
-            } else {
-                this.setState({ uploadDropHidden: true });
-            }
-        };
     }
 
     handleIndexLink() {
@@ -45,7 +32,7 @@ class NavBar extends React.Component {
             </div>
         );
 
-        const uploadDrop = this.state.uploadDropHidden ? (<> </>) : (<UploadDropdown props={this.props}/>);
+        const uploadDrop = (<UploadDropdown props={this.props}/>);
 
         return (
 
@@ -60,10 +47,7 @@ class NavBar extends React.Component {
                     </div>
                     <SearchContainer />
                     <div className="nav-bar-right-icons">
-                        <button className="nav-bar-button" onFocus={this.toggleUploadDrop()} onBlur={this.toggleUploadDrop()}>
-                            <i id="icon" className="fas fa-video"></i>
-                            {uploadDrop}
-                        </button>
+                        {uploadDrop}
                         <button className="nav-bar-button">
                             <i id="icon" className="fas fa-ellipsis-v"></i>
                         </button>

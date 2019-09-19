@@ -6,15 +6,25 @@ class UserNav extends React.Component {
         this.state = {
             visibility: false
         };
-        this.toggleVisibility = this.toggleVisibility.bind(this);
+        this.popUp = this.popUp.bind(this);
+        this.disappear = this.disappear.bind(this);
     }
 
-    toggleVisibility() {
-        if (this.state.visibility === true) {
-            this.setState({visibility: false});
-        } else {
-            this.setState({visibility: true});
-        }
+    componentWillUnmount() {
+        document.removeEventListener('click', this.popUp);
+    }
+
+    popUp(e) {
+        e.preventDefault();
+        this.setState({ visibility: true }, () => {
+            document.addEventListener('click', this.disappear);
+        });
+    }
+
+    disappear(e) {
+        this.setState({ visibility: false }, () => {
+            document.removeEventListener('click', this.disappear);
+        });
     }
 
     render() {
@@ -53,7 +63,7 @@ class UserNav extends React.Component {
         }
         return (
             <div className="dropdown">
-                <button className="user-pic" onClick={this.toggleVisibility}>
+                <button className="user-pic" onClick={this.popUp}>
                     {this.props.currentUser.first_name.slice(0, 1).toUpperCase()}
                 </button>
                 {dropdown}
