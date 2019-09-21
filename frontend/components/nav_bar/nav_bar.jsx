@@ -48,9 +48,9 @@ class NavBar extends React.Component {
                     <SearchContainer />
                     <div className="nav-bar-right-icons">
                         {uploadDrop}
-                        <button className="nav-bar-button">
+                        {/* <button className="nav-bar-button">
                             <i id="icon" className="fas fa-ellipsis-v"></i>
-                        </button>
+                        </button> */}
                         {display}
                     </div>
                 </header>
