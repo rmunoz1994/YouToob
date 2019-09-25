@@ -26,7 +26,7 @@ class VideoItem extends React.Component {
                     <div className="video-details-col">
                         <h3>{this.props.video.title}</h3>
                         <div className="upload-name-col">
-                            {this.props.user.first_name}
+                            {this.props.channel.name}
                         </div>
                         <div className="upload-time-col">
                             Recommended for you
@@ -47,7 +47,7 @@ class VideoItem extends React.Component {
                     <div className="video-details">
                         <h3>{this.props.video.title}</h3>
                         <div className="upload-name">
-                            {this.props.user.first_name}
+                            {this.props.channel.name}
                         </div>
                         <div className="upload-time">
                             {timeSincePost(this.props.video.createdAt)}

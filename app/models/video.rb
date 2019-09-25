@@ -17,10 +17,7 @@ class Video < ApplicationRecord
     validate :ensure_videoUrl
     validate :ensure_thumbnailUrl
 
-    belongs_to :uploader,
-        class_name: :User,
-        primary_key: :id,
-        foreign_key: :uploader_id
+    belongs_to :channel
 
     has_one_attached :videoUrl
     has_one_attached :thumbnailUrl

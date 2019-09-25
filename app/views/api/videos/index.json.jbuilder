@@ -6,10 +6,10 @@ json.videos do
     end
 end
 
-json.users do
+json.channels do
     @videos.each do |video|
-        json.set! video.uploader_id do
-            json.extract! video.uploader, :id, :first_name, :last_name
+        json.set! video.channel_id do
+            json.extract! video.channel, :id, :name
         end
     end
 end

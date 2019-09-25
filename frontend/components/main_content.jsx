@@ -8,7 +8,7 @@ import VideoUploadContainer from './videos/video_upload_container';
 import VideoEditContainer from './videos/video_edit_container';
 import SearchResultsContainer from './search/search_results_container';
 import { Route, Switch } from 'react-router-dom';
-import { AuthRoute, ProtectedRoute } from '../util/route_utils';
+import { AuthRoute, ProtectedRoute, ChannelCreateRoute, RequireChannelRoute } from '../util/route_utils';
 import SideBar from './side_bar/side_bar';
 import ChannelCreateContainer from './channel/channel_create_container';
 import ChannelShowContainer from './channel/channel_show_container';
@@ -44,10 +44,10 @@ class MainContent extends React.Component {
                         <Route exact path="/" component={VideoIndexContainer} />
                         <ProtectedRoute exact path="/videos/:videoId/edit" component={VideoEditContainer} />
                         <Route path="/videos/:videoId" component={VideoShowContainer} />
-                        <ProtectedRoute path="/upload" component={VideoUploadContainer} />
+                        <RequireChannelRoute path="/upload" component={VideoUploadContainer} />
                         <Route path="/results" component={SearchResultsContainer} />
-                        <Route path="/channel" component={ChannelCreateContainer} />
-                        <Route path="/user" component={ChannelShowContainer} />
+                        <ChannelCreateRoute path="/channel_create" component={ChannelCreateContainer} />
+                        <Route path="/channels/:channelId" component={ChannelShowContainer} />
                     </Switch>
                 </div>
             </> 

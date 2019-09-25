@@ -24,10 +24,12 @@ class User < ApplicationRecord
 
     has_one_attached :photo
 
+    has_many :channels, dependent: :destroy
+
     has_many :uploads,
-        class_name: :Video,
-        primary_key: :id,
-        foreign_key: :uploader_id
+        through: :channels,
+        source: :videos,
+        dependent: :destroy
 
     has_many :comments, dependent: :destroy,
         class_name: :Comment,

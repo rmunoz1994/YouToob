@@ -18,10 +18,10 @@ class VideoIndex extends React.Component {
             return (
                 <div className="index-container">
                     <div className="video-index-container">
-                        <VideoGrid videos={this.props.videos.slice(0,6)} users={this.props.users} title={"Recommended"}/>
+                        <VideoGrid videos={this.props.videos.slice(0,6)} channels={this.props.channels} title={"Recommended"}/>
                     </div>
                     <div className="video-index-container">
-                        <VideoGrid videos={this.props.videos.slice(6,100)} users={this.props.users} title={"Here are the rest!"} />
+                        <VideoGrid videos={this.props.videos.slice(6,100)} channels={this.props.channels} title={"Here are the rest!"} />
                     </div>
                 </div>
             )

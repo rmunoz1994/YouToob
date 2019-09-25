@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_07_190542) do
+ActiveRecord::Schema.define(version: 2019_10_14_180748) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -85,10 +85,10 @@ ActiveRecord::Schema.define(version: 2019_10_07_190542) do
   create_table "videos", force: :cascade do |t|
     t.string "title", null: false
     t.text "description", null: false
-    t.integer "uploader_id", null: false
+    t.integer "channel_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["uploader_id"], name: "index_videos_on_uploader_id"
+    t.index ["channel_id"], name: "index_videos_on_channel_id"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"

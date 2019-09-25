@@ -6,18 +6,18 @@ export const RECEIVE_VIDEO_ERRORS = "RECEIVE_VIDEO_ERRORS";
 export const REMOVE_VIDEO = "REMOVE_VIDEO";
 export const CLEAR_VIDEOS = "CLEAR_VIDEOS";
 
-const receiveVideos = ({videos, users}) => ({
+const receiveVideos = ({videos, channels}) => ({
     type: RECEIVE_VIDEOS,
     videos,
-    users
+    channels
 });
 
-const receiveVideo = ({video, user, comments, commentAuthors, likes, userCommentLikes}) => {
+const receiveVideo = ({video, channel, comments, commentAuthors, likes, userCommentLikes}) => {
     
     return {
         type: RECEIVE_VIDEO,
         video,
-        user,
+        channel,
         comments,
         commentAuthors,
         likes,

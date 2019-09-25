@@ -15,6 +15,7 @@ Rails.application.routes.draw do
       delete '/likes', to: 'likes#destroy'
     end
     resource :session, only: [:new, :create, :destroy]
+    resources :channels, except: [:new, :edit]
   end
   
 end
