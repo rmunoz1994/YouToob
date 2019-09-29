@@ -24,7 +24,10 @@ class User < ApplicationRecord
 
     has_one_attached :photo
 
-    has_many :channels, dependent: :destroy
+    has_many :channels, dependent: :destroy,
+        class_name: :Channel,
+        primary_key: :id,
+        foreign_key: :creator_id
 
     has_many :uploads,
         through: :channels,

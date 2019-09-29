@@ -6,7 +6,7 @@ const mapStateToProps = state => ({
     loggedIn: Boolean(state.session.currentUser),
     users: state.entities.users,
     channels: state.entities.channels,
-    currentUserId: state.session.currentUserId
+    currentUserId: state.session.currentUser
 });
 
 const Auth = ({ loggedIn, path, component: Component }) => (
@@ -41,12 +41,12 @@ const ChannelCreate = ({users, currentUserId, loggedIn, path, component: Compone
     />
 );
 
-const RequireChannel = ({}) => (
+const RequireChannel = ({ users, currentUserId, path, ...rest }) => (
     <Route
         path={path}
         render={props => {
             const currentUser = users[currentUserId] || {};
-            const ownedChannels = currentUser.channels || [];
+            const ownedChannels = currentUser.ownedChannelIds || [];
             return ownedChannels.length === 0 ? <Redirect to="/create_channel" /> 
             : <ProtectedRoute path={path} {...rest} {...props} />
         }}
@@ -55,5 +55,5 @@ const RequireChannel = ({}) => (
 
 export const AuthRoute = withRouter(connect(mapStateToProps)(Auth));
 export const ProtectedRoute = withRouter(connect(mapStateToProps)(Protected));
-export const ChannelCreate = withRouter(connect(mapStateToProps)(ChannelCreate));
-export const RequireChannel = withRouter(connect(mapStateToProps)(RequireChannel));
+export const ChannelCreateRoute = withRouter(connect(mapStateToProps)(ChannelCreate));
+export const RequireChannelRoute = withRouter(connect(mapStateToProps)(RequireChannel));

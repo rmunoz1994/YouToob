@@ -5,10 +5,11 @@ import { logout } from '../../actions/session';
 import { openModal } from '../../actions/modal_actions';
 
 const mapStateToProps = state => {
-
+    
     return {
         currentUser: state.entities.users[state.session.currentUser] 
     };
+
 };
 
 const mapDispatchToProps = dispatch => ({
