@@ -29,8 +29,8 @@ class Api::ChannelsController < ApplicationController
         render json: @channel
     end
 
-    def comment_params
-        params.require(:comment).permit(:body, :parent_comment_id, :author_id, :video_id)
+    def channel_params
+        params.require(:channel).permit(:name, :description, :user_id)
     end
 
 end

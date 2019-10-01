@@ -47,7 +47,7 @@ const RequireChannel = ({ users, currentUserId, path, ...rest }) => (
         render={props => {
             const currentUser = users[currentUserId] || {};
             const ownedChannels = currentUser.ownedChannelIds || [];
-            return ownedChannels.length === 0 ? <Redirect to="/create_channel" /> 
+            return ownedChannels.length === 0 ? <Redirect to="/channel_create" /> 
             : <ProtectedRoute path={path} {...rest} {...props} />
         }}
     />
