@@ -5,7 +5,16 @@ class ChannelShow extends React.Component {
 
     constructor(props) {
         super(props);
+    }
 
+    componentDidMount() {
+        this.props.fetchChannel(this.props.match.params.channelId);
+    }
+
+    componentDidUpdate(prevProps) {
+        if (prevProps.match.params.channelId !== this.props.match.params.channelId) {
+            this.props.fetchChannel(this.props.match.params.channelId);
+        }
     }
 
     loadVideos() {
@@ -20,8 +29,8 @@ class ChannelShow extends React.Component {
 
     }
 
-    render() {     
-        return (
+    render() {   
+        return this.props.channel === undefined ? null : (
             <div id="channel-show-container">
                 <header>
                     <section id="channel-info">
@@ -30,7 +39,7 @@ class ChannelShow extends React.Component {
                         </button>
                         <div id="channel-info-reflow">
                             <div id="name-and-subscribers">
-                                <h2>Channel Name</h2>
+                                <h2>{this.props.channel.name}</h2>
                                 <span>35 subscribers</span>
                             </div>
                             <button id="customize-channel-btn">CUSTOMIZE CHANNEL</button>
@@ -52,11 +61,3 @@ class ChannelShow extends React.Component {
 
 export default withRouter(ChannelShow);
 
-
-
-{/* <div className="dropdown">
-    <button className="user-pic" onClick={this.toggleVisibility}>
-        {this.props.currentUser.first_name.slice(0, 1).toUpperCase()}
-    </button>
-    {dropdown}
-</div> */}
