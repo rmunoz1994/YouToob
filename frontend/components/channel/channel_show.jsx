@@ -1,5 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import ChannelAbout from './channel_about';
 
 class ChannelShow extends React.Component {
 
@@ -35,7 +36,7 @@ class ChannelShow extends React.Component {
                 <header>
                     <section id="channel-info">
                         <button className="large-user-pic user-pic">
-                            T
+                            {this.props.channel.name.slice(0,1).toUpperCase()}
                         </button>
                         <div id="channel-info-reflow">
                             <div id="name-and-subscribers">
@@ -52,7 +53,7 @@ class ChannelShow extends React.Component {
                         </ul>
                     </nav>
                 </header>
-                {this.loadVideos()}
+                <ChannelAbout {...this.props}/>
             </div>
         );
     }

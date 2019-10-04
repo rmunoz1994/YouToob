@@ -23,12 +23,6 @@
     flex-shrink: 0;
 }
 
-// #customize-channel-btn {
-//     display: block;
-//     overflow: hidden;
-//     text-overflow: ellipsis;
-//     white-space: nowrap;
-// }
 
 #customize-channel-btn {
     border: 1px solid rgb(6, 95, 212);
@@ -74,6 +68,7 @@
 .channel-show-selection {
     background-color: #f1f1f1;
     height: 100%;
+    padding: 0 60px;
 }
 
 #channel-info-reflow {
@@ -82,4 +77,40 @@
     width: 100%;
     align-items: center;
     flex-wrap: wrap;
+}
+
+#channel-about {
+    padding-top: 16px;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    font-size: 14px;
+    h3 {
+        margin: 24px 0;
+        font-size: 16px;
+        font-weight: 400;
+    }
+}
+
+#channel-description-container {
+    padding-right: 96px;
+    flex-grow: 1;
+}
+
+#channel-description {
+    word-wrap: break-word;
+    flex: 2;
+    padding-bottom: 32px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    
+}
+
+#channel-stats {
+    display: flex;
+    flex-direction: column;
+    span, h3 {
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        padding: 12px 0;
+        margin: 0;
+    }
 }
