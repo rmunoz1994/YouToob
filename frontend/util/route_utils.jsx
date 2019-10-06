@@ -32,8 +32,8 @@ const ChannelCreate = ({users, currentUserId, loggedIn, path, component: Compone
         path={path}
         render={props => {
             if (loggedIn) {
-                const ownedChannels = users[currentUserId].ownedChannelIds || [];
-                return ownedChannels.length === 0 ? <Component {...props} /> : <Redirect to={`channels/${ownedChannels[0]}`} />
+                const channelIds = users[currentUserId].channelIds || [];
+                return channelIds.length === 0 ? <Component {...props} /> : <Redirect to={`channels/${channelIds[0]}`} />
             } else {
                 return <Redirect to="/login" />
             }
@@ -46,8 +46,8 @@ const RequireChannel = ({ users, currentUserId, path, ...rest }) => (
         path={path}
         render={props => {
             const currentUser = users[currentUserId] || {};
-            const ownedChannels = currentUser.ownedChannelIds || [];
-            return ownedChannels.length === 0 ? <Redirect to="/channel_create" /> 
+            const channelIds = currentUser.channelIds || [];
+            return channelIds.length === 0 ? <Redirect to="/channel_create" /> 
             : <ProtectedRoute path={path} {...rest} {...props} />
         }}
     />

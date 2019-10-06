@@ -17,8 +17,8 @@ class NavBar extends React.Component {
     }
 
     handleChannelLink() {
-        if (this.props.currentUser.ownedChannelIds.length > 0) {
-            this.props.history.push(`/channels/${this.props.currentUser.ownedChannelIds[0]}`)
+        if (this.props.currentUser.channelIds.length > 0) {
+            this.props.history.push(`/channels/${this.props.currentUser.channelIds[0]}`)
         } else {
             this.props.history.push('/channel_create');
         }

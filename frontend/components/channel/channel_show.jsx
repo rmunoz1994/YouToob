@@ -1,6 +1,7 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+import { Route, NavLink, Switch, withRouter } from 'react-router-dom';
 import ChannelAbout from './channel_about';
+import ChannelVideos from './channel_videos';
 
 class ChannelShow extends React.Component {
 
@@ -48,12 +49,21 @@ class ChannelShow extends React.Component {
                     </section>
                     <nav id="channel-nav">
                         <ul>
-                            <li><button>VIDEOS</button></li>
-                            <li><button>ABOUT</button></li>
+                            <li><NavLink exact to={`/channels/${this.props.channel.id}/`}><button>VIDEOS</button></NavLink></li>
+                            <li><NavLink exact to={`/channels/${this.props.channel.id}/about`}><button>ABOUT</button></NavLink></li>
                         </ul>
                     </nav>
                 </header>
-                <ChannelAbout {...this.props}/>
+                <Switch>
+                    <Route 
+                        exact path="/channels/:channelId" 
+                        render={() => <ChannelVideos {...this.props} />} 
+                    />
+                    <Route 
+                        path="/channels/:channelId/about"
+                        render={() => <ChannelAbout {...this.props} />}
+                    />
+                </Switch>
             </div>
         );
     }

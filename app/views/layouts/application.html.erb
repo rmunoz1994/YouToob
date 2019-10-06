@@ -17,7 +17,7 @@
           "first_name": "<%= current_user.first_name %>",
           "last_name": "<%= current_user.last_name %>",
           "email": "<%= current_user.email %>",
-          "ownedChannelIds": <%= current_user.channels.map { |channel| channel.id} %>
+          "channelIds": <%= current_user.channels.map { |channel| channel.id} %>
         };
       </script>
     <% end %>

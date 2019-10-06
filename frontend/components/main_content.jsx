@@ -19,11 +19,22 @@ class MainContent extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            sideBarHidden: true
+            sideBarHidden: false,
+            sideBarOpen: false
         };
     }
 
     toggleSideBar() {
+        return e => {
+            if (this.state.sideBarOpen) {
+                this.setState({ sideBarOpen: false });
+            } else {
+                this.setState({ sideBarOpen: true });
+            }
+        };
+    }
+
+    hideSideBar() {
         return e => {
             if (this.state.sideBarHidden) {
                 this.setState({ sideBarHidden: false });
@@ -34,12 +45,13 @@ class MainContent extends React.Component {
     }
 
     render() {
-        const sideBar = this.state.sideBarHidden ? (<div></div>) : (<SideBar />);
+        const sideBar = this.state.sideBarOpen ? (<SideBar open={true} />) : (<SideBar open={false} />);
+        const sideBarVisibility = this.state.sideBarHidden ? (<div></div>) : (sideBar);
         return (
             <>
                 <NavBarContainer toggleSideBar={this.toggleSideBar()} />
                 <div className="after-header">
-                    {sideBar}
+                    {sideBarVisibility}
                     <Switch>
                         <Route exact path="/" component={VideoIndexContainer} />
                         <ProtectedRoute exact path="/videos/:videoId/edit" component={VideoEditContainer} />

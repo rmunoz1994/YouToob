@@ -42,7 +42,7 @@ class VideoUpload extends React.Component {
         const formData = new FormData();
         formData.append('video[title]', this.state.title);
         formData.append('video[description]', this.state.description);
-        formData.append('video[uploader_id]', this.props.currentUserId);
+        formData.append('video[channel_id]', this.props.channelId);
         if (this.state.videoFile) {
             formData.append('video[videoUrl]', this.state.videoFile);
         }

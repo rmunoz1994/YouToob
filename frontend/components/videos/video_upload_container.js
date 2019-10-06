@@ -2,10 +2,11 @@ import { connect } from 'react-redux';
 import VideoUpload from './video_upload';
 import { createVideo } from '../../actions/video_actions';
 
-const mapStateToProps = state => {
+const mapStateToProps = ({ entities, session, errors}) => {
     return ({
-        currentUserId: state.session.currentUser,
-        errors: state.errors.videos
+        channelId: entities.users[session.currentUser].channelIds[0],
+        currentUserId: session.currentUser,
+        errors: errors.videos
     });
 };
 

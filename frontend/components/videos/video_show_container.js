@@ -8,7 +8,7 @@ const mapStateToProps = (state, ownProps) => {
     const comments = state.entities.comments;
     let uploader;
     if (video) {
-        uploader = state.entities.users[video.uploaderId];
+        uploader = state.entities.channels[video.channelId];
     }
     return {
         currentUser: state.entities.users[state.session.currentUser],

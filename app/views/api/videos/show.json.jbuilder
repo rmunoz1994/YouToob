@@ -18,8 +18,8 @@ if current_user
     end
 end
 
-json.user do 
-    json.partial! '/api/users/user', user: @video.uploader
+json.channel do 
+    json.partial! '/api/channels/channel', channel: @video.channel
 end
 
 @video.comments.includes(:author, :replies, :likes).each do |comment|

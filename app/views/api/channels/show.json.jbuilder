@@ -6,7 +6,7 @@ end
     json.videos do
         json.set! video.id do
             json.extract! video, :id, :title, :description
-            json.createdAt video.create_at
+            json.createdAt video.created_at
             json.channelId video.channel_id
         end
     end

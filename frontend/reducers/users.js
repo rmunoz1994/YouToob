@@ -8,11 +8,6 @@ import { RECEIVE_CURRENT_USER } from "../actions/session";
 const usersReducer = (state = {}, action) => {
     Object.freeze(state);
     switch (action.type) {
-        case RECEIVE_VIDEOS:
-            return merge({}, state, action.users);
-        case RECEIVE_VIDEO:
-            let newState = merge({}, state, { [action.user.id]: action.user });
-            return merge({}, newState, action.commentAuthors);
         case RECEIVE_CURRENT_USER:
         case RECEIVE_COMMENT:
             return merge({}, state, {[action.user.id]: action.user});
