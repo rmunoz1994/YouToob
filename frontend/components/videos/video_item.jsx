@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import { timeSincePost } from '../../util/format_util';
 
 class VideoItem extends React.Component {
@@ -9,6 +9,13 @@ class VideoItem extends React.Component {
             isColumn: this.props.isColumn
         };
     }
+
+    redirectToChannel() {
+        return (e) => {
+            e.preventDefault();
+            this.props.history.push(`/channels/${this.props.channel.id}`);
+        }
+    } 
 
     render() {
         const isColumn = this.state.isColumn;
@@ -25,7 +32,7 @@ class VideoItem extends React.Component {
                     </div>
                     <div className="video-details-col">
                         <h3>{this.props.video.title}</h3>
-                        <div className="upload-name-col">
+                        <div className="upload-name-col" onClick={this.redirectToChannel()}>
                             {this.props.channel.name}
                         </div>
                         <div className="upload-time-col">
@@ -46,7 +53,7 @@ class VideoItem extends React.Component {
                     </div>
                     <div className="video-details">
                         <h3>{this.props.video.title}</h3>
-                        <div className="upload-name">
+                        <div className="upload-name" onClick={this.redirectToChannel()}>
                             {this.props.channel.name}
                         </div>
                         <div className="upload-time">
@@ -65,4 +72,4 @@ class VideoItem extends React.Component {
     }
 }
 
-export default VideoItem;
+export default withRouter(VideoItem);

@@ -5,10 +5,16 @@ import ChannelShow from './channel_show';
 import { fetchChannel } from '../../actions/channel_actions';
 
 const mapStateToProps = (state, ownProps) => {
-    const channel = state.entities.channels[ownProps.match.params.channelId];
+    const channels = state.entities.channels;
+    const channel = channels[ownProps.match.params.channelId];
+    const channelVideos = channel !== undefined
+        ? Object.values(state.entities.videos).filter(video => channel.id === video.channelId)
+        : [];
     return {
+        channels,
         channel,
         currentUserId: state.session.currentUser,
+        videos: channelVideos
     };
 };
 

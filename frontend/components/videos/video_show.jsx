@@ -41,7 +41,7 @@ class VideoShow extends React.Component {
             return null;
         } else {
             let descriptionButton;
-            if (this.props.currentUser && this.props.currentUser.id === this.props.video.channelId) {
+            if (this.props.currentUser && this.props.currentUser.channelIds.includes(this.props.video.channelId)) {
                 descriptionButton = (<button className="edit-btn" onClick={this.handleEditLink}>EDIT VIDEO</button>);
             }
             return (

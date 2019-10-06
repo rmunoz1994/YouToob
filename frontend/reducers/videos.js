@@ -1,6 +1,7 @@
 import { RECEIVE_VIDEOS, RECEIVE_VIDEO, REMOVE_VIDEO, CLEAR_VIDEOS } from "../actions/video_actions";
 import merge from 'lodash/merge';
 import { REMOVE_LIKE, RECEIVE_LIKE } from "../actions/like_actions";
+import { RECEIVE_CHANNEL } from "../actions/channel_actions";
 
 
 const videosReducer = (state = {}, action) => {
@@ -18,6 +19,8 @@ const videosReducer = (state = {}, action) => {
             return newState;
         case CLEAR_VIDEOS:
             return {};
+        case RECEIVE_CHANNEL:
+            return merge({}, state, action.videos);
         default: 
             return state;
     }

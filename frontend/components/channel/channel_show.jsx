@@ -7,27 +7,24 @@ class ChannelShow extends React.Component {
 
     constructor(props) {
         super(props);
+        this.state = {
+
+        };
     }
 
     componentDidMount() {
+        window.scrollTo(0,0);
         this.props.fetchChannel(this.props.match.params.channelId);
     }
 
     componentDidUpdate(prevProps) {
         if (prevProps.match.params.channelId !== this.props.match.params.channelId) {
+            window.scrollTo(0,0);
             this.props.fetchChannel(this.props.match.params.channelId);
         }
     }
 
-    loadVideos() {
-        return (
-            <section className="channel-show-selection">
-                
-            </section>
-        );
-    }
-
-    loadAbout() {
+    selectTab(tab) {
 
     }
 
@@ -48,10 +45,8 @@ class ChannelShow extends React.Component {
                         </div>  
                     </section>
                     <nav id="channel-nav">
-                        <ul>
-                            <li><NavLink exact to={`/channels/${this.props.channel.id}/`}><button>VIDEOS</button></NavLink></li>
-                            <li><NavLink exact to={`/channels/${this.props.channel.id}/about`}><button>ABOUT</button></NavLink></li>
-                        </ul>
+                        <NavLink exact to={`/channels/${this.props.channel.id}/`} activeClassName="tab-selected">VIDEOS</NavLink>
+                        <NavLink exact to={`/channels/${this.props.channel.id}/about`} activeClassName="tab-selected">ABOUT</NavLink>
                     </nav>
                 </header>
                 <Switch>

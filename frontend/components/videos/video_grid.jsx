@@ -7,11 +7,12 @@ class VideoGrid extends React.Component {
     }
 
     render() {
-        // let videoGrid = {this.props.videos}.map(video => (
-        //     <VideoItem video={this.props.video}/>
-        // ));
         let videoGrid = this.props.videos.map( (video, index) => (
-            <VideoItem key={index} video={video} channel={this.props.channels[video.channelId]}/>
+            <VideoItem 
+                key={index} 
+                video={video} 
+                channel={this.props.channels[video.channelId]}
+            />
         ));
         return (
             <div className="video-grid-container">

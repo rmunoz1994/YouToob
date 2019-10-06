@@ -1,11 +1,19 @@
 import React from 'react';
+import VideoGrid from '../videos/video_grid'
 import { timeSincePost } from '../../util/format_util';
 
-const ChannelVideos = ({ channel }) => (
+const ChannelVideos = ({ channels, videos, history }) => (
     <section className="channel-show-selection">
-        <div id="channel-videos">
-
-        </div>
+        {videos.length > 0 ? 
+            <VideoGrid 
+                videos={videos}
+                channels={channels}
+                history={history}
+                title="Uploads"
+            />
+        :
+            <span id="no-videos-message">This channel has no videos.</span>       
+        }
     </section>
 );
 

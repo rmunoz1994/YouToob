@@ -19,9 +19,9 @@ class SearchResults extends React.Component {
         const searchTerm = this.props.search.split("+").join(" ");
         if (this.props.videos.length > 0) {
             searchResultItems = this.props.videos.map((video, idx) => {
-                let user = this.props.users[video.uploaderId];
+                let channel = this.props.channels[video.channelId];
                 return (
-                    <SearchItem key={idx} video={video} user={user}/>
+                    <SearchItem key={idx} video={video} channel={channel}/>
                 )
             });
             message = `Search results for "${searchTerm}"`;

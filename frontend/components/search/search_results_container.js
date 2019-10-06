@@ -4,7 +4,7 @@ import { fetchVideos, clearVideos } from "../../actions/video_actions";
 
 const msp = (state, ownProps) => ({
     videos: Object.values(state.entities.videos),
-    users: state.entities.users,
+    channels: state.entities.channels,
     search: ownProps.location.search.slice(14).split(" ").join("+")
 });
 

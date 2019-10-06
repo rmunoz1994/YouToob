@@ -19,8 +19,8 @@ class SearchItem extends React.Component {
                         <h3>{this.props.video.title}</h3>
                         <div>
                             <div className="meta-data">
-                                <div className="upload-name">{`${this.props.user.first_name}`}</div>
-                                <div className="upload-time">{`• ${timeSincePost(this.props.video.createdAt)}`}</div>
+                                <div className="upload-name">{`${this.props.channel.name}`}</div>
+                                <div className="upload-time">{'\xa0' + `• ${timeSincePost(this.props.video.createdAt)}`}</div>
                             </div>
                             <div className="upload-description">{this.props.video.description}</div>
                         </div>
