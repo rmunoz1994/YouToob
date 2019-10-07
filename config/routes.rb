@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     end
     resource :session, only: [:new, :create, :destroy]
     resources :channels, except: [:new, :edit]
+    resources :subscriptions, only: [:index, :create, :destroy]
   end
   
 end

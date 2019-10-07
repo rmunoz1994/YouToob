@@ -29,6 +29,15 @@ class User < ApplicationRecord
         primary_key: :id,
         foreign_key: :creator_id
 
+    has_many :subscriptions,
+        class_name: :Subscriptions,
+        primary_key: :id,
+        foreign_key: :subscriber_id
+
+    has_many :subscribers,
+        through: :subscriptions,
+        source: :channel
+
     has_many :uploads,
         through: :channels,
         source: :videos,
