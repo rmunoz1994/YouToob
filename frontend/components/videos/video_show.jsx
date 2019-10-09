@@ -4,6 +4,7 @@ import UpNext from './up_next';
 import VideoItem from './video_item';
 import Likes from '../likes/likes';
 import CommentsSection from '../comments/comments_section';
+import SubscribeButton from '../subscription/subscribe_button';
 
 class VideoShow extends React.Component {
     constructor(props) {
@@ -43,6 +44,8 @@ class VideoShow extends React.Component {
             let descriptionButton;
             if (this.props.currentUser && this.props.currentUser.channelIds.includes(this.props.video.channelId)) {
                 descriptionButton = (<button className="edit-btn" onClick={this.handleEditLink}>EDIT VIDEO</button>);
+            } else {
+                descriptionButton = (<SubscribeButton channel={this.props.uploader}/>);
             }
             return (
                 <div className="video-show-container">

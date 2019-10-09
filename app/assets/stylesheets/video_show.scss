@@ -227,3 +227,20 @@ $body-reg-theme: #f9f9f9;
     margin-bottom: 8px;
 }
 
+#subscribe-btn {
+    background-color: #CC0000;
+    border-radius: 2px;
+    color: #FFFFFF;
+    font-weight: 500;
+    padding: 10px, 16px;
+    margin: 4px, 0;
+    height: 36px;
+    width: 105.5px;
+    letter-spacing: 0.007px;
+    box-sizing: border-box;
+    font-size: 14px;
+    font-family: 'Roboto', Arial, sans-serif;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}

@@ -1,4 +1,4 @@
-import * as APIUtil from '../../util/subscription_api_util';
+import * as APIUtil from '../util/subscription_api_util';
 
 export const RECEIVE_SUBSCRIPTION = 'RECEIVE_SUBSCRIPTION';
 export const RECEIVE_SUBSCRIPTIONS = 'RECEIVE_SUBSCRIPTIONS';

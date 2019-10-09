@@ -28,14 +28,6 @@ const receiveChannelErrors = errors => ({
     errors
 });
 
-// export const fetchChannel = id => dispatch => {
-//     debugger
-//     return (
-//         APIUtil.fetchChannel(id).then(channel => dispatch(receiveChannel(channel)))
-//     );
-// };
-    
-
 
 export const fetchChannel = id => dispatch => (
     APIUtil.fetchChannel(id).then(channel => dispatch(receiveChannel(channel)))

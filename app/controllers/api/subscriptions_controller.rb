@@ -1,6 +1,6 @@
 class Api::SubscriptionsController < ApplicationController
-    before_action :ensure_login
-
+    before_action :ensure_logged_in
+    
     def index
         @subscriptions = current_user.subscriptions
         if !subscriptions.empty?

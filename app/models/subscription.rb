@@ -11,7 +11,7 @@
 
 class Subscription < ApplicationRecord 
 
-    validates :channel_id :subscriber_id, presence: true
+    validates :channel_id, :subscriber_id, presence: true
 
     belongs_to :channel
 
