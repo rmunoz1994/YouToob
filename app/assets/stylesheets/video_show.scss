@@ -227,10 +227,9 @@ $body-reg-theme: #f9f9f9;
     margin-bottom: 8px;
 }
 
-#subscribe-btn {
-    background-color: #CC0000;
+#subscribe-btn, #subscribed-btn {
+    
     border-radius: 2px;
-    color: #FFFFFF;
     font-weight: 500;
     padding: 10px, 16px;
     margin: 4px, 0;
@@ -244,3 +243,15 @@ $body-reg-theme: #f9f9f9;
     border: none;
     cursor: pointer;
 }
+
+#subscribe-btn {
+    background-color: #CC0000;
+    color: #FFFFFF;
+}
+
+#subscribed-btn {
+    background-color: rgba(0, 0, 0, 0.1);
+    color: rgb( 96, 96, 96);
+}
+
+

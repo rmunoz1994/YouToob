@@ -44,7 +44,7 @@ class SubscribeButton extends React.Component {
 
     render() {
         const button = this.props.sub.sub_id && this.props.loggedIn ?
-            <button id="subscribe-btn" onClick={this.unsubscribe()}>UNSUBSCRIBE</button>
+            <button id="subscribed-btn" onClick={this.unsubscribe()}>SUBSCRIBED</button>
             :
             <button id="subscribe-btn" onClick={this.subscribe()}>SUBSCRIBE</button>;
         return (

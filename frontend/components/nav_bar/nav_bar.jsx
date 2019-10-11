@@ -12,6 +12,18 @@ class NavBar extends React.Component {
         this.handleChannelLink = this.handleChannelLink.bind(this);
     }
 
+    componentDidMount() {
+        if (this.props.currentUser) {
+            this.props.fetchSubscriptions();
+        }
+    }
+
+    componentDidUpdate(prevProps) {
+        if (!prevProps.currentUser && this.props.currentUser) {
+            this.props.fetchSubscriptions();
+        }
+    }
+
     handleIndexLink() {
         this.props.history.push('/');
     }

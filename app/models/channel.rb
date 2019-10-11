@@ -22,7 +22,7 @@ class Channel < ApplicationRecord
     has_many :videos, dependent: :destroy
 
     has_many :subscriptions,
-        class_name: :Subscriptions,
+        class_name: :Subscription,
         primary_key: :id,
         foreign_key: :channel_id
 

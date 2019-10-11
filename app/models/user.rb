@@ -30,7 +30,7 @@ class User < ApplicationRecord
         foreign_key: :creator_id
 
     has_many :subscriptions,
-        class_name: :Subscriptions,
+        class_name: :Subscription,
         primary_key: :id,
         foreign_key: :subscriber_id
 

@@ -10,7 +10,7 @@ const receiveSubscription = sub => ({
 });
 
 const receiveSubscriptions = subs => ({
-    type: RECEIVE_SUBSCRIPTIONs,
+    type: RECEIVE_SUBSCRIPTIONS,
     subs
 });
 
