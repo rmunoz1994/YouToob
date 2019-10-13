@@ -4,11 +4,13 @@ import SearchItem from './search_item';
 class SearchResults extends React.Component {
 
     componentDidMount() {
+        window.scrollTo(0, 0);
         this.props.clearVideos();
         this.props.fetchVideos({search: this.props.search});
     }
     componentDidUpdate(prevProps) {
         if (prevProps.location.search !== this.props.location.search) {
+            window.scrollTo(0, 0);
             this.props.fetchVideos({ search: this.props.location.search.slice(14).split(" ").join("+") });
         }
     }
@@ -21,7 +23,7 @@ class SearchResults extends React.Component {
             searchResultItems = this.props.videos.map((video, idx) => {
                 let channel = this.props.channels[video.channelId];
                 return (
-                    <SearchItem key={idx} video={video} channel={channel}/>
+                    <SearchItem key={idx} video={video} channel={channel} history={this.props.history}/>
                 )
             });
             message = `Search results for "${searchTerm}"`;

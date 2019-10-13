@@ -6,12 +6,53 @@ class SideBar extends React.Component {
         super(props);
         this.closedRender = this.closedRender.bind(this);
         this.openRender = this.openRender.bind(this);
+        this.renderSubscriptions = this.renderSubscriptions.bind(this);
     }
 
     handleLink(link) {
         return e => {
             this.props.history.push(link);
         };
+    }
+
+    redirectToChannel(channelId) {
+        return (e) => {
+            e.preventDefault();
+            this.props.history.push(`/channels/${channelId}`);
+        }
+    } 
+
+    retrieveSubs() {
+        const subs = []
+        for (let i = 0; i < this.props.subscriptions.length; i++) {
+            const sub = this.props.subscriptions[i];
+            subs.push(
+                <a key={sub.id}
+                    onClick={this.redirectToChannel(sub.channel_id)}>
+                    <div className="side-bar-item">
+                        <div className="icon-container">
+                            <i className="fas fa-user-circle"></i>
+                        </div>
+                        <div>{sub.channelName}</div>
+                    </div>
+                </a>
+            )
+        }
+        return subs;
+    }
+
+    renderSubscriptions() {
+
+        return (
+            this.props.loggedIn ?
+                <div className="side-bar-section">
+                    <div className="best-of-youtoob">
+                        <div>SUBSCRIPTIONS</div>
+                    </div>
+                    {this.retrieveSubs()}
+                </div>
+            : null
+        )
     }
 
     closedRender() {
@@ -29,6 +70,12 @@ class SideBar extends React.Component {
                             <i className="fas fa-fire"></i>
                         </div>
                         <span>Trending</span>
+                    </a>
+                    <a className="closed-side-bar-items" onClick={this.handleLink('/')}>
+                        <div>
+                            <i class="fab fa-youtube"></i>
+                        </div>
+                        <span>Subscriptions</span>
                     </a>
                 </div>             
             </div>
@@ -48,22 +95,6 @@ class SideBar extends React.Component {
                                 Home
                             </div>
                         </div>
-                        {/* <div className="side-bar-item">
-                                <div>
-                                    <i className="fas fa-fire"></i>
-                                </div>
-                                <div>
-                                    Trending
-                                </div>
-                            </div>
-                            <div className="side-bar-item">
-                                <div>
-                                    <i className="fas fa-history"></i>
-                                </div>
-                                <div>
-                                    History
-                                </div>
-                            </div> */}
                     </div>
                     <div className="side-bar-section">
                         <div className="best-of-youtoob">
@@ -101,6 +132,7 @@ class SideBar extends React.Component {
                             </div>
                         </a>
                     </div>
+                    {this.renderSubscriptions()}
                 </div>
             </div>
         );
