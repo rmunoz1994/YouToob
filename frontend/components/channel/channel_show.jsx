@@ -24,10 +24,6 @@ class ChannelShow extends React.Component {
         }
     }
 
-    selectTab(tab) {
-
-    }
-
     render() {   
         return this.props.channel === undefined ? null : (
             <div id="channel-show-container">
@@ -41,7 +37,7 @@ class ChannelShow extends React.Component {
                                 <h2>{this.props.channel.name}</h2>
                                 <span>35 subscribers</span>
                             </div>
-                            <button id="customize-channel-btn">CUSTOMIZE CHANNEL</button>
+                            {/* <button id="customize-channel-btn">CUSTOMIZE CHANNEL</button> */}
                         </div>  
                     </section>
                     <nav id="channel-nav">

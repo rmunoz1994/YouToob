@@ -8,7 +8,7 @@ if @current_user
     if @channel.subscriptions.find_by_subscriber_id(@current_user.id)
         json.subbed true
     else
-        jsonlsubbed false
+        json.subbed false
     end
 end
 

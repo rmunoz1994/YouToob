@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+import { withRouter, NavLink, Link } from 'react-router-dom';
 
 class SideBar extends React.Component {
     constructor(props) {
@@ -59,23 +59,35 @@ class SideBar extends React.Component {
         return (
             <div id="closed-side-bar-container">
                 <div id="closed-side-bar">
-                    <a className="closed-side-bar-items" onClick={this.handleLink('/')}>
+                    <NavLink exact to={'/'} className="closed-side-bar-items" activeClassName="closed-selected">
                         <div>
                             <i className="fas fa-home"></i>
                         </div>
                         <span>Home</span>
-                    </a>
-                    <a className="closed-side-bar-items" onClick={this.handleLink('/')}>
-                        <div>
-                            <i className="fas fa-fire"></i>
-                        </div>
-                        <span>Trending</span>
-                    </a>
-                    <a className="closed-side-bar-items" onClick={this.handleLink('/')}>
+                    </NavLink>
+                    {/* <a className="closed-side-bar-items" onClick={this.handleLink('/')}>
                         <div>
                             <i class="fab fa-youtube"></i>
                         </div>
                         <span>Subscriptions</span>
+                    </a> */}
+                    <a className="closed-side-bar-items" href="https://github.com/rmunoz1994">
+                        <div>
+                            <i className="fab fa-github"></i>
+                        </div>
+                        <span>Github</span>
+                    </a>
+                    <a className="closed-side-bar-items" href="https://www.linkedin.com/in/raymond-muñoz/">
+                        <div>
+                            <i className="fab fa-linkedin"></i>
+                        </div>
+                        <span>LinkedIn</span>
+                    </a>
+                    <a className="closed-side-bar-items" href="https://angel.co/raymond-munoz">
+                        <div>
+                            <i className="fab fa-angellist"></i>
+                        </div>
+                        <span>AngelList</span>
                     </a>
                 </div>             
             </div>
@@ -87,19 +99,17 @@ class SideBar extends React.Component {
             <div className="side-bar-container">
                 <div className="side-bar">
                     <div className="side-bar-section">
-                        <div className="side-bar-item" onClick={this.handleLink('/')}>
-                            <div>
+                        <NavLink exact to={'/'} className="side-bar-item" activeClassName="open-selected">
+                            <div className="icon-container">
                                 <i className="fas fa-home"></i>
                             </div>
-                            <div>
-                                Home
-                            </div>
-                        </div>
+                            <div>Home</div>
+                        </NavLink>
                     </div>
                     <div className="side-bar-section">
-                        <div className="best-of-youtoob">
+                        {/* <div className="best-of-youtoob">
                             <div>BEST OF YOUTOOB</div>
-                        </div>
+                        </div> */}
                         <a href="https://github.com/rmunoz1994">
                             <div className="side-bar-item">
                                 <div className="icon-container">
@@ -132,6 +142,19 @@ class SideBar extends React.Component {
                             </div>
                         </a>
                     </div>
+                    {this.props.loggedIn ? null : (
+                        <div className="side-bar-section-sign-in">
+                            <div className="side-bar-item-sign-in">
+                                <span>Sign in to like videos, comment, and subscribe.</span>
+                                <Link to="/login" className="sign-in-link">
+                                    <div className="icon-container">
+                                        <i className="fas fa-user-circle"></i>
+                                    </div>
+                                    <span className="sign-in-text">SIGN IN</span>
+                                </Link>
+                            </div>
+                        </div>
+                    )}
                     {this.renderSubscriptions()}
                 </div>
             </div>
