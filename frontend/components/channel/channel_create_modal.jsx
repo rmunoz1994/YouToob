@@ -31,7 +31,7 @@ class ChannelCreateModal extends React.Component {
             description: this.state.description
         };
         this.props.createChannel(channel)
-            .then(() => this.props.history.push('/'));
+            .then(() => this.redirectToIndex());
     }
 
     render() {
