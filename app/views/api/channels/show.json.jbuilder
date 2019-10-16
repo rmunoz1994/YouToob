@@ -4,6 +4,10 @@ end
 
 json.subsriptionCount @channel.subscriptions.count
 
+json.user do 
+    json.partial! 'api/users/user', user: @channel.creator
+end
+
 if @current_user
     if @channel.subscriptions.find_by_subscriber_id(@current_user.id)
         json.subbed true

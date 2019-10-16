@@ -10,9 +10,10 @@ const receiveChannels = ({ channels }) => ({
     channels
 });
 
-const receiveChannel = ({ channel, videos }) => ({
+const receiveChannel = ({ channel, user, videos }) => ({
     type: RECEIVE_CHANNEL,
     channel,
+    user,
     videos
 });
 

@@ -49,7 +49,7 @@ class ChannelCreateModal extends React.Component {
                         <input className="modal-input" type="text" onChange={this.handleInput("description")} placeholder="Description" />
                     </section>
                     <footer>
-                        <button className="cancel-channel-btn" onClick={this.redirectToIndex}>CANCEL</button>
+                        <button type="button" className="cancel-channel-btn" onClick={this.redirectToIndex}>CANCEL</button>
                         <button type="submit" id="create-channel-btn">CREATE CHANNEL</button>
                     </footer>
                 </form>

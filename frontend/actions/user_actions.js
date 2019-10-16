@@ -3,16 +3,16 @@ import * as APIUtil from '../util/user_api_util';
 export const RECEIVE_ALL_USERS = "RECEIVE_ALL_USERS";
 export const RECEIVE_USER = "RECEIVE_USER";
 
-const receiveAllUsers = ({ users, ownedChannelIds }) => ({
+const receiveAllUsers = ({ users, channelIds }) => ({
     type: RECEIVE_ALL_USERS,
     users,
-    ownedChannelIds
+    channelIds
 });
 
-const receiveUser = ({ user, ownedChannelIds }) => ({
+const receiveUser = ({ user, channelIds }) => ({
     type: RECEIVE_USER,
     user,
-    ownedChannelIds
+    channelIds
 });
 
 export const fetchUsers = () => dispatch => (
