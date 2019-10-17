@@ -35,7 +35,7 @@ class ChannelShow extends React.Component {
                         <div id="channel-info-reflow">
                             <div id="name-and-subscribers">
                                 <h2>{this.props.channel.name}</h2>
-                                <span>35 subscribers</span>
+                                <span>{this.props.channel.subscriptionCount} subscribers</span>
                             </div>
                             {/* <button id="customize-channel-btn">CUSTOMIZE CHANNEL</button> */}
                         </div>  
